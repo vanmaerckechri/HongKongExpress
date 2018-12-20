@@ -1,0 +1,173 @@
+header
+{
+	width: 100%;
+	background-color: $header_bgColor;
+}
+
+.header-title
+{
+	margin: $general-padding;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	img
+	{
+		max-width: 128px;
+		border-radius: 50%;
+		border: 2px solid $bg_main-color_dark;
+		width: 100%;
+		background-color: $header_titleColor;
+	}
+	h1
+	{
+		margin-left: 3rem;
+		display: inline-block;
+		font-size: 2.5rem;
+		line-height: 4rem;
+		font-weight: 400;
+		color: $header_titleColor;
+	}
+	.header-underTitle
+	{
+		display: block;
+		font-size: 1.5rem;		
+	}
+}
+
+.nav-container
+{
+	width: 100%;
+	background-color: $nav_bgColor;
+}
+
+nav
+{
+	padding: 0.2rem $general-padding;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.menu_burger
+{
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	input
+	{
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 48px;
+		height: 48px;
+		opacity: 0;
+		pointer-events: none;
+		z-index: 1;
+	}
+	ul
+	{
+		padding-left: 0;
+		list-style: none;
+		li
+		{
+			margin-right: 3rem;
+			display: inline-block;
+			a
+			{
+				color: $nav_color;
+				font-size: 1.1rem;
+				letter-spacing: 0.2rem;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 590px)
+{
+	.menu_burger
+	{
+		flex-wrap: wrap;
+		ul
+		{
+			max-height: 0;
+			height: 100%;
+			width: 100%;
+			text-align: center;
+			overflow: hidden;
+			transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+			li
+			{
+				margin-left: 0;
+				display: block;
+			}
+		}
+	}
+	.menu_burger-title
+	{
+		flex: 2;
+	}
+	.menu_burger-icon
+	{
+		flex: 1;
+		height: 48px;
+		span
+		{
+			margin-left: auto;
+			width: 48px;
+			height: 3px;
+			display: block;
+			background-color: $nav_color;
+			pointer-events: none;
+			transition: opacity 0.5s, transform 0.5s;
+			&:nth-of-type(1)
+			{
+				transform-origin: left top;
+			}
+			&:nth-of-type(2)
+			{
+				transform: translateY(20px);
+			}
+			&:nth-of-type(3)
+			{
+				transform-origin: left bottom;
+				transform: translateY(40px);
+			}
+		}
+	}
+	.menu_burger
+	{
+		input
+		{
+			pointer-events: auto;
+			&:hover
+			{
+				cursor: pointer;
+			}
+		}
+		input:checked ~ ul
+		{
+			max-height: 500px;
+			transition: max-height 1s ease-in-out;
+		}
+		input:checked ~ .menu_burger-icon
+		{
+			span
+			{
+				&:nth-of-type(1)
+				{
+					transform: translate(8px, 6px) rotate(45deg);
+				}
+				&:nth-of-type(2)
+				{
+					opacity: 0;
+					transform: translateY(20px) scaleX(0);
+				}			
+				&:nth-of-type(3)
+				{
+					transform: translate(8px, 34px) rotate(-45deg);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,61 @@
+html, body, header, nav, footer, section, div, span, h1, h2, h3, p, a, blockquote, cite, img, ol, ul, li, form, fieldset, legend, label, input, button
+{
+	margin: 0;
+	box-sizing: border-box;
+}
+html
+{
+	min-width: 250px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: $text_main-fontFam;
+	font-size: $general-fontSize;
+	line-height: 1.4rem;
+}
+body
+{
+	min-height: 100vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	background-color: $bg_main-color_dark;
+}
+section, footer
+{
+	padding: calc(2 * #{$general-padding}) $general-padding $general-padding;
+	width: 100%;
+}
+#main
+{
+	width: 100%;
+	flex: 1;
+	overflow-x: hidden;
+	h2
+	{
+		margin-bottom: $general-padding;
+	}
+}
+h1, h2, h3, h4, h5, h6
+{
+	font-family: $title_main-fontFam;
+}
+a
+{
+	text-decoration: none;
+}
+button
+{
+	border: none;
+	&:hover
+	{
+		cursor: pointer;
+	}
+}
+p, li, a
+{
+	color: $text_main-color_light;
+}
