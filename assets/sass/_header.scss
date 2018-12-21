@@ -1,7 +1,9 @@
 header
 {
+	position: relative;
 	width: 100%;
 	background-color: $header_bgColor;
+	z-index: 1;
 }
 
 .header-title
@@ -13,10 +15,7 @@ header
 	img
 	{
 		max-width: 128px;
-		border-radius: 50%;
-		border: 2px solid $bg_main-color_dark;
 		width: 100%;
-		background-color: $header_titleColor;
 	}
 	h1
 	{
@@ -65,6 +64,10 @@ nav
 		pointer-events: none;
 		z-index: 1;
 	}
+	& > ul
+	{
+		min-width: 618px;
+	}
 	ul
 	{
 		padding-left: 0;
@@ -73,11 +76,73 @@ nav
 		{
 			margin-right: 3rem;
 			display: inline-block;
+			&:last-of-type
+			{
+				margin-right: 0;
+			}
 			a
 			{
 				color: $nav_color;
 				font-size: 1.1rem;
 				letter-spacing: 0.2rem;
+			}
+		}
+	}
+	.btn-fold
+	{
+		position: relative;
+		&::before
+		{
+			border: 3px solid $nav_color;
+			position: absolute;
+			top: 100%;
+			left: 50%;
+			content: "";
+			width: 16px;
+			height: 16px;
+			background-color: $header_titleColor;
+			transform: translate(-50%, -50%) rotate(-45deg);
+			z-index: -1;
+		}
+	}
+	.menu-folder-container
+	{
+		position: relative;
+	}
+	.menu-folder
+	{
+		margin-top: 6px;
+		position: absolute;
+		left: 50%;
+		top: 100%;
+		display: flex;
+		flex-direction: column;
+		transform: translate(-50%);
+		z-index: -2;
+		li
+		{
+			margin-right: 0;
+			text-align: center;
+			a
+			{
+				padding: 0.5rem;
+				width: 100%;
+				display: block;
+				background-color: $header_titleColor;
+			}
+			&:first-of-type
+			{
+				a
+				{
+					padding-top: 1rem;
+				}
+			}
+			&:last-of-type
+			{
+				a
+				{
+					padding-bottom: 1rem;
+				}
 			}
 		}
 	}

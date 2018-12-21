@@ -30,8 +30,15 @@
 					</div>
 					<ul>
 						<li><a href="#">Accueil</a></li>
-						<li><a href="#">Carte</a></li>
-						<li><a href="#">Menus</a></li>
+						<li class="menu-folder-container">
+							<a class="btn-fold" href="#">Carte</a>
+							<ul class="menu-folder">
+								<li><a id="btn-load_potages" class="btn-load_cartes" href="#">Potages</a></li>
+								<li><a id="btn-load_entrees" class="btn-load_cartes" href="#">Entrées</a></li>
+								<li><a id="btn-load_volailles" class="btn-load_cartes" href="#">Volailles</a></li>
+							</ul>
+						</li>
+						<li><a class="btn-fold" href="#">Menus</a></li>
 						<li><a href="#">Accès</a></li>
 						<li><a href="#">Télécharger</a></li>
 					</ul>
@@ -50,5 +57,6 @@
 			<p>Footer Right</p>
 		</div>
     </footer>
+    <script type="text/javascript" src="./assets/js/content.js"></script>
 </body>
 </html>

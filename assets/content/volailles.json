@@ -1,0 +1,147 @@
+[
+	{
+		"code": "40",
+		"nom": "Chop-Suey au poulet",
+		"prix": 7
+	},
+	{
+		"code": "41",
+		"nom": "Poulet aux amandes",
+		"prix": 8.5
+	},
+	{
+		"code": "42",
+		"nom": "Poulet aux noix de cajou",
+		"prix": 8.5
+	},
+	{
+		"code": "43",
+		"nom": "Beignets de poulet à la sauce aigre-douce",
+		"prix": 7.5
+	},
+	{
+		"code": "44",
+		"nom": "Beignets de poulet à la sauce citronnée",
+		"prix": 8.5
+	},
+	{
+		"code": "44A",
+		"nom": "Emincé de poulet à la citronelle",
+		"prix": 8.5
+	},	
+	{
+		"code": "45",
+		"nom": "Poulet à la sauce curry",
+		"prix": 7.5
+	},
+	{
+		"code": "45A",
+		"nom": "Emincé de poulet au curry et lait de coco",
+		"prix": 8.5
+	},
+	{
+		"code": "46",
+		"nom": "Poulet aux ananas",
+		"prix": 7.5
+	},
+	{
+		"code": "47",
+		"nom": "Poulet aux champignons chinois",
+		"prix": 8.5
+	},
+	{
+		"code": "47A",
+		"nom": "Poulet aux oignons",
+		"prix": 7.5
+	},
+	{
+		"code": "48",
+		"nom": "Beignets de poulet frits",
+		"prix": 7.5
+	},
+	{
+		"code": "49",
+		"nom": "Poulet à la sauce piquante",
+		"prix": 8.5
+	},
+	{
+		"code": "49A",
+		"nom": "Poulet aux 8 delices",
+		"prix": 10.5
+	},
+	{
+		"code": "50A",
+		"nom": "Poulet aux légumes variés",
+		"prix": 8
+	},
+	{
+		"code": "50B",
+		"nom": "Poulet à la sauce tomate",
+		"prix": 8
+	},	
+	{
+		"code": "50C",
+		"nom": "Poulet à la sauce barbecue",
+		"prix": 8.5
+	},
+	{
+		"code": "51",
+		"nom": "Magret de canard à l’orange",
+		"prix": 13
+	},
+	{
+		"code": "52",
+		"nom": "Magret de canard au citron",
+		"prix": 13
+	},
+	{
+		"code": "53",
+		"nom": "Canard rôti aux légumes variés",
+		"prix": 13
+	},	
+	{
+		"code": "54",
+		"nom": "Canard rôti aux ananas",
+		"prix": 13
+	},
+	{
+		"code": "54A",
+		"nom": "Canard rôti aux ananas et gingembre",
+		"prix": 13
+	},
+	{
+		"code": "55",
+		"nom": "Canard rôti à la sauce piquante",
+		"prix": 13
+	},
+	{
+		"code": "56",
+		"nom": "Canard aux huit délices",
+		"prix": 16
+	},
+	{
+		"code": "57",
+		"nom": "Canard laqué (avec crèpe)",
+		"prix": 13
+	},
+	{
+		"code": "58",
+		"nom": "Canard croustillant",
+		"prix": 13
+	},
+	{
+		"code": "59",
+		"nom": "Canard rôti aux champignons chinois",
+		"prix": 13
+	},
+	{
+		"code": "59A",
+		"nom": "Canard rôti à la sauce curry",
+		"prix": 13
+	},
+	{
+		"code": "59B",
+		"nom": "Canard rôti à la sauce aigre-douce",
+		"prix": 13
+	}
+]
