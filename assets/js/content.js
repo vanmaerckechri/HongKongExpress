@@ -73,7 +73,6 @@ class Content
 		for (let i = contentFam.length - 1; i >= 0; i--)
 		{
 			let btnLoadContent = document.querySelectorAll(".btn-load_" + contentFam);
-			console.log(btnLoadContent)
 			for (let j = btnLoadContent.length - 1; j >= 0; j--)
 			{
 				let id = btnLoadContent[j].id;

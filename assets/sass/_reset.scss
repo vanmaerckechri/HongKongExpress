@@ -55,6 +55,11 @@ button
 		cursor: pointer;
 	}
 }
+ul
+{
+	padding-left: 0;
+	list-style: none;
+}
 p, li, a
 {
 	color: $text_main-color_light;
