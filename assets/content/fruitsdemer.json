@@ -1,0 +1,116 @@
+[
+	{
+		"titre": "Fruits de Mer",
+		"commentaires": "Tous nos plats sont servis avec du riz nature"
+	},
+	{
+		"code": "80",
+		"nom": "Chop-Suey aux scampis",
+		"prix": 12
+	},
+	{
+		"code": "80A",
+		"nom": "Chop-Suey spécial",
+		"prix": 12
+	},
+	{
+		"code": "81",
+		"nom": "Beignets de scampis à la sauce aigre-douce",
+		"prix": 13
+	},
+	{
+		"code": "82",
+		"nom": "Scampis sauté aux légumes",
+		"prix": 13
+	},
+	{
+		"code": "83",
+		"nom": "Scampis à la sauce curry",
+		"prix": 13
+	},
+	{
+		"code": "83A",
+		"nom": "Scampis au curry et lait de coco",
+		"prix": 13
+	},
+	{
+		"code": "84",
+		"nom": "Scampis à la sauce piquante",
+		"prix": 13
+	},	
+	{
+		"code": "85",
+		"nom": "Scampis aux cinq parfums",
+		"prix": 15
+	},
+	{
+		"code": "86",
+		"nom": "Scampis « Ming’s »",
+		"prix": 15
+	},
+	{
+		"code": "88",
+		"nom": "Scampis aux noix de cajou",
+		"prix": 14
+	},
+	{
+		"code": "89",
+		"nom": "Scampis à la sauce citronnée",
+		"prix": 14
+	},
+	{
+		"code": "90",
+		"nom": "Scampis à la sauce « King-Do »",
+		"prix": 14
+	},
+	{
+		"code": "90A",
+		"nom": "Scampis à la sauce tomate",
+		"prix": 13
+	},
+	{
+		"code": "91",
+		"nom": "Beignets de poisson à la sauce aigre-douce",
+		"prix": 10
+	},
+	{
+		"code": "92",
+		"nom": "Poisson sauté aux légumes",
+		"prix": 10
+	},
+	{
+		"code": "93",
+		"nom": "Calamars aux haricots noir",
+		"prix": 10
+	},
+	{
+		"code": "94",
+		"nom": "Calamars à la sauce curry",
+		"prix": 10
+	},
+	{
+		"code": "95",
+		"nom": "Calamars grillé aux cinq parfums",
+		"prix": 10
+	},
+	{
+		"code": "96",
+		"nom": "Calamars à la sauce piquante",
+		"prix": 10
+	},	
+	{
+		"code": "97",
+		"nom": "Cuisses de grenouille aux haricots noir",
+		"prix": 12
+	},
+	{
+		"code": "98",
+		"nom": "Cuisses de grenouille à la sauce piquante",
+		"prix": 12
+	},
+	{
+		"code": "99",
+		"nom": "Cuisses de grenouille aux légumes",
+		"prix": 12
+	}
+]

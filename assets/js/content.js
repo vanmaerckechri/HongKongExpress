@@ -1,12 +1,15 @@
 "use strict";
 class Tools
 {
-	static creatElem(tag, attributes, values)
+	static creatElem(tag, attributes = false, values = false)
 	{
 		let element = document.createElement(tag);
-		for (let i = attributes.length - 1; i >= 0; i--)
+		if (attributes != false)
 		{
-			element.setAttribute(attributes[i], values[i]);
+			for (let i = attributes.length - 1; i >= 0; i--)
+			{
+				element.setAttribute(attributes[i], values[i]);
+			}
 		}
 		return element;
 	}
@@ -16,56 +19,79 @@ class Content
 {
 	constructor() 
 	{
-		/*this.cartes = 
-		{
-			"potages": [],
-			"entrees": [],
-			"volailles": [],
-			"viandes": [],
-			"rizEtNouilles" : [],
-			"desserts" : []
-		};*/
-		this.cartes = 
-		{
-			"potages": [],
-			"entrees": [],
-			"volailles": [],
-		};
+		this.cartes = {};
 
-		this.loadContents()
-		this.initMenuBtn()
+		this.init()
 	}
 
-	displayContent(contentFam, contentName)
+	displayContent(contentFam, contentName, event)
 	{
-		let famContainer = Tools.creatElem("div", ["class"], [contentFam + "-container"]);
+		event.preventDefault();
+		let famContainer = Tools.creatElem("div", ["class"], [contentFam + "-container maxWidth-container"]);
 		let container = Tools.creatElem("div", ["class"], [contentName + "-container"]);
 		let main = document.getElementById("main");
 		let content = this[contentFam][contentName];
 
 		for (let i = 0, length = content.length; i < length; i++ )
 		{
-			let row = Tools.creatElem("div", ["class"], ["food-row"]);
-			let code = Tools.creatElem("p", ["class"], ["food-code"]);
-			let name = Tools.creatElem("p", ["class"], ["food-name"]);
-			let price = Tools.creatElem("p", ["class"], ["food-price"]);
+			// title and comments
+			if (i === 0)
+			{
+				// title
+				let title = Tools.creatElem("h2");
+				title.innerHTML = content[i]["titre"];
+				container.appendChild(title);
 
-			code.innerHTML = content[i]["code"];
-			name.innerHTML = content[i]["nom"];
-			price.innerHTML = content[i]["prix"];
+				// comments
+				if (content[i]["commentaires"] != "")
+				{
+					let comments = Tools.creatElem("p", ["class"], ["food-comments"]);
+					comments.innerHTML = content[i]["commentaires"];
+					container.appendChild(comments);
+				}
 
-			row.appendChild(code);
-			row.appendChild(name);
-			row.appendChild(price);
+			}
+			// food - code, name, price
+			else
+			{
+				let row = Tools.creatElem("div", ["class"], ["food-row"]);
+				let code = Tools.creatElem("p", ["class"], ["food-code"]);
+				let name = Tools.creatElem("p", ["class"], ["food-name"]);
+				let price = Tools.creatElem("p", ["class"], ["food-price"]);
 
-			container.appendChild(row);
+				code.innerHTML = content[i]["code"] + ".";
+				name.innerHTML = content[i]["nom"];
+				price.innerHTML = content[i]["prix"].toFixed(2) + "€";
+
+				row.appendChild(code);
+				row.appendChild(name);
+				row.appendChild(price);
+
+				container.appendChild(row);
+			}
 		}
 		famContainer.appendChild(container);
 		main.innerHTML = "";
 		main.appendChild(famContainer);
 	}
 
-	initMenuBtn()
+	loadContents(carteName)
+	{
+		let that = this;
+
+		let requestURL = './assets/content/' + carteName + '.json';
+		let request = new XMLHttpRequest();
+		request.open('GET', requestURL);
+		request.responseType = 'json';
+		request.send();
+
+		request.onload = function()
+		{
+			that.cartes[carteName] = request.response;
+		}
+	}
+
+	init()
 	{
 		let that = this;
 		let contentFam = ["cartes"];
@@ -76,31 +102,13 @@ class Content
 			for (let j = btnLoadContent.length - 1; j >= 0; j--)
 			{
 				let id = btnLoadContent[j].id;
-				// slince index 9 => btn-load_...
+				// slice index 9 => btn-load_...
 				let contentName = id.slice(9, id.length);
+				this.loadContents(contentName);
 				btnLoadContent[j].addEventListener("click", that.displayContent.bind(this, contentFam[i], contentName), false);
-			}
-		}
-	}
-
-	loadContents()
-	{
-		let that = this;
-		for (let carteName in this.cartes)
-		{
-			let requestURL = './assets/content/' + carteName + '.json';
-			let request = new XMLHttpRequest();
-			request.open('GET', requestURL);
-			request.responseType = 'json';
-			request.send();
-
-			request.onload = function()
-			{
-				that.cartes[carteName] = request.response;
-				//console.log(that.cartes[carteName])
 			}
 		}
 	}
 }
 
-let test = new Content;
+let loadContent = new Content;

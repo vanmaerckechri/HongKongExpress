@@ -1,37 +1,40 @@
+// header
 header
 {
 	position: relative;
 	width: 100%;
 	background-color: $header_bgColor;
 	z-index: 1;
-	.header-title
+}
+
+.header-title
+{
+	margin: $general-padding;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	img
 	{
-		margin: $general-padding;
-		display: flex;
-		justify-content: flex-start;
-		align-items: center;
-		img
-		{
-			max-width: 128px;
-			width: 100%;
-		}
-		h1
-		{
-			margin-left: 3rem;
-			display: inline-block;
-			font-size: 2.5rem;
-			line-height: 4rem;
-			font-weight: 400;
-			color: $header_titleColor;
-		}
-		span
-		{
-			display: block;
-			font-size: 1.5rem;		
-		}
+		max-width: 128px;
+		width: 100%;
+	}
+	h1
+	{
+		margin-left: 3rem;
+		display: inline-block;
+		font-size: 2.5rem;
+		line-height: 4rem;
+		font-weight: 400;
+		color: $header_titleColor;
+	}
+	span
+	{
+		display: block;
+		font-size: 1.5rem;		
 	}
 }
 
+// main menu
 nav
 {
 	padding: 0 $general-padding;
@@ -60,39 +63,37 @@ nav
 			letter-spacing: 0.2rem;
 		}
 	}
-	.btn-fold
+}
+
+// folder menu
+.btn-fold
+{
+	position: relative;
+	&::before
 	{
-		position: relative;
-		&::before
-		{
-			border: 3px solid $nav_color;
-			position: absolute;
-			top: 100%;
-			left: 50%;
-			content: "";
-			width: 16px;
-			height: 16px;
-			background-color: $header_titleColor;
-			transform: translate(-50%, -50%) rotate(-45deg);
-			z-index: -1;
-		}
+		border: 3px solid $nav_color;
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		content: "";
+		width: 16px;
+		height: 16px;
+		background-color: $header_titleColor;
+		transform: translate(-50%, -50%) rotate(-45deg);
+		z-index: -1;
 	}
-	.menu-folder-container
+}
+.menu-folder-container
+{
+	position: relative;
+	&:hover
 	{
-		position: relative;
-		&:hover
+		cursor: pointer;
+		.menu-folder
 		{
-			cursor: pointer;
-			.menu-folder
-			{
-				height: auto;
-				opacity: 1;
-			}
+			height: auto;
+			opacity: 1;
 		}
-	}
-	.search-container
-	{
-		margin-left: auto;
 	}
 }
 
@@ -113,6 +114,8 @@ nav
 	li
 	{
 		margin-right: 0;
+		padding-left: 0;
+		padding-right: 0;
 		border-bottom: 2px solid $nav_color;
 		text-align: center;
 		a
@@ -123,4 +126,10 @@ nav
 			background-color: $header_titleColor;
 		}
 	}
+}
+
+// search
+.search-container
+{
+	margin-left: auto;
 }

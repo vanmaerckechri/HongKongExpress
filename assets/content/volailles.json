@@ -1,5 +1,9 @@
 [
 	{
+		"titre": "Volailles",
+		"commentaires": "Tous nos plats sont servis avec du riz nature"
+	},
+	{
 		"code": "40",
 		"nom": "Chop-Suey au poulet",
 		"prix": 7
