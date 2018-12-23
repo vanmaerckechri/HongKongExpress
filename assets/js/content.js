@@ -24,44 +24,44 @@ class Content
 		this.init()
 	}
 
-	displayContent(contentFam, contentName, event)
+	displayContent(parentCatName, cat, that, event)
 	{
 		event.preventDefault();
-		let famContainer = Tools.creatElem("div", ["class"], [contentFam + "-container maxWidth-container"]);
-		let container = Tools.creatElem("div", ["class"], [contentName + "-container"]);
+
+		let catTitle = cat["titre"];
+		let summaries = cat["commentaires"];
+		let dishes = cat["plats"];
+
+		let famContainer = Tools.creatElem("div", ["class"], [parentCatName + "-container maxWidth-container"]);
+		let container = Tools.creatElem("div");
 		let main = document.getElementById("main");
-		let content = this[contentFam][contentName];
 
-		for (let i = 0, length = content.length; i < length; i++ )
+		// title and comments
+		let title = Tools.creatElem("h2");
+		title.textContent = catTitle;
+		container.appendChild(title);
+
+		if (summaries != "")
 		{
-			// title and comments
-			if (i === 0)
-			{
-				// title
-				let title = Tools.creatElem("h2");
-				title.innerHTML = content[i]["titre"];
-				container.appendChild(title);
+			let comments = Tools.creatElem("p", ["class"], ["food-comments"]);
+			comments.textContent = summaries;
+			container.appendChild(comments);
+		}
 
-				// comments
-				if (content[i]["commentaires"] != "")
-				{
-					let comments = Tools.creatElem("p", ["class"], ["food-comments"]);
-					comments.innerHTML = content[i]["commentaires"];
-					container.appendChild(comments);
-				}
-
-			}
+		// -- CARTES --
+		if (parentCatName == "cartes")
+		{
 			// food - code, name, price
-			else
+			for (let i = 0, length = dishes.length; i < length; i++ )
 			{
 				let row = Tools.creatElem("div", ["class"], ["food-row"]);
 				let code = Tools.creatElem("p", ["class"], ["food-code"]);
 				let name = Tools.creatElem("p", ["class"], ["food-name"]);
 				let price = Tools.creatElem("p", ["class"], ["food-price"]);
 
-				code.innerHTML = content[i]["code"] + ".";
-				name.innerHTML = content[i]["nom"];
-				price.innerHTML = content[i]["prix"].toFixed(2) + "€";
+				code.textContent = dishes[i]["code"] + ".";
+				name.textContent = dishes[i]["nom"];
+				price.textContent = dishes[i]["prix"].toFixed(2) + "€";
 
 				row.appendChild(code);
 				row.appendChild(name);
@@ -70,44 +70,94 @@ class Content
 				container.appendChild(row);
 			}
 		}
+		// -- MENUS --
+		else
+		{
+			let ul = Tools.creatElem("ul");
+			// dishes
+			for (let i = 0, length = dishes.length; i < length; i++ )
+			{
+				let li = Tools.creatElem("li");
+				li.textContent = dishes[i];
+				ul.appendChild(li);
+			}
+			container.appendChild(ul);
+		}
+
 		famContainer.appendChild(container);
 		main.innerHTML = "";
 		main.appendChild(famContainer);
 	}
 
-	loadContents(carteName)
+	buildMenu(parentCatName)
 	{
 		let that = this;
+		let parent = this[parentCatName];
 
-		let requestURL = './assets/content/' + carteName + '.json';
+		for (let i = 0, length = parent.length; i < length; i++)
+		{
+			let childCatBtnName = parent[i]["bouton"];
+			let childCatId = parent[i]["id"];
+
+			let container = document.getElementById(parentCatName);
+			let li = Tools.creatElem("li");
+			let btn = Tools.creatElem("a", ["id", "class", "href"], ["btn-load_" + childCatId, "btn-load_" + parentCatName, "#"]);
+			btn.textContent = childCatBtnName;
+
+			li.appendChild(btn);
+			container.appendChild(li);
+
+			btn.addEventListener("click", that.displayContent.bind(this, parentCatName, parent[i],that), false);
+		}
+	}
+
+	importJson(jsonFile)
+	{
+		let requestURL = './assets/content/' + jsonFile + '.json';
 		let request = new XMLHttpRequest();
 		request.open('GET', requestURL);
 		request.responseType = 'json';
 		request.send();
 
-		request.onload = function()
+		return request;
+	}
+
+	importContent(parentCatName)
+	{
+		let that = this;
+		// count dishes has loaded
+		let dishesLoadCount = 0;
+		// import dishies categories
+		let reqCat = this.importJson(parentCatName);
+
+		reqCat.onload = function()
 		{
-			that.cartes[carteName] = request.response;
+			// import dishes
+			that[parentCatName] = reqCat.response;
+			let parent = that[parentCatName];
+			for (let i = parent.length - 1; i >= 0; i--)
+			{
+				let jsonFile = parent[i]["fichier"];
+				let reqDishes = that.importJson(jsonFile);
+
+				reqDishes.onload = function()
+				{
+					parent[i]["plats"] = reqDishes.response;
+					// when every dishes is loaded build menu
+					dishesLoadCount += 1;
+					if (dishesLoadCount == parent.length)
+					{
+						that.buildMenu(parentCatName);
+					}
+				}
+			}
 		}
 	}
 
 	init()
 	{
-		let that = this;
-		let contentFam = ["cartes"];
-
-		for (let i = contentFam.length - 1; i >= 0; i--)
-		{
-			let btnLoadContent = document.querySelectorAll(".btn-load_" + contentFam);
-			for (let j = btnLoadContent.length - 1; j >= 0; j--)
-			{
-				let id = btnLoadContent[j].id;
-				// slice index 9 => btn-load_...
-				let contentName = id.slice(9, id.length);
-				this.loadContents(contentName);
-				btnLoadContent[j].addEventListener("click", that.displayContent.bind(this, contentFam[i], contentName), false);
-			}
-		}
+		this.importContent("cartes");
+		this.importContent("menus");
 	}
 }
 

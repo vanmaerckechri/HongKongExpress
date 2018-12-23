@@ -1,9 +1,5 @@
 [
 	{
-		"titre": "Fruits de Mer",
-		"commentaires": "Tous nos plats sont servis avec du riz nature"
-	},
-	{
 		"code": "80",
 		"nom": "Chop-Suey aux scampis",
 		"prix": 12

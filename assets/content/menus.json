@@ -1,0 +1,44 @@
+[
+	{
+		"bouton": "Menu A1",
+		"titre": "Menu A1 à 26,00€ (pour 2 personnes)",
+		"fichier": "menua1",
+		"commentaires": ""
+	},
+	{
+		"bouton": "Menu A2",
+		"titre": "Menu A2 à 36,00 € (pour 2 personnes)",
+		"fichier": "menua2",
+		"commentaires": ""
+	},
+	{
+		"bouton": "Menu B1",
+		"titre": "Menu B1 à 42,00 € (pour 3 personnes)",
+		"fichier": "menub1",
+		"commentaires": ""
+	},
+	{
+		"bouton": "Menu B2",
+		"titre": "Menu B2 à 52,00 € (pour 3 personnes)",
+		"fichier": "menub2",
+		"commentaires": ""
+	},
+	{
+		"bouton": "Menu C1",
+		"titre": "Menu C1 à 60,00 € (pour 4 personnes)",
+		"fichier": "menuc1",
+		"commentaires": ""
+	},
+	{
+		"bouton": "Menu C2",
+		"titre": "Menu C2 à 68,00 € (pour 4 personnes)",
+		"fichier": "menuc2",
+		"commentaires": ""
+	},
+	{
+		"bouton": "Menu D",
+		"titre": "Menu D à 102,00 € (pour 6 personnes)",
+		"fichier": "menud",
+		"commentaires": ""
+	}
+]

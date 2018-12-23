@@ -1,0 +1,51 @@
+[
+	{
+		"fichier": "carte_potages",
+		"bouton": "Potages",
+		"titre": "Potages",
+		"id": "potages",
+		"commentaires": ""
+	},
+	{
+		"fichier": "carte_entrees",
+		"bouton": "Entrées",
+		"titre": "Entrées",
+		"id": "entrees",
+		"commentaires": ""
+	},
+	{
+		"fichier": "carte_volailles",
+		"bouton": "Volailles",
+		"titre": "Volailles",
+		"id": "volailles",
+		"commentaires": "Tous nos plats sont servis avec du riz nature"
+	},
+	{
+		"fichier": "carte_viandes",
+		"bouton": "Viandes",
+		"titre": "Viandes",
+		"id": "viandes",
+		"commentaires": "Tous nos plats sont servis avec du riz nature"
+	},
+	{
+		"fichier": "carte_fruitsdemer",
+		"bouton": "Fruits de Mer",
+		"titre": "Fruits de Mer",
+		"id": "fruitsdemer",
+		"commentaires": "Tous nos plats sont servis avec du riz nature"
+	},
+	{
+		"fichier": "carte_rizetnouilles",
+		"bouton": "Riz et Nouilles",
+		"titre": "Riz et Nouilles",
+		"id": "rizetnouilles",
+		"commentaires": ""
+	},
+	{
+		"fichier": "carte_desserts",
+		"bouton": "Desserts",
+		"titre": "Desserts",
+		"id": "desserts",
+		"commentaires": ""
+	}
+]
