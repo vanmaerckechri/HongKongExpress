@@ -18,8 +18,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
-  background-color: #272727; }
+  align-items: center; }
 
 section, footer {
   padding: calc(2 * 1rem) 1rem 1rem;
@@ -53,7 +52,7 @@ p, li, a {
 header {
   position: relative;
   width: 100%;
-  background-color: #680707;
+  background-color: #4d1f1f;
   z-index: 1; }
 
 .header-title {
@@ -99,29 +98,12 @@ nav {
 
 .menu-folder-container {
   position: relative; }
-  .menu-folder-container .btn-fold {
-    position: relative; }
-    .menu-folder-container .btn-fold::before {
-      border: 3px solid #272727;
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      content: "";
-      width: 16px;
-      height: 16px;
-      background-color: #d9d9c3;
-      transform: translate(-50%, -50%) rotate(-45deg);
-      transition: transform 0.5s;
-      z-index: -1; }
   .menu-folder-container:hover {
     cursor: pointer; }
     .menu-folder-container:hover .menu-folder {
       transform: translate(-50%) scaleY(1); }
-    .menu-folder-container:hover .btn-fold::before {
-      transform: translate(-50%, -50%) rotate(-45deg); }
 
 .menu-folder {
-  border-top: 2px solid #272727;
   position: absolute;
   left: 50%;
   top: 100%;
@@ -132,13 +114,15 @@ nav {
   transition: transform 0.1s;
   z-index: -2; }
   .menu-folder li {
-    margin-right: 0;
+    margin: 0.1rem 0;
     padding-left: 0;
     padding-right: 0;
-    border: 2px solid #272727;
     text-align: center;
     white-space: nowrap;
-    transition: transform 0.1s; }
+    transition: transform 0.1s;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 50, 0.75); }
+    .menu-folder li:first-of-type {
+      margin-top: 0.2rem; }
     .menu-folder li:hover {
       transform: scale(1.1); }
     .menu-folder li a {
@@ -149,6 +133,9 @@ nav {
 
 .search-container {
   margin-left: auto; }
+
+.main {
+  background-color: #272727; }
 
 .cartes-container, .menus-container {
   padding: 2rem; }
@@ -170,6 +157,10 @@ nav {
 .menus-container li {
   margin-bottom: 1rem;
   text-align: center; }
+
+footer {
+  background-color: #272727;
+  box-shadow: 0px -2px 6px 0px rgba(0, 0, 0, 0.25); }
 
 .footerContent {
   display: flex;
