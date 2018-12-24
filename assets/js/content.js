@@ -19,9 +19,39 @@ class Content
 {
 	constructor() 
 	{
-		this.cartes = {};
+		this.cartes = [];
 
 		this.init()
+	}
+
+	search(that)
+	{
+		let searchWord = document.querySelector(".search-container input").value;
+		searchWord = searchWord.toLowerCase();
+
+		for (let i = that.cartes.length - 1; i >= 0; i--)
+		{
+			// check in carte title
+			let title = that.cartes[i]["titre"].toLowerCase();
+			if (title.indexOf(searchWord) !== -1)
+			{
+				console.log(that.cartes[i]["titre"])
+			}
+
+			// check in dishies name
+			let dishies = that.cartes[i]["plats"];
+			for (let j = dishies.length - 1; j >= 0; j--)
+			{
+				let dishName = dishies[j]["nom"].toLowerCase();
+				if (dishName.indexOf(searchWord) !== -1)
+				{
+					console.log(that.cartes[i]["titre"])
+					console.log(dishies[j]["code"])
+					console.log(dishies[j]["nom"])
+					console.log(dishies[j]["prix"])
+				}
+			}
+		}
 	}
 
 	displayContent(parentCatName, cat, that, event)
@@ -156,8 +186,11 @@ class Content
 
 	init()
 	{
+		let that = this;
 		this.importContent("cartes");
 		this.importContent("menus");
+
+		document.querySelector(".search-container button").addEventListener("click", this.search.bind(this, that), false);
 	}
 }
 
