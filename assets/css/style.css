@@ -30,7 +30,7 @@ section, footer {
   flex: 1;
   overflow-x: hidden; }
   #main h2 {
-    margin-bottom: 1rem; }
+    margin: 2rem auto; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Montserrat", sans-serif; }
@@ -97,47 +97,50 @@ nav {
       font-size: 1.1rem;
       letter-spacing: 0.2rem; }
 
-.btn-fold {
-  position: relative; }
-  .btn-fold::before {
-    border: 3px solid #272727;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    content: "";
-    width: 16px;
-    height: 16px;
-    background-color: #d9d9c3;
-    transform: translate(-50%, -50%) rotate(-45deg);
-    z-index: -1; }
-
 .menu-folder-container {
   position: relative; }
+  .menu-folder-container .btn-fold {
+    position: relative; }
+    .menu-folder-container .btn-fold::before {
+      border: 3px solid #272727;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      content: "";
+      width: 16px;
+      height: 16px;
+      background-color: #d9d9c3;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      transition: transform 0.5s;
+      z-index: -1; }
   .menu-folder-container:hover {
     cursor: pointer; }
     .menu-folder-container:hover .menu-folder {
-      height: auto;
-      opacity: 1; }
+      transform: translate(-50%) scaleY(1); }
+    .menu-folder-container:hover .btn-fold::before {
+      transform: translate(-50%, -50%) rotate(-45deg); }
 
 .menu-folder {
-  border-top: 3px solid #272727;
+  border-top: 2px solid #272727;
   position: absolute;
   left: 50%;
   top: 100%;
-  height: 0;
   display: flex;
   flex-direction: column;
-  opacity: 0;
-  overflow: hidden;
-  z-index: -2;
-  transform: translate(-50%);
-  transition: opacity 0.5s; }
+  transform-origin: top;
+  transform: translate(-50%) scaleY(0);
+  transition: transform 0.1s;
+  z-index: -2; }
   .menu-folder li {
     margin-right: 0;
     padding-left: 0;
     padding-right: 0;
-    border-bottom: 2px solid #272727;
-    text-align: center; }
+    border: 2px solid #272727;
+    text-align: center;
+    white-space: nowrap;
+    transition: transform 0.1s; }
+    .menu-folder li:hover {
+      transform: scale(1.1); }
     .menu-folder li a {
       padding: 0.5rem;
       width: 100%;
@@ -163,6 +166,10 @@ nav {
   margin-bottom: 1rem;
   display: flex;
   justify-content: space-between; }
+
+.menus-container li {
+  margin-bottom: 1rem;
+  text-align: center; }
 
 .footerContent {
   display: flex;
