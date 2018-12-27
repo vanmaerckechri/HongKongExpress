@@ -20,6 +20,8 @@ class Content
 	constructor() 
 	{
 		this.cartes = [];
+		this.menus = [];
+		this.home = document.getElementById("horaires").cloneNode(true);
 
 		this.init()
 	}
@@ -54,6 +56,15 @@ class Content
 		}
 	}
 
+	displayHome(that, event)
+	{
+		event.preventDefault();
+
+		let main = document.getElementById("main");
+		main.innerHTML = "";
+		main.appendChild(this.home);
+	}
+
 	displayContent(parentCatName, cat, that, event)
 	{
 		event.preventDefault();
@@ -69,13 +80,13 @@ class Content
 		// title and comments
 		let title = Tools.creatElem("h2");
 		title.textContent = catTitle;
-		container.appendChild(title);
+		famContainer.appendChild(title);
 
 		if (summaries != "")
 		{
 			let comments = Tools.creatElem("p", ["class"], ["food-comments"]);
 			comments.textContent = summaries;
-			container.appendChild(comments);
+			famContainer.appendChild(comments);
 		}
 
 		// -- CARTES --
@@ -84,7 +95,7 @@ class Content
 			// food - code, name, price
 			for (let i = 0, length = dishes.length; i < length; i++ )
 			{
-				let row = Tools.creatElem("div", ["class"], ["food-row"]);
+				let row = Tools.creatElem("div", ["class"], ["row"]);
 				let code = Tools.creatElem("p", ["class"], ["food-code"]);
 				let name = Tools.creatElem("p", ["class"], ["food-name"]);
 				let price = Tools.creatElem("p", ["class"], ["food-price"]);
@@ -103,15 +114,16 @@ class Content
 		// -- MENUS --
 		else
 		{
-			let ul = Tools.creatElem("ul");
 			// dishes
 			for (let i = 0, length = dishes.length; i < length; i++ )
 			{
-				let li = Tools.creatElem("li");
-				li.textContent = dishes[i];
-				ul.appendChild(li);
+				let row = Tools.creatElem("div", ["class"], ["row"]);
+				let dish = Tools.creatElem("p");
+				dish.textContent = dishes[i];
+
+				row.appendChild(dish);
+				container.appendChild(row);
 			}
-			container.appendChild(ul);
 		}
 
 		famContainer.appendChild(container);
@@ -187,9 +199,11 @@ class Content
 	init()
 	{
 		let that = this;
+
 		this.importContent("cartes");
 		this.importContent("menus");
 
+		document.getElementById("home").addEventListener("click", this.displayHome.bind(this, that), false);
 		document.querySelector(".search-container button").addEventListener("click", this.search.bind(this, that), false);
 	}
 }

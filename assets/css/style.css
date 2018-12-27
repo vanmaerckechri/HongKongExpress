@@ -1,3 +1,7 @@
+.chinese-fontFam {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 500; }
+
 html, body, header, nav, footer, section, div, span, h1, h2, h3, p, a, blockquote, cite, img, ol, ul, li, form, fieldset, legend, label, input, button {
   margin: 0;
   box-sizing: border-box; }
@@ -8,8 +12,8 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Rubik", sans-serif;
-  font-size: 16px;
+  font-family: "Oswald", sans-serif;
+  font-size: 18px;
   line-height: 1.4rem; }
 
 body {
@@ -24,15 +28,9 @@ section, footer {
   padding: calc(2 * 1rem) 1rem 1rem;
   width: 100%; }
 
-#main {
-  width: 100%;
-  flex: 1;
-  overflow-x: hidden; }
-  #main h2 {
-    margin: 2rem auto; }
-
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Montserrat", sans-serif; }
+  font-family: "Poppins", sans-serif;
+  color: #d9d9c3; }
 
 a {
   text-decoration: none; }
@@ -47,7 +45,7 @@ ul {
   list-style: none; }
 
 p, li, a {
-  color: #d4dbe2; }
+  color: #d9d9c3; }
 
 header {
   position: relative;
@@ -58,6 +56,7 @@ header {
 .header-title {
   margin: 1rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center; }
   .header-title img {
@@ -65,13 +64,14 @@ header {
     width: 100%; }
   .header-title h1 {
     margin-left: 3rem;
+    flex: 1;
     display: inline-block;
     font-size: 2.5rem;
     line-height: 4rem;
-    font-weight: 400;
-    color: #d9d9c3; }
-  .header-title span {
+    font-weight: 700; }
+  .header-title .header-title_subtitle {
     display: block;
+    font-weight: 500;
     font-size: 1.5rem; }
 
 nav {
@@ -80,7 +80,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  background-color: #d9d9c3; }
+  background-color: #272727; }
 
 .mainMenu {
   position: relative;
@@ -88,13 +88,13 @@ nav {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center; }
-  .mainMenu li {
-    padding: 0 1.5rem;
+  .mainMenu > li {
+    padding: 0.5rem 1.5rem;
     display: inline-block; }
-    .mainMenu li a {
-      color: #272727;
-      font-size: 1.1rem;
-      letter-spacing: 0.2rem; }
+    .mainMenu > li a {
+      color: #d9d9c3;
+      letter-spacing: 0.2rem;
+      text-transform: uppercase; }
 
 .menu-folder-container {
   position: relative; }
@@ -111,52 +111,102 @@ nav {
   flex-direction: column;
   transform-origin: top;
   transform: translate(-50%) scaleY(0);
-  transition: transform 0.1s;
+  transition: transform 0.2s;
   z-index: -2; }
   .menu-folder li {
-    margin: 0.1rem 0;
     padding-left: 0;
     padding-right: 0;
     text-align: center;
     white-space: nowrap;
     transition: transform 0.1s;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 50, 0.75); }
-    .menu-folder li:first-of-type {
-      margin-top: 0.2rem; }
+    box-shadow: 0px 4px 2px 0px rgba(0, 0, 0, 0.75); }
     .menu-folder li:hover {
       transform: scale(1.1); }
     .menu-folder li a {
-      padding: 0.5rem;
+      padding: 0.5rem 1rem;
       width: 100%;
       display: block;
-      background-color: #d9d9c3; }
+      background-color: #272727; }
 
-.search-container {
-  margin-left: auto; }
+.mainMenu .search-container {
+  margin-left: auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .mainMenu .search-container input {
+    margin-right: 0.5rem;
+    border: none;
+    background-color: #d9d9c3; }
+  .mainMenu .search-container button {
+    margin-right: 1.5rem;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
+    transition: transform 0.1s; }
+    .mainMenu .search-container button:hover {
+      transform: scale(1.2); }
+  .mainMenu .search-container img {
+    width: 100%;
+    height: 100%; }
 
 .main {
-  background-color: #272727; }
+  width: 100%;
+  flex: 1;
+  overflow-x: hidden;
+  background-color: #d9d9c3; }
+  .main h2 {
+    margin: 2rem auto;
+    position: relative;
+    display: inline-block;
+    color: #4d1f1f;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase; }
+    .main h2::after, .main h2::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      height: 2px;
+      width: 64px;
+      background-color: #4d1f1f; }
+    .main h2::after {
+      left: 105%; }
+    .main h2::before {
+      right: 105%; }
+  .main span, .main p, .main li {
+    font-size: 1rem;
+    color: #272727; }
+
+.row {
+  margin: 0 auto;
+  padding: 0.75rem 4rem;
+  max-width: 720px;
+  display: flex;
+  justify-content: space-between; }
+
+.horaires-container {
+  padding: 2rem;
+  text-align: center; }
+  .horaires-container div {
+    text-align: right; }
+    .horaires-container div:nth-child(2n) {
+      background: linear-gradient(to right, transparent, #cfcfb8 10%, #cfcfb8 90%, transparent); }
 
 .cartes-container, .menus-container {
-  padding: 2rem; }
-  .cartes-container h2, .menus-container h2 {
-    text-align: center; }
-  .cartes-container h2, .cartes-container p, .menus-container h2, .menus-container p {
-    color: white; }
+  padding: 2rem;
+  text-align: center; }
+  .cartes-container div div:nth-child(2n+1), .cartes-container div li:nth-child(2n+1), .menus-container div div:nth-child(2n+1), .menus-container div li:nth-child(2n+1) {
+    background: linear-gradient(to right, transparent, #cfcfb8 10%, #cfcfb8 90%, transparent); }
 
 .food-comments {
   margin-bottom: 2rem;
   text-align: center;
-  font-size: 1.2rem; }
+  font-size: 1.2rem;
+  text-transform: uppercase; }
 
-.food-row {
-  margin-bottom: 1rem;
-  display: flex;
-  justify-content: space-between; }
-
-.menus-container li {
-  margin-bottom: 1rem;
-  text-align: center; }
+.menus-container .row {
+  justify-content: center; }
 
 footer {
   background-color: #272727;
@@ -172,23 +222,5 @@ footer {
   margin-right: auto;
   max-width: 1280px;
   width: 100%; }
-
-.box-dark {
-  background-color: #272727; }
-  .box-dark h2, .box-dark h3, .box-dark h4, .box-dark h5, .box-dark h6, .box-dark span, .box-dark label {
-    color: white; }
-  .box-dark p {
-    color: #d4dbe2; }
-  .box-dark a {
-    color: white; }
-
-.box-light {
-  background-color: #dbdde1; }
-  .box-light h2, .box-light h3, .box-light h4, .box-light h5, .box-light h6, .box-light span, .box-light label {
-    color: #351e1d; }
-  .box-light p {
-    color: #2a3036; }
-  .box-light a {
-    color: black; }
 
 /*# sourceMappingURL=style.css.map */

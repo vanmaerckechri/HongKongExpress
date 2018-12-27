@@ -2,21 +2,9 @@
 
 $general-maxWidth: 1280px;
 $general-padding: 1rem;
-$general-fontSize: 16px;
+$general-fontSize: 18px;
 
 // color
-
-$bg_main-color_light: #dbdde1;
-$bg_main-color_dark: #272727;
-
-$title_main-color_light: white;
-$title_main-color_dark: #351e1d;
-
-$text_main-color_light: #d4dbe2;
-$text_main-color_dark: #2a3036;
-
-$link_main-color_light: rgb(255, 255, 255);
-$link_main-color_dark: rgb(0, 0, 0);
 
 $color_yellowLight: #d9d9c3;
 $color_redHot: #4d1f1f;
@@ -25,11 +13,23 @@ $color_middleGrey: #272727;
 $header_titleColor: $color_yellowLight;
 $header_bgColor: $color_redHot;
 
-$nav_color: $color_middleGrey;
-$nav_bgColor: $color_yellowLight;
+$nav_color: $color_yellowLight;
+$nav_bgColor: $color_middleGrey;
 
+$section-titleColor: $color_redHot;
+
+$text_main-color_light: $color_yellowLight;
+$text_main-color_dark: $color_middleGrey;
+
+$bg_main-color_light: $color_yellowLight;
+$bg_main-color_dark: $color_middleGrey;
 
 // font-family
 
-$title_main-fontFam: 'Montserrat', sans-serif;
-$text_main-fontFam: 'Rubik', sans-serif;
+$title_main-fontFam: 'Poppins', sans-serif;
+$text_main-fontFam: 'Oswald', sans-serif;
+.chinese-fontFam
+{
+	font-family: 'Noto Sans TC', sans-serif;
+	font-weight: 500;
+}

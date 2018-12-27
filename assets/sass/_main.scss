@@ -1,17 +1,78 @@
+// Commons
 .main
 {
-	background-color: $bg_main-color_dark;
+	width: 100%;
+	flex: 1;
+	overflow-x: hidden;
+	h2
+	{
+		margin: 2rem auto;
+		position: relative;
+		display: inline-block;
+		color: $section-titleColor;
+		letter-spacing: 0.2rem;
+		text-transform: uppercase;
+		&::after, &::before
+		{
+			content: "";
+			position: absolute;
+			top: 50%;
+			height: 2px;
+			width: 64px;
+			background-color: $header_bgColor;
+		}
+		&::after
+		{
+			left: 105%;
+		}
+		&::before
+		{
+			right: 105%;
+		}
+	}
+	span, p, li
+	{
+		font-size: 1rem;
+		color: $text_main-color_dark;
+	}
+	background-color: $bg_main-color_light;
 }
+.row
+{
+	margin: 0 auto;
+	padding: 0.75rem 4rem;
+	max-width: 720px;
+	display: flex;
+	justify-content: space-between;
+}
+// Home
+.horaires-container
+{
+	padding: 2rem;
+	text-align: center;
+	div
+	{
+		text-align: right;
+		&:nth-child(2n)
+		{
+			background: linear-gradient(to right, transparent, #cfcfb8 10%, #cfcfb8 90%, transparent);
+		}
+	}
+}
+// Cartes & Menus
 .cartes-container, .menus-container
 {
 	padding: 2rem;
-	h2
+	text-align: center;
+	div
 	{
-		text-align: center;
-	}
-	h2, p
-	{
-		color: white;
+		div, li
+		{
+			&:nth-child(2n+1)
+			{
+				background: linear-gradient(to right, transparent, #cfcfb8 10%, #cfcfb8 90%, transparent);
+			}
+		}
 	}
 }
 .food-comments
@@ -19,18 +80,12 @@
 	margin-bottom: 2rem;
 	text-align: center;
 	font-size: 1.2rem;
-}
-.food-row
-{
-	margin-bottom: 1rem;
-	display: flex;
-	justify-content: space-between;
+	text-transform: uppercase;
 }
 .menus-container
 {
-	li
+	.row
 	{
-		margin-bottom: 1rem;
-		text-align: center;
+		justify-content: center;
 	}
 }

@@ -28,19 +28,10 @@ section, footer
 	padding: calc(2 * #{$general-padding}) $general-padding $general-padding;
 	width: 100%;
 }
-#main
-{
-	width: 100%;
-	flex: 1;
-	overflow-x: hidden;
-	h2
-	{
-		margin: 2rem auto;
-	}
-}
 h1, h2, h3, h4, h5, h6
 {
 	font-family: $title_main-fontFam;
+	color: $header_titleColor;
 }
 a
 {

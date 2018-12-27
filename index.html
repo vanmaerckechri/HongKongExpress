@@ -6,23 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Traiteur Chinois à Wavre. Téléphonez et votre spécialité chinoise sera prête dans la demi-heure.">
     <link rel="icon" type="image/png" href="">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Rubik:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:500,700|Noto+Sans+TC|Oswald:400" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Hong Kong Express 香港快餐</title>
+    <title>HONG KONG EXPRESS 香港快餐</title>
 </head>
 <body>
 	<header>
 		<div class="maxWidth-container">
 			<div class="header-title">
 				<img src="./assets/img/logo.png" alt="le logo de l'établissement représenté par un cuisinier une poêle à la main">
-				<h1>Hong Kong Express 香港快餐<span>Traiteur Chinois à Wavre</span></h1>
+				<h1>HONG KONG EXPRESS <span class="chinese-fontFam">香港快餐</span><span class="header-title_subtitle">Traiteur Chinois à Wavre</span></h1>
 			</div>
 		</div>
 		<nav>
 			<ul class="mainMenu maxWidth-container">
-				<li><a href="#">Accueil</a></li>
+				<li id="home"><a href="#">Accueil</a></li>
 				<li class="menu-folder-container">
-					<a class="btn-fold" href="#">Carte</a>
+					<a class="btn-fold" href="#">Cartes</a>
 					<ul id="cartes" class="menu-folder">
 					</ul>
 				</li>
@@ -31,16 +31,24 @@
 					<ul id="menus" class="menu-folder">
 					</ul>
 				</li>
-				<li><a href="#">Accès</a></li>
-				<li><a href="#">Télécharger</a></li>
 				<li class="search-container">				
 					<input type="text" placeholder="chercher">
-					<button>valider</button>
+					<button><img src="./assets/img/search.png" alt="bouton de recherche"></button>
 				</li>
 			</ul>
 		</nav>
 	</header>
 	<div id="main" class="main">
+		<div id="horaires" class="horaires-container maxWidth-container">
+			<h2 class="underline">Heures d'Ouverture</h2>
+			<div class="row"><span>lundi</span><span>fermé</span></div>
+			<div class="row"><span>mardi</span><span>17h30 - 22h00</span></div>
+			<div class="row"><span>mercredi</span><span>11h30 - 14h30 & 17h30 - 22h00</span></div>
+			<div class="row"><span>jeudi</span><span>11h30 - 14h30 & 17h30 - 22h00</span></div>
+			<div class="row"><span>vendredi</span><span>11h30 - 14h30 & 17h30 - 22h00</span></div>
+			<div class="row"><span>samedi</span><span>11h30 - 14h30 & 17h30 - 22h00</span></div>
+			<div class="row"><span>dimanche</span><span>11h30 - 14h30 & 17h30 - 22h00</span></div>
+		</div>
 	</div>
     <footer id="footer" class="view-content">
     	<div class="maxWidth-container footerContent">
