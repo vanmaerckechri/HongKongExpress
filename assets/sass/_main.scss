@@ -3,6 +3,9 @@
 {
 	width: 100%;
 	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	overflow-x: hidden;
 	h2
 	{
@@ -23,11 +26,11 @@
 		}
 		&::after
 		{
-			left: 105%;
+			left: calc(100% + 10px);
 		}
 		&::before
 		{
-			right: 105%;
+			right: calc(100% + 10px);
 		}
 	}
 	span, p, li
@@ -41,23 +44,48 @@
 {
 	margin: 0 auto;
 	padding: 0.75rem 4rem;
+	width: 100%;
 	max-width: 720px;
 	display: flex;
 	justify-content: space-between;
 }
 // Home
+.home
+{
+	width: 100%;
+	animation: display 0.3s ease-in-out alternate;
+}
+.horaires-container, .acces
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
 .horaires-container
 {
-	padding: 2rem;
-	text-align: center;
-	animation: display 0.5s ease-in-out alternate;
+	padding: 1.5rem 1.5rem 2rem;
+	min-height:  calc(100vh - #{$header-height_normal});
+	box-shadow: 0px -2px 6px 0px rgba(0, 0, 0, 0.25);
 	div
 	{
 		text-align: right;
 		&:nth-child(2n)
 		{
-			background: linear-gradient(to right, transparent, #cfcfb8 10%, #cfcfb8 90%, transparent);
+			background: linear-gradient(to right, transparent, $bg_main-color_middle 10%, $bg_main-color_middle 90%, transparent);
 		}
+	}
+}
+.acces
+{
+	padding: 0 1.5rem 1.5rem;
+	min-height: calc(100vh - #{$footer-height_normal});
+	.gg-map
+	{
+		border: 1px solid $nav_bgColor;
+		width: 100%;
+		max-width: 720px;
+		min-height: 365px;
 	}
 }
 // Cartes & Menus
@@ -65,15 +93,12 @@
 {
 	padding: 2rem;
 	text-align: center;
-	animation: display 0.5s ease-in-out alternate;
-  	div
+	animation: display 0.3s ease-in-out alternate;
+	.row
 	{
-		div, li
+		&:nth-child(2n+1)
 		{
-			&:nth-child(2n+1)
-			{
-				background: linear-gradient(to right, transparent, #cfcfb8 10%, #cfcfb8 90%, transparent);
-			}
+			background: linear-gradient(to right, transparent, $bg_main-color_middle 10%, $bg_main-color_middle 90%, transparent);
 		}
 	}
 }

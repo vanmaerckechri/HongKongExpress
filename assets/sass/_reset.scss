@@ -23,11 +23,6 @@ body
 	justify-content: flex-start;
 	align-items: center;
 }
-section, footer
-{
-	padding: calc(2 * #{$general-padding}) $general-padding $general-padding;
-	width: 100%;
-}
 h1, h2, h3, h4, h5, h6
 {
 	font-family: $title_main-fontFam;

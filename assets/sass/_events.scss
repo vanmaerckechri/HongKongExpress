@@ -5,3 +5,19 @@
 	max-width: $general-maxWidth;
 	width: 100%;
 }
+.pageSelected
+{
+	position: relative;
+	&:before
+	{
+		border-radius: 50%;
+		content: "";
+		position: absolute;
+		left: 0.5rem;
+		top: 50%;
+		width: 10px;
+		height: 10px;
+		background-color: $nav_color;
+		transform: translateY(-50%);
+	}
+}

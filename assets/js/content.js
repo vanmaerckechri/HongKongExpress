@@ -21,7 +21,7 @@ class Content
 	{
 		this.cartes = [];
 		this.menus = [];
-		this.home = document.getElementById("horaires").cloneNode(true);
+		this.home = document.getElementById("home").cloneNode(true);
 
 		this.init()
 	}
@@ -80,12 +80,36 @@ class Content
 		}
 	}
 
+	changeCursorPageSelected(newBtnSelected)
+	{
+		let navBtn = document.querySelectorAll("nav li");
+		for (let i = navBtn.length - 1; i >= 0; i--)
+		{
+			if (navBtn[i].classList.contains("pageSelected"))
+			{
+				navBtn[i].classList.remove("pageSelected");
+			}
+		}
+		// select li if her child is clicked
+		if (newBtnSelected.nodeName != "LI")
+		{
+			newBtnSelected = newBtnSelected.parentNode;
+		}
+		// for folder nav (cartes and menus)
+		if (newBtnSelected.parentNode.parentNode.classList.contains("menu-folder-container"))
+		{
+			newBtnSelected.parentNode.parentNode.classList.add("pageSelected");
+		}
+		newBtnSelected.classList.add("pageSelected");
+	}
+
 	displayHome(event)
 	{
 		event.preventDefault();
 		let main = document.getElementById("main");
 		main.innerHTML = "";
 		main.appendChild(this.home);
+		this.changeCursorPageSelected(event.target);
 	}
 
 	displayContent(parentCatName, cat, event)
@@ -96,8 +120,7 @@ class Content
 		let summaries = cat["commentaires"];
 		let dishes = cat["plats"];
 
-		let famContainer = Tools.creatElem("div", ["class"], [parentCatName + "-container maxWidth-container"]);
-		let container = Tools.creatElem("div");
+		let famContainer = Tools.creatElem("section", ["class"], [parentCatName + "-container maxWidth-container"]);
 		let main = document.getElementById("main");
 
 		// title and comments
@@ -131,7 +154,7 @@ class Content
 				row.appendChild(name);
 				row.appendChild(price);
 
-				container.appendChild(row);
+				famContainer.appendChild(row);
 			}
 		}
 		// -- MENUS --
@@ -145,14 +168,14 @@ class Content
 				dish.textContent = dishes[i];
 
 				row.appendChild(dish);
-				container.appendChild(row);
+				famContainer.appendChild(row);
 			}
 		}
 
-		famContainer.appendChild(container);
-
 		main.innerHTML = "";
 		main.appendChild(famContainer);
+
+		this.changeCursorPageSelected(event.target)
 	}
 
 	buildMenu(parentCatName)
@@ -227,7 +250,7 @@ class Content
 		this.importContent("cartes");
 		this.importContent("menus");
 
-		document.getElementById("home").addEventListener("click", this.displayHome.bind(this), false);
+		document.getElementById("home-btn").addEventListener("click", this.displayHome.bind(this), false);
 
 		document.querySelector(".search-container button").addEventListener("click", this.search.bind(this), false);
 	}

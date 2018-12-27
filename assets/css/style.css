@@ -29,10 +29,6 @@ body {
   justify-content: flex-start;
   align-items: center; }
 
-section, footer {
-  padding: calc(2 * 1rem) 1rem 1rem;
-  width: 100%; }
-
 h1, h2, h3, h4, h5, h6 {
   font-family: "Poppins", sans-serif;
   color: #d9d9c3; }
@@ -55,7 +51,7 @@ p, li, a {
 header {
   position: relative;
   width: 100%;
-  background-color: #4d1f1f;
+  background-color: #6d141a;
   z-index: 1; }
 
 .header-title {
@@ -119,8 +115,6 @@ nav {
   transition: transform 0.2s;
   z-index: -2; }
   .menu-folder li {
-    padding-left: 0;
-    padding-right: 0;
     text-align: center;
     white-space: nowrap;
     transition: transform 0.1s;
@@ -128,7 +122,7 @@ nav {
     .menu-folder li:hover {
       transform: scale(1.1); }
     .menu-folder li a {
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 1.5rem;
       width: 100%;
       display: block;
       background-color: #272727; }
@@ -159,13 +153,16 @@ nav {
 .main {
   width: 100%;
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow-x: hidden;
   background-color: #d9d9c3; }
   .main h2 {
     margin: 2rem auto;
     position: relative;
     display: inline-block;
-    color: #4d1f1f;
+    color: #6d141a;
     letter-spacing: 0.2rem;
     text-transform: uppercase; }
     .main h2::after, .main h2::before {
@@ -174,11 +171,11 @@ nav {
       top: 50%;
       height: 2px;
       width: 64px;
-      background-color: #4d1f1f; }
+      background-color: #6d141a; }
     .main h2::after {
-      left: 105%; }
+      left: calc(100% + 10px); }
     .main h2::before {
-      right: 105%; }
+      right: calc(100% + 10px); }
   .main span, .main p, .main li {
     font-size: 1rem;
     color: #272727; }
@@ -186,24 +183,44 @@ nav {
 .row {
   margin: 0 auto;
   padding: 0.75rem 4rem;
+  width: 100%;
   max-width: 720px;
   display: flex;
   justify-content: space-between; }
 
+.home {
+  width: 100%;
+  animation: display 0.3s ease-in-out alternate; }
+
+.horaires-container, .acces {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
 .horaires-container {
-  padding: 2rem;
-  text-align: center;
-  animation: display 0.5s ease-in-out alternate; }
+  padding: 1.5rem 1.5rem 2rem;
+  min-height: calc(100vh - 226px);
+  box-shadow: 0px -2px 6px 0px rgba(0, 0, 0, 0.25); }
   .horaires-container div {
     text-align: right; }
     .horaires-container div:nth-child(2n) {
       background: linear-gradient(to right, transparent, #cfcfb8 10%, #cfcfb8 90%, transparent); }
 
+.acces {
+  padding: 0 1.5rem 1.5rem;
+  min-height: calc(100vh - 90px); }
+  .acces .gg-map {
+    border: 1px solid #272727;
+    width: 100%;
+    max-width: 720px;
+    min-height: 365px; }
+
 .cartes-container, .menus-container {
   padding: 2rem;
   text-align: center;
-  animation: display 0.5s ease-in-out alternate; }
-  .cartes-container div div:nth-child(2n+1), .cartes-container div li:nth-child(2n+1), .menus-container div div:nth-child(2n+1), .menus-container div li:nth-child(2n+1) {
+  animation: display 0.3s ease-in-out alternate; }
+  .cartes-container .row:nth-child(2n+1), .menus-container .row:nth-child(2n+1) {
     background: linear-gradient(to right, transparent, #cfcfb8 10%, #cfcfb8 90%, transparent); }
 
 .food-comments {
@@ -216,18 +233,37 @@ nav {
   justify-content: center; }
 
 footer {
-  background-color: #272727;
-  box-shadow: 0px -2px 6px 0px rgba(0, 0, 0, 0.25); }
+  width: 100%;
+  background-color: #272727; }
 
 .footerContent {
+  padding: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center; }
+  .footerContent img {
+    transition: transform 0.1s;
+    transform: scale(0.8); }
+    .footerContent img:hover {
+      transform: scale(1); }
 
 .maxWidth-container {
   margin-left: auto;
   margin-right: auto;
   max-width: 1280px;
   width: 100%; }
+
+.pageSelected {
+  position: relative; }
+  .pageSelected:before {
+    border-radius: 50%;
+    content: "";
+    position: absolute;
+    left: 0.5rem;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: #d9d9c3;
+    transform: translateY(-50%); }
 
 /*# sourceMappingURL=style.css.map */

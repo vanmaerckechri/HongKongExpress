@@ -4,10 +4,14 @@ $general-maxWidth: 1280px;
 $general-padding: 1rem;
 $general-fontSize: 18px;
 
+$header-height_normal: 226px;
+$footer-height_normal: 90px;
+
 // color
 
 $color_yellowLight: #d9d9c3;
-$color_redHot: #4d1f1f;
+$color_yellowMiddle: #cfcfb8;
+$color_redHot: #6d141a;
 $color_middleGrey: #272727;
 
 $header_titleColor: $color_yellowLight;
@@ -22,6 +26,7 @@ $text_main-color_light: $color_yellowLight;
 $text_main-color_dark: $color_middleGrey;
 
 $bg_main-color_light: $color_yellowLight;
+$bg_main-color_middle: $color_yellowMiddle;
 $bg_main-color_dark: $color_middleGrey;
 
 // font-family
