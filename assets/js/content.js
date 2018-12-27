@@ -26,46 +26,69 @@ class Content
 		this.init()
 	}
 
-	search(that)
+	search()
 	{
 		let searchWord = document.querySelector(".search-container input").value;
-		searchWord = searchWord.toLowerCase();
-
-		for (let i = that.cartes.length - 1; i >= 0; i--)
+		if (searchWord != "")
 		{
-			// check in carte title
-			let title = that.cartes[i]["titre"].toLowerCase();
-			if (title.indexOf(searchWord) !== -1)
-			{
-				console.log(that.cartes[i]["titre"])
-			}
+			searchWord = searchWord.toLowerCase();
 
-			// check in dishies name
-			let dishies = that.cartes[i]["plats"];
-			for (let j = dishies.length - 1; j >= 0; j--)
+			//search in cartes
+			for (let i = this.cartes.length - 1; i >= 0; i--)
 			{
-				let dishName = dishies[j]["nom"].toLowerCase();
-				if (dishName.indexOf(searchWord) !== -1)
+				// check in cartes title and summaries
+				let title = this.cartes[i]["titre"].toLowerCase();
+				let summaries = this.cartes[i]["commentaires"].toLowerCase();
+				if (title.indexOf(searchWord) !== -1)
 				{
-					console.log(that.cartes[i]["titre"])
-					console.log(dishies[j]["code"])
-					console.log(dishies[j]["nom"])
-					console.log(dishies[j]["prix"])
+					console.log(this.cartes[i]["titre"]);
+				}
+
+				// check in dishies name
+				let dishies = this.cartes[i]["plats"];
+				for (let j = dishies.length - 1; j >= 0; j--)
+				{
+					let dishName = dishies[j]["nom"].toLowerCase();
+					if (dishName.indexOf(searchWord) !== -1)
+					{
+						console.log(this.cartes[i]["titre"]);
+					}
+				}
+			}
+			//search in menus
+			for (let i = this.menus.length - 1; i >= 0; i--)
+			{
+				// check in menus title and summaries
+				let title = this.menus[i]["titre"].toLowerCase();
+				let summaries = this.menus[i]["commentaires"].toLowerCase();
+				if (title.indexOf(searchWord) !== -1 || summaries.indexOf(searchWord) !== -1)
+				{
+					console.log(this.menus[i]["titre"])
+				}
+
+				// check in dishies name
+				let dishies = this.menus[i]["plats"];
+				for (let j = dishies.length - 1; j >= 0; j--)
+				{
+					let dish = dishies[j].toLowerCase();
+					if (dish.indexOf(searchWord) !== -1)
+					{
+						console.log(this.menus[i]["titre"])
+					}
 				}
 			}
 		}
 	}
 
-	displayHome(that, event)
+	displayHome(event)
 	{
 		event.preventDefault();
-
 		let main = document.getElementById("main");
 		main.innerHTML = "";
 		main.appendChild(this.home);
 	}
 
-	displayContent(parentCatName, cat, that, event)
+	displayContent(parentCatName, cat, event)
 	{
 		event.preventDefault();
 
@@ -127,6 +150,7 @@ class Content
 		}
 
 		famContainer.appendChild(container);
+
 		main.innerHTML = "";
 		main.appendChild(famContainer);
 	}
@@ -149,7 +173,7 @@ class Content
 			li.appendChild(btn);
 			container.appendChild(li);
 
-			btn.addEventListener("click", that.displayContent.bind(this, parentCatName, parent[i],that), false);
+			btn.addEventListener("click", that.displayContent.bind(this, parentCatName, parent[i]), false);
 		}
 	}
 
@@ -203,8 +227,9 @@ class Content
 		this.importContent("cartes");
 		this.importContent("menus");
 
-		document.getElementById("home").addEventListener("click", this.displayHome.bind(this, that), false);
-		document.querySelector(".search-container button").addEventListener("click", this.search.bind(this, that), false);
+		document.getElementById("home").addEventListener("click", this.displayHome.bind(this), false);
+
+		document.querySelector(".search-container button").addEventListener("click", this.search.bind(this), false);
 	}
 }
 

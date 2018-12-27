@@ -2,6 +2,11 @@
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: 500; }
 
+@keyframes display {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
 html, body, header, nav, footer, section, div, span, h1, h2, h3, p, a, blockquote, cite, img, ol, ul, li, form, fieldset, legend, label, input, button {
   margin: 0;
   box-sizing: border-box; }
@@ -187,7 +192,8 @@ nav {
 
 .horaires-container {
   padding: 2rem;
-  text-align: center; }
+  text-align: center;
+  animation: display 0.5s ease-in-out alternate; }
   .horaires-container div {
     text-align: right; }
     .horaires-container div:nth-child(2n) {
@@ -195,7 +201,8 @@ nav {
 
 .cartes-container, .menus-container {
   padding: 2rem;
-  text-align: center; }
+  text-align: center;
+  animation: display 0.5s ease-in-out alternate; }
   .cartes-container div div:nth-child(2n+1), .cartes-container div li:nth-child(2n+1), .menus-container div div:nth-child(2n+1), .menus-container div li:nth-child(2n+1) {
     background: linear-gradient(to right, transparent, #cfcfb8 10%, #cfcfb8 90%, transparent); }
 
