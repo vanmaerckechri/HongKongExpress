@@ -7,6 +7,8 @@
 	justify-content: center;
 	align-items: center;
 	overflow-x: hidden;
+	background-color: $bg_main-color_light;
+	background-image: url("../img/parchemin.jpg");
 	h2
 	{
 		margin: 2rem auto;
@@ -38,7 +40,6 @@
 		font-size: 1rem;
 		color: $text_main-color_dark;
 	}
-	background-color: $bg_main-color_light;
 }
 .row
 {
@@ -72,7 +73,7 @@
 		text-align: right;
 		&:nth-child(2n)
 		{
-			background: linear-gradient(to right, transparent, $bg_main-color_middle 10%, $bg_main-color_middle 90%, transparent);
+			background: linear-gradient(to right, transparent, $bg_main-color_middle 15%, $bg_main-color_middle 85%, transparent);
 		}
 	}
 }
