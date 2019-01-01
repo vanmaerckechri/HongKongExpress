@@ -4,6 +4,7 @@
 	width: 100%;
 	flex: 1;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	overflow-x: hidden;
@@ -11,7 +12,13 @@
 	background-image: url("../img/parchemin.jpg");
 	h2
 	{
-		margin: 2rem auto;
+		text-align: center;
+		letter-spacing: 0.3rem;
+		text-transform: uppercase;
+		background-color: $header_bgColor;
+	}
+	h3
+	{
 		position: relative;
 		display: inline-block;
 		color: $section-titleColor;
@@ -62,12 +69,15 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	h3
+	{
+		margin: 2rem auto;
+	}
 }
 .horaires-container
 {
 	padding: 1.5rem 1.5rem 2rem;
 	min-height:  calc(100vh - #{$header-height_normal});
-	box-shadow: 0px -2px 6px 0px rgba(0, 0, 0, 0.25);
 	div
 	{
 		text-align: right;
@@ -80,7 +90,9 @@
 .acces
 {
 	padding: 0 1.5rem 1.5rem;
-	min-height: calc(100vh - #{$footer-height_normal});
+	min-height: 100vh;
+	background-image: url("../img/parchemin_dark.jpg");
+	//box-shadow: 0px 1px 2px 0px $text_main-color_dark;
 	.gg-map
 	{
 		border: 1px solid $nav_bgColor;
@@ -95,12 +107,42 @@
 	padding: 2rem;
 	text-align: center;
 	animation: display 0.3s ease-in-out alternate;
+	&:nth-child(2n)
+	{
+		.row
+		{
+			&:nth-of-type(2n+1)
+			{
+				background: linear-gradient(to right, transparent, $bg_main-color_middle 10%, $bg_main-color_middle 90%, transparent);
+			}
+		}
+	}
+	&:nth-child(2n+1)
+	{
+		background-image: url("../img/parchemin_dark.jpg");
+		.row
+		{
+			&:nth-of-type(2n+1)
+			{
+				background: linear-gradient(to right, transparent, $bg_main-color_light 10%, $bg_main-color_light 90%, transparent);
+			}
+		}
+	}
+	.row:first-of-type
+	{
+		margin-top: 2rem;
+	}
+	img
+	{
+		margin: 0 auto;
+		display: block;
+	}
+}
+.menus-container
+{
 	.row
 	{
-		&:nth-child(2n+1)
-		{
-			background: linear-gradient(to right, transparent, $bg_main-color_middle 10%, $bg_main-color_middle 90%, transparent);
-		}
+		justify-content: center;
 	}
 }
 .food-comments
@@ -109,11 +151,4 @@
 	text-align: center;
 	font-size: 1.2rem;
 	text-transform: uppercase;
-}
-.menus-container
-{
-	.row
-	{
-		justify-content: center;
-	}
 }
