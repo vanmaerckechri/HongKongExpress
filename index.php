@@ -13,7 +13,7 @@ $menus = json_decode(file_get_contents("./assets/content/menus.json"));
 // check if the user is looking for something
 $search = isset($_POST["search"]) && !empty($_POST["search"]) ? removeAccents($_POST["search"]) : false;
 $searchCartesResult = [];
-$searchMenusResult = [];
+$searchMenusResult = new stdClass();;
 
 // LOAD HTML CONTENT =>
 // navbar
@@ -180,10 +180,10 @@ else
 			$plats = json_decode(file_get_contents("./assets/content/" . $menu->{'fichier'} . ".json"));
 			foreach ($plats as $platId => $plat)
 			{	
-				if (substr_count(removeAccents($title), $search) || substr_count(removeAccents($plat), $search))
+				if (substr_count(removeAccents($title), $search) || substr_count(removeAccents($menu->{'commentaires'}), $search) || substr_count(removeAccents($plat), $search))
 				{
-					$searchMenusResult[$title] = !isset($searchMenusResult[$title]) || empty($searchMenusResult[$title]) ? [] : $searchMenusResult[$title];
-					array_push($searchMenusResult[$title], $plats);
+					$menu->{"plats"} = $plats;
+					$searchMenusResult->{$title} = $menu;
 					break;
 				}
 			}
@@ -228,18 +228,16 @@ else
 		{
 		?>
 			<div class="menus-container">
-			<h3><?=$menuId?></h3>
+			<h3><?=$menu->{"titre"}?></h3>
+			<p class="food-comments"><?=$menu->{"commentaires"}?></p>
 			<?php
-			foreach ($menu as $platsId => $plats)
+			foreach ($menu->{"plats"} as $platId => $plat)
 			{
-				foreach ($plats as $platId => $plat)
-				{
-				?>
-					<div class="row">
-						<p><?=$plat?>.</p>
-					</div>
+			?>
+				<div class="row">
+					<p><?=$plat?>.</p>
+				</div>
 				<?php
-				}
 			}
 			?>
 			</div>

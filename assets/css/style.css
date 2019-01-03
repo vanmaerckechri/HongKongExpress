@@ -61,11 +61,9 @@ p, li, a {
   color: #d9d9c3; }
 
 header {
-  position: relative;
   width: 100%;
   background-color: #6d141a;
-  background-image: url("../img/toit.png");
-  z-index: 1; }
+  background-image: url("../img/toit.png"); }
 
 .header-title {
   margin: 1rem;
@@ -99,7 +97,6 @@ nav {
   background-color: #272727; }
 
 .mainMenu {
-  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -112,56 +109,27 @@ nav {
       letter-spacing: 0.2rem;
       text-transform: uppercase; }
 
-.menu-folder-container {
-  position: relative; }
-  .menu-folder-container:hover {
-    cursor: pointer; }
-    .menu-folder-container:hover .menu-folder {
-      transform: translate(-50%) scaleY(1); }
-
-.menu-folder {
-  position: absolute;
-  left: 50%;
-  top: 100%;
-  display: flex;
-  flex-direction: column;
-  transform-origin: top;
-  transform: translate(-50%) scaleY(0);
-  transition: transform 0.2s;
-  z-index: -2; }
-  .menu-folder li {
-    text-align: center;
-    white-space: nowrap;
-    transition: transform 0.1s; }
-    .menu-folder li:hover {
-      transform: scale(1.1); }
-    .menu-folder li a {
-      padding: 0.5rem 1.5rem;
-      width: 100%;
-      display: block;
-      background-color: #272727; }
-
-.mainMenu .search-container {
+.search-container {
   margin-left: auto;
   padding: 0; }
-  .mainMenu .search-container form {
+  .search-container form {
     display: flex;
     justify-content: center;
     align-items: center; }
-  .mainMenu .search-container input {
+  .search-container input {
     margin-right: 0.5rem;
     border: none;
     background-color: #d9d9c3; }
-  .mainMenu .search-container button {
+  .search-container button {
     margin-right: 1.5rem;
     padding: 0;
     width: 32px;
     height: 32px;
     background-color: transparent;
     transition: transform 0.1s; }
-    .mainMenu .search-container button:hover {
+    .search-container button:hover {
       transform: scale(1.2); }
-  .mainMenu .search-container img {
+  .search-container img {
     width: 100%;
     height: 100%; }
 
