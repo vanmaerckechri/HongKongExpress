@@ -46,9 +46,36 @@ else
 	$nav = ob_get_clean();
 }
 
-// cartes
+// business hours
+ob_start();
+?>
+	<div class="horaires-container">
+		<h3 class="underline">Heures d'Ouverture</h3>
+		<div class="row"><span>lundi</span><span>fermé</span></div>
+		<div class="row"><span>mardi</span><span>17h30 - 22h00</span></div>
+		<div class="row"><span>mercredi</span><span>11h30 - 14h30 & 17h30 - 22h00</span></div>
+		<div class="row"><span>jeudi</span><span>11h30 - 14h30 & 17h30 - 22h00</span></div>
+		<div class="row"><span>vendredi</span><span>11h30 - 14h30 & 17h30 - 22h00</span></div>
+		<div class="row"><span>samedi</span><span>11h30 - 14h30 & 17h30 - 22h00</span></div>
+		<div class="row"><span>dimanche</span><span>11h30 - 14h30 & 17h30 - 22h00</span></div>
+	</div>
+<?php
+$businessHours = ob_get_clean();
+
+// address
+ob_start();
+?>
+	<div class="address-container">
+		<h3 class="underline">Adresse</h3>
+		<p class="address">Tous les Bonheurs s.p.r.l.<span>35, Rue du Chemin de Fer</span><span>1300 - Wavre</span></p>
+		<iframe class="gg-map maxWidth-container" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2526.159454428737!2d4.604909016072692!3d50.71698087951304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c17d742238c921%3A0x756c634b25a21eea!2sTous+les+bonheurs!5e0!3m2!1sfr!2sbe!4v1545940317894" allowfullscreen></iframe>
+	</div>
+<?php
+$address = ob_get_clean();
+
 if ($search === false)
 {
+// cartes
 	ob_start();
 	?>
 		<h2>Les Cartes</h2>
@@ -125,85 +152,92 @@ else
 {
 // search
 	ob_start();
-
-			// search in cartes
-			foreach ($cartes as $carteId => $carte) 
+		// search in cartes
+		foreach ($cartes as $carteId => $carte) 
+		{
+			$title = $carte->{'titre'};
+			$plats = json_decode(file_get_contents("./assets/content/" . $carte->{'fichier'} . ".json"));		
+			foreach ($plats as $platId => $plat)
 			{
-				$title = $carte->{'titre'};
-				$plats = json_decode(file_get_contents("./assets/content/" . $carte->{'fichier'} . ".json"));		
+				if (substr_count(strtolower($title), $search) || substr_count(strtolower($plat->{'nom'}), $search))
+				{
+					$searchCartesResult[$title] = !isset($searchCartesResult[$title]) || empty($searchCartesResult[$title]) ? [] : $searchCartesResult[$title];
+					array_push($searchCartesResult[$title], $plat);
+				}
+			}
+		}
+		// search in menus
+		foreach ($menus as $menuId => $menu) 
+		{
+			$title = $menu->{'titre'};
+			$plats = json_decode(file_get_contents("./assets/content/" . $menu->{'fichier'} . ".json"));
+			foreach ($plats as $platId => $plat)
+			{	
+				if (substr_count(strtolower($title), $search) || substr_count(strtolower($plat), $search))
+				{
+					$searchMenusResult[$title] = !isset($searchMenusResult[$title]) || empty($searchMenusResult[$title]) ? [] : $searchMenusResult[$title];
+					array_push($searchMenusResult[$title], $plats);
+					break;
+				}
+			}
+		}
+		// build html with content of search result
+		?>
+		<h2>Recherche: "<?=htmlspecialchars($search, ENT_QUOTES);?>"</h2>
+		<?php
+		// build business hours
+		if (substr_count(strtolower($businessHours), $search) || substr_count(strtolower($search), "horaire"))
+		{
+			echo $businessHours;
+		}
+		// build address
+		if (substr_count(strtolower($address), $search) || substr_count(strtolower($search), "itinéraire") || substr_count(strtolower($search), "itineraire") || substr_count(strtolower($search), "route") || substr_count(strtolower($search), "acces") || substr_count(strtolower($search), "accès"))
+		{
+			echo $address;
+		}
+		// build cartes
+		foreach ($searchCartesResult as $carteId => $carte)
+		{
+		?>
+			<div class="cartes-container">
+			<h3><?=$carteId?></h3>
+			<?php
+			foreach ($carte as $platId => $plat)
+			{
+			?>
+				<div class="row">
+					<p class="food-code"><?=$plat->{'code'}?>.</p>
+					<p class="food-name"><?=$plat->{'nom'}?></p>
+					<p class="food-price"><?=number_format($plat->{'prix'}, 2, '.', '')?>€</p>
+				</div>
+			<?php
+			}
+			?>
+			</div>
+			<?php
+		}
+		// build menus
+		foreach ($searchMenusResult as $menuId => $menu)
+		{
+		?>
+			<div class="menus-container">
+			<h3><?=$menuId?></h3>
+			<?php
+			foreach ($menu as $platsId => $plats)
+			{
 				foreach ($plats as $platId => $plat)
 				{
-					if (substr_count(strtolower($title), $search) || substr_count(strtolower($plat->{'nom'}), $search))
-					{
-						$searchCartesResult[$title] = !isset($searchCartesResult[$title]) || empty($searchCartesResult[$title]) ? [] : $searchCartesResult[$title];
-						array_push($searchCartesResult[$title], $plat);
-					}
+				?>
+					<div class="row">
+						<p><?=$plat?>.</p>
+					</div>
+				<?php
 				}
 			}
-			// search in menus
-			foreach ($menus as $menuId => $menu) 
-			{
-				$title = $menu->{'titre'};
-				$plats = json_decode(file_get_contents("./assets/content/" . $menu->{'fichier'} . ".json"));
-				foreach ($plats as $platId => $plat)
-				{	
-					if (substr_count(strtolower($title), $search) || substr_count(strtolower($plat), $search))
-					{
-						$searchMenusResult[$title] = !isset($searchMenusResult[$title]) || empty($searchMenusResult[$title]) ? [] : $searchMenusResult[$title];
-						array_push($searchMenusResult[$title], $plats);
-						break;
-					}
-				}
-			}
-			// build html
 			?>
-			<section id="search" class="searchResult-page">
-				<h2>Recherche: "<?=htmlspecialchars($search, ENT_QUOTES);?>"</h2>
-					<?php
-					foreach ($searchCartesResult as $carteId => $carte)
-					{
-					?>
-						<div class="cartes-container">
-						<h3><?=$carteId?></h3>
-						<?php
-						foreach ($carte as $platId => $plat)
-						{
-						?>
-							<div class="row">
-								<p class="food-code"><?=$plat->{'code'}?>.</p>
-								<p class="food-name"><?=$plat->{'nom'}?></p>
-								<p class="food-price"><?=number_format($plat->{'prix'}, 2, '.', '')?>€</p>
-							</div>
-						<?php
-						}
-						?>
-						</div>
-						<?php
-					}
-					foreach ($searchMenusResult as $menuId => $menu)
-					{
-					?>
-						<div class="menus-container">
-						<h3><?=$menuId?></h3>
-						<?php
-						foreach ($menu as $platsId => $plats)
-						{
-							foreach ($plats as $platId => $plat)
-							{
-							?>
-								<div class="row">
-									<p><?=$plat?>.</p>
-								</div>
-							<?php
-							}
-						}
-						?>
-						</div>
-						<?php
-					}
-					?>
-			</section>
-		<?php
+			</div>
+			<?php
+		}
 	$searchHtml = ob_get_clean();
 }
 ?>
@@ -248,21 +282,8 @@ else
 				</section>
 				<section id="infos" class="infos-page">
 					<h2>Informations</h2>
-					<div class="horaires-container">
-						<h3 class="underline">Heures d'Ouverture</h3>
-						<div class="row"><span>lundi</span><span>fermé</span></div>
-						<div class="row"><span>mardi</span><span>17h30 - 22h00</span></div>
-						<div class="row"><span>mercredi</span><span>11h30 - 14h30 & 17h30 - 22h00</span></div>
-						<div class="row"><span>jeudi</span><span>11h30 - 14h30 & 17h30 - 22h00</span></div>
-						<div class="row"><span>vendredi</span><span>11h30 - 14h30 & 17h30 - 22h00</span></div>
-						<div class="row"><span>samedi</span><span>11h30 - 14h30 & 17h30 - 22h00</span></div>
-						<div class="row"><span>dimanche</span><span>11h30 - 14h30 & 17h30 - 22h00</span></div>
-					</div>
-					<div class="address-container">
-						<h3 class="underline">Adresse</h3>
-						<p class="address">Tous les Bonheurs s.p.r.l.<span>35, Rue du Chemin de Fer</span><span>1300 - Wavre</span></p>
-						<iframe class="gg-map maxWidth-container" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2526.159454428737!2d4.604909016072692!3d50.71698087951304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c17d742238c921%3A0x756c634b25a21eea!2sTous+les+bonheurs!5e0!3m2!1sfr!2sbe!4v1545940317894" allowfullscreen></iframe>
-					</div>
+					<?=$businessHours?>
+					<?=$address?>
 				</section>
 				<section id="cartes" class="cartes-page">
 					<?=$cartesHtml?>
@@ -274,7 +295,11 @@ else
 			}
 			else
 			{
-				echo $searchHtml;
+			?>
+				<section id="search" class="searchResult-page">
+					<?=$searchHtml?>
+				</section>
+			<?php
 			}
 		?>
 	</div>
