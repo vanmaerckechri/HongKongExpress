@@ -61,7 +61,7 @@
 	},
 	{
 		"code": "70",
-		"nom": "Chop-Suey de bœuf",
+		"nom": "Chop-Suey de boeuf",
 		"prix": 7.5
 	},
 	{
@@ -71,57 +71,57 @@
 	},
 	{
 		"code": "72",
-		"nom": "Filet de bœuf à la sauce curry",
+		"nom": "Filet de boeuf à la sauce curry",
 		"prix": 8.5
 	},	
 	{
 		"code": "73",
-		"nom": "Filet de bœuf aux ananas",
+		"nom": "Filet de boeuf aux ananas",
 		"prix": 8.5
 	},
 	{
 		"code": "73A",
-		"nom": "Filet de bœuf aux ananas & gingembre",
+		"nom": "Filet de boeuf aux ananas & gingembre",
 		"prix": 9
 	},
 	{
 		"code": "74",
-		"nom": "Filet de bœuf aux haricots noir",
+		"nom": "Filet de boeuf aux haricots noir",
 		"prix": 8.5
 	},
 	{
 		"code": "75",
-		"nom": "Filet de bœuf à la sauce tomate",
+		"nom": "Filet de boeuf à la sauce tomate",
 		"prix": 8.5
 	},
 	{
 		"code": "76",
-		"nom": "Filet de bœuf aux champignons chinois",
+		"nom": "Filet de boeuf aux champignons chinois",
 		"prix": 9
 	},
 	{
 		"code": "77",
-		"nom": "Filet de bœuf à la sauce d’huitre",
+		"nom": "Filet de boeuf à la sauce d’huitre",
 		"prix": 8.5
 	},
 	{
 		"code": "78",
-		"nom": "Filet de bœuf à la sauce barbecue",
+		"nom": "Filet de boeuf à la sauce barbecue",
 		"prix": 9
 	},
 	{
 		"code": "79",
-		"nom": "Filet de bœuf à la sauce piquante",
+		"nom": "Filet de boeuf à la sauce piquante",
 		"prix": 8.5
 	},
 	{
 		"code": "79A",
-		"nom": "Filet de bœuf aux noix de cajou",
+		"nom": "Filet de boeuf aux noix de cajou",
 		"prix": 9.5
 	},	
 	{
 		"code": "79B",
-		"nom": "Filet de bœuf aux légumes variés",
+		"nom": "Filet de boeuf aux légumes variés",
 		"prix": 8.5
 	}
 ]

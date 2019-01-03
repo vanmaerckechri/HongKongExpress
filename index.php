@@ -1,10 +1,17 @@
 <?php
+//TOOLS
+Function removeAccents($string)
+{
+	$string= strtr(utf8_decode($string), utf8_decode("ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ"), "aaaaaaaaaaaaooooooooooooeeeeeeeecciiiiiiiiuuuuuuuuynn");
+	return strtolower($string);
+}
+
 // INIT =>
 // import hierarchy from cartes and menus json
 $cartes = json_decode(file_get_contents("./assets/content/cartes.json"));
 $menus = json_decode(file_get_contents("./assets/content/menus.json"));
 // check if the user is looking for something
-$search = isset($_POST["search"]) && !empty($_POST["search"]) ? strtolower($_POST["search"]) : false;
+$search = isset($_POST["search"]) && !empty($_POST["search"]) ? removeAccents($_POST["search"]) : false;
 $searchCartesResult = [];
 $searchMenusResult = [];
 
@@ -159,7 +166,7 @@ else
 			$plats = json_decode(file_get_contents("./assets/content/" . $carte->{'fichier'} . ".json"));		
 			foreach ($plats as $platId => $plat)
 			{
-				if (substr_count(strtolower($title), $search) || substr_count(strtolower($plat->{'nom'}), $search))
+				if (substr_count(removeAccents($title), $search) || substr_count(removeAccents($plat->{'nom'}), $search))
 				{
 					$searchCartesResult[$title] = !isset($searchCartesResult[$title]) || empty($searchCartesResult[$title]) ? [] : $searchCartesResult[$title];
 					array_push($searchCartesResult[$title], $plat);
@@ -173,7 +180,7 @@ else
 			$plats = json_decode(file_get_contents("./assets/content/" . $menu->{'fichier'} . ".json"));
 			foreach ($plats as $platId => $plat)
 			{	
-				if (substr_count(strtolower($title), $search) || substr_count(strtolower($plat), $search))
+				if (substr_count(removeAccents($title), $search) || substr_count(removeAccents($plat), $search))
 				{
 					$searchMenusResult[$title] = !isset($searchMenusResult[$title]) || empty($searchMenusResult[$title]) ? [] : $searchMenusResult[$title];
 					array_push($searchMenusResult[$title], $plats);
@@ -186,12 +193,12 @@ else
 		<h2>Recherche: "<?=htmlspecialchars($search, ENT_QUOTES);?>"</h2>
 		<?php
 		// build business hours
-		if (substr_count(strtolower($businessHours), $search) || substr_count(strtolower($search), "horaire"))
+		if (substr_count(removeAccents($businessHours), $search) || substr_count($search, "horaire"))
 		{
 			echo $businessHours;
 		}
 		// build address
-		if (substr_count(strtolower($address), $search) || substr_count(strtolower($search), "itinéraire") || substr_count(strtolower($search), "itineraire") || substr_count(strtolower($search), "route") || substr_count(strtolower($search), "acces") || substr_count(strtolower($search), "accès"))
+		if (substr_count(removeAccents($address), $search) || substr_count($search, "itineraire") || substr_count($search, "route") || substr_count($search, "acces"))
 		{
 			echo $address;
 		}
