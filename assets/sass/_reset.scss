@@ -29,7 +29,14 @@ section
 h1, h2, h3, h4, h5, h6
 {
 	font-family: $title_main-fontFam;
+}
+h1, h2
+{
 	color: $header_titleColor;
+}
+h3
+{
+	text-align: center;
 }
 a
 {

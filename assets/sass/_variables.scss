@@ -10,8 +10,11 @@ $footer-height_normal: 90px;
 // color
 
 $color_yellowLight: #d9d9c3;
-$color_yellowMiddle: #cfcfb880;
+$color_yellowLightOpacity: rgba(217, 217, 195, 0.9);
+$color_yellowMiddle: #cfcfb8;
+$color_yellowMiddleOpacity: rgba(207, 207, 187, 0.9);
 $color_redHot: #6d141a;
+$color_middleGreyOpacity: rgba(39, 39, 39, 0.3);
 $color_middleGrey: #272727;
 
 $header_titleColor: $color_yellowLight;
@@ -28,6 +31,12 @@ $text_main-color_dark: $color_middleGrey;
 $bg_main-color_light: $color_yellowLight;
 $bg_main-color_middle: $color_yellowMiddle;
 $bg_main-color_dark: $color_middleGrey;
+
+$row-color_light: $color_yellowLightOpacity;
+$row-color_middle: $color_yellowMiddleOpacity;
+
+$textOnImg-bgColor: $color_middleGreyOpacity;
+$textOnImg-color: $color_yellowLight;
 
 // font-family
 

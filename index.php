@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Traiteur Chinois à Wavre. Téléphonez et votre spécialité chinoise sera prête dans la demi-heure.">
+    <meta name="description" content="Traiteur Chinois situé à proximité de la gare de Wavre. Commandez vos savoureux mets sur place ou par téléphone, ceux-ci seront prêts dans la demi-heure.">
     <link rel="icon" type="image/png" href="">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:500,700|Noto+Sans+TC|Oswald:400" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
@@ -25,13 +25,8 @@
 		</div>
 		<nav>
 			<ul class="mainMenu maxWidth-container">
-				<li id="home-btn"><a href="#home">Accueil</a></li>
-				<li class="menu-folder-container">
-					<a class="btn-fold" href="#cartes">Cartes</a>
-				</li>
-				<li class="menu-folder-container">
-					<a class="btn-fold" href="#menus">Menus</a>
-				</li>
+				<li><a href="#cartes">Cartes</a></li>
+				<li><a href="#menus">Menus</a></li>
 				<li class="search-container">				
 					<input type="text" placeholder="chercher">
 					<button><img src="./assets/img/search.png" alt="bouton de recherche"></button>
@@ -40,8 +35,17 @@
 		</nav>
 	</header>
 	<div id="main" class="main">
-		<section id="home" class="home">
-			<h2 class="displayNone">Accueil</h2>
+		<section class="home">
+			<div class="home-content">
+				<img src="./assets/img/home.jpg" alt="bouton de recherche">
+				<div class="home-text">
+					<p class="maxWidth-container">Découvrez des saveurs, des goûts et des plaisirs gourmands chez le spécialiste des plats à emporter. Téléphonez et votre spécialité chinoise sera prête dans la demi-heure.</p>
+				</div>
+				<a class="home-nextPage" href="#infos"><img src="./assets/img/arrow.png" alt="passer à la page suivante"></a>
+			</div>
+		</section>
+		<section id="infos" class="infos">
+			<h2>Informations</h2>
 			<div class="horaires-container">
 				<h3 class="underline">Heures d'Ouverture</h3>
 				<div class="row"><span>lundi</span><span>fermé</span></div>
@@ -64,16 +68,20 @@
 			{
 			?>
 				<div class="cartes-container">
-									<img src="./assets/img/<?=$carte->{'fichier'}?>.png" alt="logo de la carte">
-
-				<h3><?=$carte->{'titre'}?></h3>
-			<?php
-			if (!empty($carte->{'commentaires'}))
-			{
-			?>
-				<p class="food-comments"><?=$carte->{'commentaires'}?></p>
-			<?php
-			}
+					<div class="title-container">
+						<div class="titleImg-container">
+							<p><?=$carte->{'titre_chinois'}?></p>
+							<img src="./assets/img/<?=$carte->{'fichier'}?>.png" alt="logo de la carte">
+						</div>
+						<h3><?=$carte->{'titre'}?></h3>
+					</div>
+				<?php
+				if (!empty($carte->{'commentaires'}))
+				{
+				?>
+					<p class="food-comments"><?=$carte->{'commentaires'}?></p>
+				<?php
+				}
 				$plats = json_decode(file_get_contents("./assets/content/" . $carte->{'fichier'} . ".json"));		
 				foreach ($plats as $platId => $plat)
 				{

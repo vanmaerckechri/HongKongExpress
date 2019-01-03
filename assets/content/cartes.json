@@ -1,51 +1,44 @@
 [
 	{
 		"fichier": "carte_potages",
-		"bouton": "Potages",
 		"titre": "Potages",
-		"id": "potages",
+		"titre_chinois": "湯",
 		"commentaires": ""
 	},
 	{
 		"fichier": "carte_entrees",
-		"bouton": "Entrées",
 		"titre": "Entrées",
-		"id": "entrees",
+		"titre_chinois": "小吃",
 		"commentaires": ""
 	},
 	{
 		"fichier": "carte_volailles",
-		"bouton": "Volailles",
 		"titre": "Volailles",
-		"id": "volailles",
+		"titre_chinois": "家禽",
 		"commentaires": "Tous nos plats sont servis avec du riz nature"
 	},
 	{
 		"fichier": "carte_viandes",
-		"bouton": "Viandes",
 		"titre": "Viandes",
-		"id": "viandes",
+		"titre_chinois": "肉",
 		"commentaires": "Tous nos plats sont servis avec du riz nature"
 	},
 	{
 		"fichier": "carte_fruitsdemer",
-		"bouton": "Fruits de Mer",
 		"titre": "Fruits de Mer",
-		"id": "fruitsdemer",
+		"titre_chinois": "海鮮",
 		"commentaires": "Tous nos plats sont servis avec du riz nature"
 	},
 	{
 		"fichier": "carte_rizetnouilles",
-		"bouton": "Riz et Nouilles",
 		"titre": "Riz et Nouilles",
-		"id": "rizetnouilles",
+		"titre_chinois": "米飯和麵條",
 		"commentaires": ""
 	},
 	{
 		"fichier": "carte_desserts",
-		"bouton": "Desserts",
 		"titre": "Desserts",
-		"id": "desserts",
+		"titre_chinois": "甜點",
 		"commentaires": ""
 	}
 ]
