@@ -73,7 +73,7 @@ section
 .home-content
 {
 	position: relative;
-	height: calc(100vh - #{$header-height_normal});
+	height: calc(100vh - #{$header-height_normal} - #{$footer-height_normal});
 	img
 	{
 		width: 100%;
@@ -107,7 +107,13 @@ section
 	left: 50%;
 	bottom: 0;
 	transform: translate(-50%, -100%);
-	animation: nextPage 1s ease-in infinite alternate;;
+	animation: nextPage 1s ease-in infinite alternate;
+	img
+	{
+		padding: 0.5rem;
+		border-radius: 50%;
+		background-color: $nextPageArrow-bgColor;
+	}
 }
 .horaires-container, .acces
 {

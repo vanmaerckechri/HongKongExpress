@@ -8,9 +8,9 @@
   to {
     opacity: 1; } }
 @keyframes nextPage {
-  from {
+  0% {
     transform: translate(-50%, -100%); }
-  to {
+  100% {
     transform: translate(-50%, 0); } }
 html, body, header, nav, footer, section, div, span, h1, h2, h3, p, a, blockquote, cite, img, ol, ul, li, form, fieldset, legend, label, input, button {
   margin: 0;
@@ -215,7 +215,7 @@ section > div {
 
 .home-content {
   position: relative;
-  height: calc(100vh - 226px); }
+  height: calc(100vh - 226px - 42px); }
   .home-content img {
     width: 100%;
     height: 100%;
@@ -244,6 +244,10 @@ section > div {
   bottom: 0;
   transform: translate(-50%, -100%);
   animation: nextPage 1s ease-in infinite alternate; }
+  .home-nextPage img {
+    padding: 0.5rem;
+    border-radius: 50%;
+    background-color: rgba(217, 217, 195, 0.9); }
 
 .horaires-container, .acces {
   display: flex;
@@ -312,19 +316,39 @@ section > div {
   text-transform: uppercase; }
 
 footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
   width: 100%;
+  text-align: center;
   background-color: #272727; }
 
 .footerContent {
-  padding: 1.5rem;
+  padding: 0.2rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center; }
-  .footerContent img {
-    transition: transform 0.1s;
-    transform: scale(0.8); }
-    .footerContent img:hover {
-      transform: scale(1); }
+  .footerContent span {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .footerContent span img {
+      margin-left: 0.5rem;
+      display: block;
+      transition: transform 0.1s;
+      transform: scale(0.8); }
+      .footerContent span img:hover {
+        transform: scale(1); }
+
+.backHome img {
+  padding: 0.3rem;
+  border-radius: 50%;
+  display: block;
+  background-color: rgba(217, 217, 195, 0.9);
+  transition: transform 0.1s;
+  transform: rotate(-180deg) scale(0.8); }
+  .backHome img:hover {
+    transform: rotate(-180deg) scale(1); }
 
 .maxWidth-container {
   margin-left: auto;

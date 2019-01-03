@@ -11,11 +11,11 @@
 }
 @keyframes nextPage
 {
-	from 
+	0% 
 	{
 		transform: translate(-50%, -100%);
 	}
-  	to
+  	100%
   	{
 		transform: translate(-50%, 0);
   	}

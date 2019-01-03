@@ -1,21 +1,50 @@
 footer
 {
+	position: fixed;
+	bottom: 0;
+	left: 0;
 	width: 100%;
+	text-align: center;
 	background-color: $bg_main-color_dark;
 }
 .footerContent
 {
-	padding: 1.5rem;
+	padding: 0.2rem 1.5rem;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	span
+	{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		// facebook logo
+		img
+		{
+			margin-left: 0.5rem;
+			display: block;
+			transition: transform 0.1s;
+			transform: scale(0.8);
+			&:hover
+			{
+				transform: scale(1);
+			}
+		}
+	}
+}
+.backHome
+{
 	img
 	{
+		padding: 0.3rem;
+		border-radius: 50%;
+		display: block;
+		background-color: $nextPageArrow-bgColor;
 		transition: transform 0.1s;
-		transform: scale(0.8);
+		transform: rotate(-180deg) scale(0.8);
 		&:hover
 		{
-			transform: scale(1);
+			transform: rotate(-180deg) scale(1);
 		}
 	}
 }
