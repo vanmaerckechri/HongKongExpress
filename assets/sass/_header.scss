@@ -29,11 +29,15 @@ header
 		line-height: 4rem;
 		font-weight: 700;
 	}
+	.chinese-fontFam
+	{
+		white-space: nowrap;
+	}
 	.header-title_subtitle
 	{
 		display: block;
 		font-weight: 500;
-		font-size: 1.5rem;		
+		font-size: 1.5rem;
 	}
 }
 
@@ -119,9 +123,12 @@ nav
 	{
 		margin-left: auto;
 		padding: 0;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		form
+		{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
 		input
 		{
 			margin-right: 0.5rem;

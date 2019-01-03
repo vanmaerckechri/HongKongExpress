@@ -83,6 +83,8 @@ header {
     font-size: 2.5rem;
     line-height: 4rem;
     font-weight: 700; }
+  .header-title .chinese-fontFam {
+    white-space: nowrap; }
   .header-title .header-title_subtitle {
     display: block;
     font-weight: 500;
@@ -141,10 +143,11 @@ nav {
 
 .mainMenu .search-container {
   margin-left: auto;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
+  padding: 0; }
+  .mainMenu .search-container form {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
   .mainMenu .search-container input {
     margin-right: 0.5rem;
     border: none;
@@ -201,6 +204,8 @@ nav {
 
 section > div {
   box-shadow: 0px 1px 3px 0px rgba(25, 25, 75, 0.15); }
+  section > div:first-of-type {
+    box-shadow: none; }
 
 .row {
   margin: 0 auto;
@@ -210,7 +215,7 @@ section > div {
   display: flex;
   justify-content: space-between; }
 
-.infos {
+.infos-page {
   background-image: url("../img/parchemin_dark.jpg"); }
 
 .home-content {
@@ -249,7 +254,7 @@ section > div {
     border-radius: 50%;
     background-color: rgba(217, 217, 195, 0.9); }
 
-.horaires-container, .acces {
+.horaires-container, .address-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -260,13 +265,31 @@ section > div {
   .horaires-container .row:nth-child(2n) {
     background: linear-gradient(to right, transparent, rgba(217, 217, 195, 0.9) 15%, rgba(217, 217, 195, 0.9) 85%, transparent); }
 
-.acces {
+.address-container {
   padding: 4rem 2rem; }
-  .acces .gg-map {
+  .address-container .gg-map {
     border: 1px solid #272727;
     width: 100%;
     max-width: 720px;
     min-height: 365px; }
+
+.address {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.searchResult-page {
+  height: 100%;
+  background-image: url("../img/parchemin_dark.jpg"); }
+  .searchResult-page h2 {
+    margin-top: 3rem;
+    font-size: 1rem;
+    color: #272727;
+    background-color: transparent; }
+  .searchResult-page .row:nth-of-type(2n+1) {
+    background: linear-gradient(to right, transparent, rgba(217, 217, 195, 0.9) 10%, rgba(217, 217, 195, 0.9) 85%, transparent); }
 
 .cartes-container, .menus-container {
   padding: 3rem 2rem 4rem;
@@ -278,10 +301,11 @@ section > div {
 
 .menus-container {
   background-image: url("../img/parchemin_dark.jpg"); }
-  .menus-container .row {
-    justify-content: center; }
-    .menus-container .row:nth-of-type(2n+1) {
-      background: linear-gradient(to right, transparent, rgba(217, 217, 195, 0.9) 10%, rgba(217, 217, 195, 0.9) 85%, transparent); }
+  .menus-container .row:nth-of-type(2n+1) {
+    background: linear-gradient(to right, transparent, rgba(217, 217, 195, 0.9) 10%, rgba(217, 217, 195, 0.9) 85%, transparent); }
+
+.menus-container .row {
+  justify-content: center; }
 
 .titleImg-container {
   margin: 0 auto 2rem;
