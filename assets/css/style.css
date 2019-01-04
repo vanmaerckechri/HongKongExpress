@@ -321,12 +321,33 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center; }
-  .footer-content span {
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-    .footer-content span p {
-      white-space: nowrap; }
+
+.downMenu-container, .contact-container, .backHome-container {
+  flex: 1; }
+
+.downMenu-container {
+  text-align: left; }
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.backHome-container {
+  text-align: right; }
+  .backHome-container a {
+    display: inline-block; }
+  .backHome-container img {
+    padding: 0.3rem;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: block;
+    background-color: rgba(217, 217, 195, 0.9);
+    transition: transform 0.1s;
+    transform: rotate(-180deg) scale(0.8); }
+    .backHome-container img:hover {
+      transform: rotate(-180deg) scale(1); }
 
 .facebook {
   margin: 0 0.5rem;
@@ -335,16 +356,6 @@ footer {
   transform: scale(0.8); }
   .facebook:hover {
     transform: scale(1); }
-
-.backHome img {
-  padding: 0.3rem;
-  border-radius: 50%;
-  display: block;
-  background-color: rgba(217, 217, 195, 0.9);
-  transition: transform 0.1s;
-  transform: rotate(-180deg) scale(0.8); }
-  .backHome img:hover {
-    transform: rotate(-180deg) scale(1); }
 
 .maxWidth-container {
   margin-left: auto;
@@ -470,6 +481,9 @@ footer {
     line-height: 2rem; }
 
   .row {
-    padding: 0.75rem 1rem; } }
+    padding: 0.75rem 1rem; }
+
+  .downMenu-container, .contact-container {
+    flex: 2; } }
 
 /*# sourceMappingURL=style.css.map */

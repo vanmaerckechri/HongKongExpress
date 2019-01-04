@@ -310,12 +310,16 @@ else
 	</div>
     <footer id="footer">
     	<div class="maxWidth-container footer-content">
-    		<a href="./assets/pdf/hongkongexpress_wavre2017.pdf" target="_blank" rel="noopener">télécharger le menu</a>
-    		<span>
+    		<span class="downMenu-container">
+    			<a href="./assets/pdf/hongkongexpress_wavre2017.pdf" target="_blank" rel="noopener">télécharger le menu</a>
+    		</span>
+    		<span class="contact-container">
 				<p>010 24 36 09</p>
 				<a href="https://www.facebook.com/hkexpresswavre" target="_blank" rel="noopener"><img class="facebook" src="./assets/img/facebook.png" alt="le logo facebook"></a>
 			</span>
-			<a class="backHome" href="#"><img src="./assets/img/arrow.png" alt="remonter en début de page"></a>
+			<span class="backHome-container">
+				<a href="#"><img src="./assets/img/arrow.png" alt="remonter en début de page"></a>
+			</span>
 		</div>
     </footer>
 </body>
