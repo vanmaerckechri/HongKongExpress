@@ -115,6 +115,7 @@ section
 	img
 	{
 		padding: 0.5rem;
+		border: 2px solid $header_bgColor;
 		border-radius: 50%;
 		background-color: $nextPageArrow-bgColor;
 	}

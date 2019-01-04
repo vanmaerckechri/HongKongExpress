@@ -22,6 +22,75 @@ class Content
 		this.init()
 	}
 
+	smoothScroll(destination, direction, speed, event)
+	{
+ 		event.preventDefault();
+
+		let distance = window.pageYOffset;
+		let tempo = setInterval(function()
+		{ 
+			window.scrollTo(0, distance)
+			if (direction == "bottom")
+			{
+				distance += speed;
+				if (destination <= distance)
+				{
+					window.scrollTo(0, destination)
+					clearInterval(tempo);
+				}		
+			}
+			else
+			{
+				distance -= speed;
+				if (destination >= distance)
+				{
+					window.scrollTo(0, destination)
+					clearInterval(tempo);
+				}					
+			}
+		}, 1);
+	}
+
+	scrollEvents()
+	{
+		let main = document.getElementById("main");
+		let nav = document.querySelector("nav");
+		if (!nav.classList.contains("mainMenu-fixed"))
+		{
+			let navInfo = nav.getBoundingClientRect();
+			if (navInfo.top <= 0)
+			{
+				nav.classList.add("mainMenu-fixed");
+				main.style.marginTop = navInfo.height + "px";
+			}
+		}
+		else
+		{
+			let header = document.querySelector("header");
+			let headerInfo = header.getBoundingClientRect();
+			if (headerInfo.bottom >= 0)
+			{
+				nav.classList.remove("mainMenu-fixed");
+				main.style = "";
+			}
+		}
+		let backTopContainer = document.getElementById("backTop-container");
+		if (backTopContainer.classList.contains("displayNone"))
+		{
+			if (window.pageYOffset >= screen.height)
+			{
+				backTopContainer.classList.remove("displayNone");
+			}
+		}
+		else
+		{
+			if (window.pageYOffset < screen.height)
+			{
+				backTopContainer.classList.add("displayNone");		
+			}
+		}
+	}
+
 	hideElements(selectorName)
 	{
 		let elementsToHide = document.querySelectorAll(selectorName);
@@ -66,6 +135,8 @@ class Content
 				page.classList.remove("displayNone");
 			}
 		}
+
+		this.smoothScroll(0, "top", 25, event);
 	}
 
 	changeSubPage(page, subPage, event)
@@ -80,20 +151,34 @@ class Content
 
 		page.classList.remove("displayNone");
 		subPage.classList.remove("displayNone");
+
+		let subMenuContainer = document.querySelectorAll(".subMenu-container");
+		for (let i = subMenuContainer.length - 1; i >= 0; i--)
+		{
+			subMenuContainer[i].style.display = "none";
+			setTimeout(function()
+			{
+				subMenuContainer[i].style = "";
+			}, 1000)
+		}
+
+		this.smoothScroll(0, "top", 25, event)
 	}
 
 	initStyleSheet()
 	{
 		let head = document.querySelector("head");
-		let style = document.createElement('style');
-		style.type = 'text/css';
+	    let link  = document.createElement('link');
+	    link.rel  = 'stylesheet';
+	    link.type = 'text/css';
+	    link.href = './assets/css/jsallow.css';
+	    link.media = 'all';
+	    head.appendChild(link);
+	}
 
-		let css = '.infos-page, .menus-container { background-image: url("../img/parchemin_light.jpg"); }';
-		let cssRow = '.infos-page .row:nth-of-type(2n+1), .menus-container .row:nth-of-type(2n) { background: linear-gradient(to right, transparent, #cfcfb8 10%, #cfcfb8 85%, transparent); }';
-		let cssSection = 'section > div { box-shadow: none; }';
-
-  		style.textContent = css + cssRow + cssSection;
-  		head.appendChild(style)
+	initNavPosition()
+	{
+		window.addEventListener("scroll", this.scrollEvents, false);
 	}
 
 	initButtons()
@@ -107,6 +192,19 @@ class Content
 		// load menus page
 		let menusBtn = document.getElementById("menus-btn");
 		menusBtn.addEventListener("click", this.changePage.bind(this, "menus"), false);
+		// next page
+		let homeNextPage = document.getElementById("home-nextPage");
+		let infosPage = document.getElementById("infos-page").offsetTop;
+		homeNextPage.addEventListener("click", this.smoothScroll.bind(this, infosPage, "bottom", 25), false);
+		// back to top
+		let backTop = document.getElementById("backTop");
+		let backTopContainer = Tools.creatElem("div", ["id", "class"], ["backTop-container", "backTop-container displayNone"]);
+		let backTopContent = document.getElementById("backTop-content");
+		let body = document.querySelector("body");
+		backTopContent.classList.add("maxWidth-container");
+		backTopContainer.appendChild(backTopContent);
+		body.appendChild(backTopContainer);
+		backTop.addEventListener("click", this.smoothScroll.bind(this, 0, "top", 25), false);
 	}
 
 	initNavSub(name)
@@ -167,6 +265,7 @@ class Content
 		this.initNavSub("cartes");
 		this.initNavSub("menus");
 		this.initButtons();
+		this.initNavPosition();
 		this.initStyleSheet();
 	}
 }

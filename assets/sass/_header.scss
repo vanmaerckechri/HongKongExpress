@@ -76,36 +76,49 @@ nav
 	{
 		.subMenu-container
 		{
-			border-top: 1px solid $header_titleColor;
-			padding: 0 1rem;
-			width: 100%;
-			position: absolute;
-			left: 0;
-			top: 100%;
-			font-size: 0.7rem;
 			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-between;
-			align-items: center;
-			background-color: $nav_bgColor;
-			z-index: 1;
-			.subMenu-content
-			{
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				& > li
-				{
-					padding: 0.5rem 1.5rem;
-					display: inline-block;
-					a
-					{
-						color: $nav_color;
-						letter-spacing: 0.2rem;
-						text-transform: uppercase;
-					}
-				}
+		}
+	}
+}
+.subMenu-container
+{
+	border-top: 1px solid $header_titleColor;
+	padding: 0 1rem;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 100%;
+	font-size: 0.7rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	background-color: $nav_bgColor;
+	z-index: 1;
+}
+.subMenu-content
+{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	& > li
+	{
+		&:hover
+		{
+			background-color: $nav_color;
+			a
+			{		
+				color: $nav_bgColor;
+
 			}
+		}
+		a
+		{
+			padding: 0.5rem 1.5rem;
+			display: inline-block;
+			color: $nav_color;
+			letter-spacing: 0.2rem;
+			text-transform: uppercase;
 		}
 	}
 }

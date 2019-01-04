@@ -284,7 +284,7 @@ else
 						<div class="home-text">
 							<p class="maxWidth-container">Découvrez des saveurs, des goûts et des plaisirs gourmands chez le spécialiste des plats à emporter. Téléphonez et votre spécialité chinoise sera prête dans la demi-heure.</p>
 						</div>
-						<a class="home-nextPage" href="#infos"><img src="./assets/img/arrow.png" alt="passer à la page suivante"></a>
+						<a id="home-nextPage" class="home-nextPage" href="#infos-page"><img src="./assets/img/arrow.png" alt="passer à la page suivante"></a>
 					</div>
 				</section>
 				<section id="infos-page" class="infos-page">
@@ -319,8 +319,8 @@ else
 				<p>010 24 36 09</p>
 				<a href="https://www.facebook.com/hkexpresswavre" target="_blank" rel="noopener"><img class="facebook" src="./assets/img/facebook.png" alt="le logo facebook"></a>
 			</span>
-			<span class="backHome-container">
-				<a href="#"><img src="./assets/img/arrow.png" alt="remonter en début de page"></a>
+			<span id="backTop-content" class="backTop-content">
+				<a id="backTop" class="backTop" href="#"><img src="./assets/img/arrow.png" alt="remonter en début de page"></a>
 			</span>
 		</div>
     </footer>

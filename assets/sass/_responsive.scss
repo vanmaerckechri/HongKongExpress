@@ -65,7 +65,7 @@
 {
 	.mainMenu
 	{
-		li
+		& > li
 		{
 			padding: 0.5rem;
 		}
@@ -131,11 +131,24 @@
 {
 	.mainMenu
 	{
-		justify-content: center;
+		justify-content: space-around;
 		.search-container
 		{
-			padding-top: 0;
+			order: 1;
+			padding-bottom: 0;
 			width: 100%;
+		}
+		& > li:nth-child(1)
+		{
+			order: 2;
+		}
+		& > li:nth-child(2)
+		{
+			order: 3;
+		}
+		& > li:nth-child(3)
+		{
+			order: 4;
 		}
 	}
 	.main

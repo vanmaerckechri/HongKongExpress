@@ -112,6 +112,9 @@ nav {
       text-transform: uppercase; }
 
 .subMenu-btn:hover .subMenu-container {
+  display: flex; }
+
+.subMenu-container {
   border-top: 1px solid #d9d9c3;
   padding: 0 1rem;
   width: 100%;
@@ -125,17 +128,21 @@ nav {
   align-items: center;
   background-color: #272727;
   z-index: 1; }
-  .subMenu-btn:hover .subMenu-container .subMenu-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; }
-    .subMenu-btn:hover .subMenu-container .subMenu-content > li {
-      padding: 0.5rem 1.5rem;
-      display: inline-block; }
-      .subMenu-btn:hover .subMenu-container .subMenu-content > li a {
-        color: #d9d9c3;
-        letter-spacing: 0.2rem;
-        text-transform: uppercase; }
+
+.subMenu-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .subMenu-content > li:hover {
+    background-color: #d9d9c3; }
+    .subMenu-content > li:hover a {
+      color: #272727; }
+  .subMenu-content > li a {
+    padding: 0.5rem 1.5rem;
+    display: inline-block;
+    color: #d9d9c3;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase; }
 
 .search-container {
   margin-left: auto;
@@ -246,6 +253,7 @@ section > div {
   animation: nextPage 1s ease-in infinite alternate; }
   .home-nextPage img {
     padding: 0.5rem;
+    border: 2px solid #6d141a;
     border-radius: 50%;
     background-color: rgba(217, 217, 195, 0.9); }
 
@@ -350,7 +358,7 @@ footer {
   justify-content: space-between;
   align-items: center; }
 
-.downMenu-container, .contact-container, .backHome-container {
+.downMenu-container, .contact-container, .backTop-container {
   flex: 1; }
 
 .downMenu-container {
@@ -361,11 +369,11 @@ footer {
   justify-content: center;
   align-items: center; }
 
-.backHome-container {
+.backTop-container {
   text-align: right; }
-  .backHome-container a {
+  .backTop-container a {
     display: inline-block; }
-  .backHome-container img {
+  .backTop-container img {
     padding: 0.3rem;
     border-radius: 50%;
     width: 32px;
@@ -374,7 +382,7 @@ footer {
     background-color: rgba(217, 217, 195, 0.9);
     transition: transform 0.1s;
     transform: rotate(-180deg) scale(0.8); }
-    .backHome-container img:hover {
+    .backTop-container img:hover {
       transform: rotate(-180deg) scale(1); }
 
 .facebook {
@@ -434,7 +442,7 @@ footer {
     padding: 1.5rem;
     font-size: 1.1rem; } }
 @media screen and (max-width: 685px) {
-  .mainMenu li {
+  .mainMenu > li {
     padding: 0.5rem; }
 
   .home-content {
@@ -471,10 +479,17 @@ footer {
     font-size: 0.8rem; } }
 @media screen and (max-width: 512px) {
   .mainMenu {
-    justify-content: center; }
+    justify-content: space-around; }
     .mainMenu .search-container {
-      padding-top: 0;
+      order: 1;
+      padding-bottom: 0;
       width: 100%; }
+    .mainMenu > li:nth-child(1) {
+      order: 2; }
+    .mainMenu > li:nth-child(2) {
+      order: 3; }
+    .mainMenu > li:nth-child(3) {
+      order: 4; }
 
   .main h3 {
     margin: 0 auto 0.5rem; }
