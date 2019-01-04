@@ -90,7 +90,9 @@ header {
 
 nav {
   padding: 0 1rem;
+  position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -108,6 +110,32 @@ nav {
       color: #d9d9c3;
       letter-spacing: 0.2rem;
       text-transform: uppercase; }
+
+.subMenu-btn:hover .subMenu-container {
+  border-top: 1px solid #d9d9c3;
+  padding: 0 1rem;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  font-size: 0.7rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #272727;
+  z-index: 1; }
+  .subMenu-btn:hover .subMenu-container .subMenu-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .subMenu-btn:hover .subMenu-container .subMenu-content > li {
+      padding: 0.5rem 1.5rem;
+      display: inline-block; }
+      .subMenu-btn:hover .subMenu-container .subMenu-content > li a {
+        color: #d9d9c3;
+        letter-spacing: 0.2rem;
+        text-transform: uppercase; }
 
 .search-container {
   margin-left: auto;
@@ -267,7 +295,7 @@ section > div {
 
 .menus-container {
   background-image: url("../img/parchemin_dark.jpg"); }
-  .menus-container .row:nth-of-type(2n+1) {
+  .menus-container .row:nth-child(2n+1) {
     background: linear-gradient(to right, transparent, rgba(217, 217, 195, 0.9) 10%, rgba(217, 217, 195, 0.9) 85%, transparent); }
 
 .menus-container .row {

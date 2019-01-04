@@ -21,9 +21,9 @@ if ($search === false)
 {
 	ob_start();
 	?>
-		<ul class="mainMenu maxWidth-container">
-			<li><a href="#cartes">Cartes</a></li>
-			<li><a href="#menus">Menus</a></li>
+		<ul id="mainMenu" class="mainMenu maxWidth-container">
+			<li><a id="cartes-btn" href="#cartes-page">Cartes</a></li>
+			<li><a id="menus-btn" href="#menus-page">Menus</a></li>
 			<li class="search-container">
 				<form action="./index.php#search" method="post">
 					<input type="text" placeholder="chercher" name="search">
@@ -38,10 +38,10 @@ else
 {
 	ob_start();
 	?>
-		<ul class="mainMenu maxWidth-container">
+		<ul id="mainMenu" class="mainMenu maxWidth-container">
 			<li><a href="index.php">Accueil</a></li>
-			<li><a href="?#cartes">Cartes</a></li>
-			<li><a href="?#menus">Menus</a></li>
+			<li><a id="cartes-btn" href="?#cartes-page">Cartes</a></li>
+			<li><a id="menus-btn" href="?#menus-page">Menus</a></li>
 			<li class="search-container">
 				<form action="./index.php#search" method="post">
 					<input type="text" placeholder="chercher" name="search">
@@ -91,7 +91,7 @@ if ($search === false)
 		{
 			$title = $carte->{'titre'};
 		?>
-			<div class="cartes-container">
+			<div id="<?=$carte->{'fichier'}?>" class="cartes-container">
 				<div class="title-container">
 					<div class="titleImg-container">
 						<p><?=$carte->{'titre_chinois'}?></p>
@@ -131,8 +131,10 @@ if ($search === false)
 		{
 			$title = $menu->{'titre'};
 		?>
-			<div class="menus-container">
-				<h3><?=$menu->{'titre'}?></h3>
+			<div id="<?=$menu->{'fichier'}?>" class="menus-container">
+				<div class="title-container">
+					<h3 class="<?=$menu->{'bouton'}?>"><?=$menu->{'titre'}?></h3>
+				</div>
 			<?php
 			if (!empty($menu->{'commentaires'}))
 			{
@@ -276,7 +278,7 @@ else
 			if ($search === false)
 			{
 			?>
-				<section class="home-page">
+				<section id="home-page" class="home-page">
 					<div class="home-content">
 						<img src="./assets/img/home.jpg" alt="bouton de recherche">
 						<div class="home-text">
@@ -285,15 +287,15 @@ else
 						<a class="home-nextPage" href="#infos"><img src="./assets/img/arrow.png" alt="passer à la page suivante"></a>
 					</div>
 				</section>
-				<section id="infos" class="infos-page">
+				<section id="infos-page" class="infos-page">
 					<h2>Informations</h2>
 					<?=$businessHours?>
 					<?=$address?>
 				</section>
-				<section id="cartes" class="cartes-page">
+				<section id="cartes-page" class="cartes-page">
 					<?=$cartesHtml?>
 				</section>
-				<section id="menus" class="menus-page">
+				<section id="menus-page" class="menus-page">
 					<?=$menusHtml?>
 				</section>
 			<?php
@@ -322,5 +324,6 @@ else
 			</span>
 		</div>
     </footer>
+	<script type="text/javascript" src="assets/js/engine.js"></script>
 </body>
 </html>
