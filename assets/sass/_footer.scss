@@ -7,7 +7,7 @@ footer
 	text-align: center;
 	background-color: $bg_main-color_dark;
 }
-.footerContent
+.footer-content
 {
 	padding: 0.2rem 1.5rem;
 	display: flex;
@@ -18,18 +18,22 @@ footer
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		// facebook logo
-		img
+		// phone
+		p
 		{
-			margin-left: 0.5rem;
-			display: block;
-			transition: transform 0.1s;
-			transform: scale(0.8);
-			&:hover
-			{
-				transform: scale(1);
-			}
+			white-space: nowrap;	
 		}
+	}
+}
+.facebook
+{
+	margin: 0 0.5rem;
+	display: block;
+	transition: transform 0.1s;
+	transform: scale(0.8);
+	&:hover
+	{
+		transform: scale(1);
 	}
 }
 .backHome

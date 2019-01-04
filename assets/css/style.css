@@ -121,10 +121,9 @@ nav {
     border: none;
     background-color: #d9d9c3; }
   .search-container button {
-    margin-right: 1.5rem;
     padding: 0;
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
     background-color: transparent;
     transition: transform 0.1s; }
     .search-container button:hover {
@@ -203,9 +202,9 @@ section > div {
   background-color: rgba(39, 39, 39, 0.3);
   transform: translate(-50%, -50%); }
   .home-text p {
-    padding: 1.5rem 2.5rem;
+    padding: 1.5rem 1.5rem;
     text-align: center;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     color: #d9d9c3;
     letter-spacing: 0.1rem;
     text-transform: uppercase;
@@ -306,6 +305,9 @@ section > div {
   font-size: 1.2rem;
   text-transform: uppercase; }
 
+.food-name {
+  margin: 0 1rem; }
+
 footer {
   position: fixed;
   bottom: 0;
@@ -314,22 +316,25 @@ footer {
   text-align: center;
   background-color: #272727; }
 
-.footerContent {
+.footer-content {
   padding: 0.2rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center; }
-  .footerContent span {
+  .footer-content span {
     display: flex;
     justify-content: center;
     align-items: center; }
-    .footerContent span img {
-      margin-left: 0.5rem;
-      display: block;
-      transition: transform 0.1s;
-      transform: scale(0.8); }
-      .footerContent span img:hover {
-        transform: scale(1); }
+    .footer-content span p {
+      white-space: nowrap; }
+
+.facebook {
+  margin: 0 0.5rem;
+  display: block;
+  transition: transform 0.1s;
+  transform: scale(0.8); }
+  .facebook:hover {
+    transform: scale(1); }
 
 .backHome img {
   padding: 0.3rem;
@@ -362,5 +367,109 @@ footer {
 
 .displayNone {
   display: none; }
+
+@media screen and (max-width: 1000px) {
+  .home-text p {
+    font-size: 1.5rem; } }
+@media screen and (max-width: 890px) {
+  .header-title img {
+    width: 96px;
+    height: 96px; }
+  .header-title h1 {
+    margin-left: 2rem;
+    font-size: 2rem;
+    line-height: 3rem; }
+
+  .home-content {
+    height: calc(100vh - 190px - 42px); }
+
+  .home-text p {
+    font-size: 1.25rem; } }
+@media screen and (max-width: 730px) {
+  .header-title h1 {
+    font-size: 1.75rem; }
+  .header-title .header-title_subtitle {
+    font-size: 1.25rem; }
+
+  .home-text p {
+    padding: 1.5rem;
+    font-size: 1.1rem; } }
+@media screen and (max-width: 685px) {
+  .mainMenu li {
+    padding: 0.5rem; }
+
+  .home-content {
+    height: calc(100vh - 190px - 42px); }
+
+  .home-text p {
+    padding: 1rem; } }
+@media screen and (max-width: 640px) {
+  .header-title {
+    margin: 0.5rem; }
+    .header-title img {
+      display: none; }
+    .header-title h1 {
+      margin-left: 0;
+      text-align: center;
+      font-size: 1.5rem; }
+
+  nav {
+    padding: 0 0.5rem; }
+
+  .home-content {
+    height: calc(100vh - 171px - 42px); }
+
+  .home-text p {
+    padding: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.8rem; }
+
+  .horaires-container {
+    padding: 4rem 1rem; }
+
+  .footer-content {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem; } }
+@media screen and (max-width: 512px) {
+  .mainMenu {
+    justify-content: center; }
+    .mainMenu .search-container {
+      padding-top: 0;
+      width: 100%; }
+
+  .main h3 {
+    margin: 0 auto 0.5rem; }
+    .main h3:before, .main h3:after {
+      display: none; }
+
+  .home-content {
+    height: calc(100vh - 204px - 42px); }
+
+  .titleImg-container {
+    margin: 0 auto 1.5rem; }
+
+  .horaires-container, .cartes-container, .menus-container {
+    padding: 2rem 0; }
+
+  .horaires-container .row:nth-child(2n) {
+    background: rgba(217, 217, 195, 0.9); }
+
+  .address-container {
+    padding: 2rem 0.5rem; }
+
+  .cartes-container .row:nth-of-type(2n) {
+    background: rgba(207, 207, 187, 0.9); }
+
+  .menus-container .row:nth-of-type(2n+1) {
+    background: rgba(217, 217, 195, 0.9); }
+
+  .row {
+    padding: 0.75rem 2rem; } }
+@media screen and (max-width: 418px) {
+  .header-title h1 {
+    line-height: 2rem; }
+
+  .row {
+    padding: 0.75rem 1rem; } }
 
 /*# sourceMappingURL=style.css.map */

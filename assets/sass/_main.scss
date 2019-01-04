@@ -96,9 +96,9 @@ section
 	transform: translate(-50%, -50%);
 	p
 	{
-		padding: 1.5rem 2.5rem;
+		padding: 1.5rem 1.5rem;
 		text-align: center;
-		font-size: 1.75rem;
+		font-size: 1.5rem;
 		color: $textOnImg-color;
 		letter-spacing: 0.1rem;
 		text-transform: uppercase;
@@ -246,4 +246,8 @@ section
 	text-align: center;
 	font-size: 1.2rem;
 	text-transform: uppercase;
+}
+.food-name
+{
+	margin: 0 1rem;
 }
