@@ -74,19 +74,19 @@ class Content
 				main.style = "";
 			}
 		}
-		let backTopContainer = document.getElementById("backTop-container");
-		if (backTopContainer.classList.contains("displayNone"))
+		let backTopBtn = document.getElementById("backTop");
+		if (backTopBtn.classList.contains("displayNone"))
 		{
 			if (window.pageYOffset >= screen.height)
 			{
-				backTopContainer.classList.remove("displayNone");
+				backTopBtn.classList.remove("displayNone");
 			}
 		}
 		else
 		{
 			if (window.pageYOffset < screen.height)
 			{
-				backTopContainer.classList.add("displayNone");		
+				backTopBtn.classList.add("displayNone");		
 			}
 		}
 	}
@@ -198,13 +198,23 @@ class Content
 		homeNextPage.addEventListener("click", this.smoothScroll.bind(this, infosPage, "bottom", 25), false);
 		// back to top
 		let backTop = document.getElementById("backTop");
-		let backTopContainer = Tools.creatElem("div", ["id", "class"], ["backTop-container", "backTop-container displayNone"]);
-		let backTopContent = document.getElementById("backTop-content");
-		let body = document.querySelector("body");
-		backTopContent.classList.add("maxWidth-container");
-		backTopContainer.appendChild(backTopContent);
-		body.appendChild(backTopContainer);
 		backTop.addEventListener("click", this.smoothScroll.bind(this, 0, "top", 25), false);
+	}
+
+	initFixedBottomBar()
+	{
+		let main = document.getElementById("main");
+		let phone = document.getElementById("phone");
+		let bottomBarContainer = Tools.creatElem("div", ["id", "class"], ["bottomBar-container", "bottomBar-container"]);
+		document.getElementById("backTop").classList.add("displayNone");
+
+		let bottomBarContent = document.getElementById("backTop-container");
+		bottomBarContent.id = "";
+		bottomBarContent.className = "bottomBar-content maxWidth-container";
+
+		bottomBarContent.insertBefore(phone, bottomBarContent.firstChild);
+		bottomBarContainer.appendChild(bottomBarContent);
+		main.appendChild(bottomBarContainer);
 	}
 
 	initNavSub(name)
@@ -264,6 +274,7 @@ class Content
 		this.initHomeNav();
 		this.initNavSub("cartes");
 		this.initNavSub("menus");
+		this.initFixedBottomBar()
 		this.initButtons();
 		this.initNavPosition();
 		this.initStyleSheet();

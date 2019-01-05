@@ -43,7 +43,7 @@
 			right: calc(100% + 10px);
 		}
 	}
-	span, p, li
+	p, li
 	{
 		font-size: 1rem;
 		color: $text_main-color_dark;
@@ -84,6 +84,8 @@ section
 		height: 100%;
 		object-fit: cover;
 		opacity: 0.9;
+		pointer-events: none;
+		user-select: none;
 	}
 }
 .home-text

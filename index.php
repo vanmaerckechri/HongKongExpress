@@ -316,10 +316,10 @@ else
     			<a href="./assets/pdf/hongkongexpress_wavre2017.pdf" target="_blank" rel="noopener">télécharger le menu</a>
     		</span>
     		<span class="contact-container">
-				<p>010 24 36 09</p>
+				<p id="phone" class="phone">010 24 36 09</p>
 				<a href="https://www.facebook.com/hkexpresswavre" target="_blank" rel="noopener"><img class="facebook" src="./assets/img/facebook.png" alt="le logo facebook"></a>
 			</span>
-			<span id="backTop-content" class="backTop-content">
+			<span id="backTop-container" class="backTop-container">
 				<a id="backTop" class="backTop" href="#"><img src="./assets/img/arrow.png" alt="remonter en début de page"></a>
 			</span>
 		</div>
