@@ -33,7 +33,6 @@ class Tools
 		// by parentClassName
 		else
 		{
-			console.log("1")
 			while(!parent.classList.contains(parentFocus))
 			{
 				parent = parent.parentNode;
@@ -54,7 +53,7 @@ class Content
 		this.init()
 	}
 
-	displaySearch(searchTitle, containers, carteRows, menus)
+	displaySearch(searchTitle, containers, carteRows, menus, event)
 	{
 		let search = document.getElementById("search");
 		search.innerHTML = "";
@@ -96,10 +95,19 @@ class Content
 		{
 			domElem = menus[i].cloneNode(true);
 			search.appendChild(domElem);
-		}		
+		}
+
+		// delete all img title
+		let titlesImg = search.querySelectorAll(".titleImg-container");
+		for (let i = titlesImg.length - 1; i >= 0; i--)
+		{
+			titlesImg[i].remove();
+		}
+		
 
 		this.hideElements("section");
 		search.classList.remove("displayNone");
+		this.smoothScroll(0, "top", 25);
 	}
 
 	launchSearch(that, event)
@@ -180,9 +188,12 @@ class Content
 		}
 	}
 
-	smoothScroll(destination, direction, speed, event)
+	smoothScroll(destination, direction, speed, event = false)
 	{
- 		event.preventDefault();
+		if (event !== false)
+		{
+ 			event.preventDefault();
+		}
 
 		let distance = window.pageYOffset;
 		let tempo = setInterval(function()
@@ -294,7 +305,7 @@ class Content
 			}
 		}
 
-		this.smoothScroll(0, "top", 25, event);
+		this.smoothScroll(0, "top", 25);
 	}
 
 	changeSubPage(page, subPage, event)
@@ -320,7 +331,7 @@ class Content
 			}, 1000)
 		}
 
-		this.smoothScroll(0, "top", 25, event)
+		this.smoothScroll(0, "top", 25)
 	}
 
 	initStyleSheet()
