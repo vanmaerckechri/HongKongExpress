@@ -131,7 +131,7 @@ class Content
 		}
 
 		let searchWord = document.getElementById("search-input").value;
-		let searchWordClean = searchWord.toLowerCase()
+		let searchWordClean = searchWord.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
 		if (searchWordClean != "")
 		{
 			let form = document.getElementById("search-form");
@@ -152,7 +152,7 @@ class Content
 				for (let j = 0, length = titles.length; j < length; j ++)
 				{
 					let divContent = titles[j].textContent;
-					if (divContent.toLowerCase().indexOf(searchWordClean) !== -1)
+					if (divContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").indexOf(searchWordClean) !== -1)
 					{
 						let parent = Tools.foundParent(titles[j], searchContainers[i] + "-container", "className");
 
@@ -164,7 +164,7 @@ class Content
 				for (let j = 0, length = rows.length; j < length; j ++)
 				{
 					let divContent = rows[j].textContent;
-					if (divContent.toLowerCase().indexOf(searchWordClean) !== -1)
+					if (divContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").indexOf(searchWordClean) !== -1)
 					{
 						let parent = Tools.foundParent(rows[j], searchContainers[i] + "-container", "className");
 						let title = parent.querySelector("h3").textContent;
@@ -321,6 +321,8 @@ class Content
 		page.classList.remove("displayNone");
 		subPage.classList.remove("displayNone");
 
+		// only for mobile ?
+		/*
 		let subMenuContainer = document.querySelectorAll(".subMenu-container");
 		for (let i = subMenuContainer.length - 1; i >= 0; i--)
 		{
@@ -330,6 +332,7 @@ class Content
 				subMenuContainer[i].style = "";
 			}, 1000)
 		}
+		*/
 
 		this.smoothScroll(0, "top", 25)
 	}
