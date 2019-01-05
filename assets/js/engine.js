@@ -13,6 +13,38 @@ class Tools
 		}
 		return element;
 	}
+
+	static foundParent(child, parentFocus, by = "default")
+	{
+		let body = document.querySelector("body");
+		let parent = child.parentNode;
+
+		if (by == "default")
+		{
+			while(parent != parentFocus)
+			{
+				parent = parent.parentNode;
+				if (parent === body)
+				{
+					return false;
+				}
+			}
+		}
+		// by parentClassName
+		else
+		{
+			console.log("1")
+			while(!parent.classList.contains(parentFocus))
+			{
+				parent = parent.parentNode;
+				if (parent === body)
+				{
+					return false;
+				}
+			}
+		}
+		return parent;
+	}
 }
 
 class Content 
@@ -20,6 +52,132 @@ class Content
 	constructor() 
 	{
 		this.init()
+	}
+
+	displaySearch(searchTitle, containers, carteRows, menus)
+	{
+		let search = document.getElementById("search");
+		search.innerHTML = "";
+		let domElem;
+		let title = Tools.creatElem("h2");
+		title.textContent = 'Recherche: "' + searchTitle + '"';
+		search.appendChild(title);
+
+		// cartes and menus by containers
+		for (let i = 0, length = containers.length; i < length; i ++)
+		{
+			domElem = containers[i].cloneNode(true);
+			search.appendChild(domElem);
+		}
+
+		// cartes by rows
+		for (let subTitleName in carteRows)
+		{
+			let rowsContainers = Tools.creatElem("div", ["class"], ["cartes-container"]);
+			let subtitleContainer = Tools.creatElem("div", ["class"], ["title-container"]);
+			let subtitle = Tools.creatElem("h3");
+			subtitle.textContent = subTitleName;
+
+			subtitleContainer.appendChild(subtitle);
+			rowsContainers.appendChild(subtitleContainer);
+
+			let dish = carteRows[subTitleName];
+
+			for (let i = 0, length = dish.length; i < length; i ++)
+			{
+				domElem = dish[i].cloneNode(true);
+				rowsContainers.appendChild(domElem);
+			}
+			search.appendChild(rowsContainers);
+		}
+
+		// menus by rows
+		for (let i = 0, length = menus.length; i < length; i ++)
+		{
+			domElem = menus[i].cloneNode(true);
+			search.appendChild(domElem);
+		}		
+
+		this.hideElements("section");
+		search.classList.remove("displayNone");
+	}
+
+	launchSearch(that, event)
+	{
+		event.preventDefault();
+
+		let cleanRows = function(childArray, parent)
+		{
+			let newArray = [];
+			let isChild;
+
+			for (let i = childArray.length - 1; i >= 0; i--)
+			{
+				isChild = Tools.foundParent(childArray[i], parent);
+				if (isChild === false)
+				{
+					newArray.push(childArray[i]);
+				}
+			}
+			return newArray;
+		}
+
+		let searchWord = document.getElementById("search-input").value;
+		let searchWordClean = searchWord.toLowerCase()
+		if (searchWordClean != "")
+		{
+			let form = document.getElementById("search-form");
+
+			// search in cartes and menus
+			let searchContainers = ["cartes", "menus"];
+			let selectedContainer = [];
+			let selectedRows = {};
+			let selectedMenus = [];
+
+			for (let i = 0, ctnLength = searchContainers.length; i < ctnLength; i++)
+			{
+				let container = document.getElementById(searchContainers[i] + "-page");
+				let titles = container.querySelectorAll("h3");
+				let rows = container.querySelectorAll(".row");
+
+				// title
+				for (let j = 0, length = titles.length; j < length; j ++)
+				{
+					let divContent = titles[j].textContent;
+					if (divContent.toLowerCase().indexOf(searchWordClean) !== -1)
+					{
+						let parent = Tools.foundParent(titles[j], searchContainers[i] + "-container", "className");
+
+						selectedContainer.push(parent);
+						rows = cleanRows(rows, parent);
+					}
+				}
+				// rows
+				for (let j = 0, length = rows.length; j < length; j ++)
+				{
+					let divContent = rows[j].textContent;
+					if (divContent.toLowerCase().indexOf(searchWordClean) !== -1)
+					{
+						let parent = Tools.foundParent(rows[j], searchContainers[i] + "-container", "className");
+						let title = parent.querySelector("h3").textContent;
+
+						// cartes
+						if (searchContainers[i] == "cartes")
+						{
+							selectedRows[title] = typeof selectedRows[title] == "undefined" ? [] : selectedRows[title];
+							selectedRows[title].push(rows[j]);
+						}
+						// menus
+						else
+						{
+							selectedMenus.push(parent);
+						}
+					}
+				}
+			}
+
+			that.displaySearch(searchWord, selectedContainer, selectedRows, selectedMenus);
+		}
 	}
 
 	smoothScroll(destination, direction, speed, event)
@@ -183,6 +341,7 @@ class Content
 
 	initButtons()
 	{
+		let that = this;
 		// load infos page
 		let infosBtn = document.getElementById("infos-btn");
 		infosBtn.addEventListener("click", this.changePage.bind(this, ["home", "infos"]), false);
@@ -199,6 +358,9 @@ class Content
 		// back to top
 		let backTop = document.getElementById("backTop");
 		backTop.addEventListener("click", this.smoothScroll.bind(this, 0, "top", 25), false);
+		// search
+		let searchBtn = document.getElementById("search-btn");
+		searchBtn.addEventListener("click", this.launchSearch.bind(this, that), false);
 	}
 
 	initFixedBottomBar()
@@ -254,6 +416,7 @@ class Content
 
 	initPages()
 	{
+		let main = document.getElementById("main");
 		let sections = document.querySelectorAll("section");
 		for (let i = sections.length - 1; i >= 0; i--)
 		{
@@ -266,6 +429,9 @@ class Content
 				sections[i].classList.add("displayNone");
 			}
 		}
+		// add search section
+		let searchSection = Tools.creatElem("section", ["id", "class"], ["search", "searchResult-page displayNone"]);
+		main.appendChild(searchSection);
 	}
 
 	init()

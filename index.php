@@ -25,9 +25,9 @@ if ($search === false)
 			<li><a id="cartes-btn" href="#cartes-page">Cartes</a></li>
 			<li><a id="menus-btn" href="#menus-page">Menus</a></li>
 			<li class="search-container">
-				<form action="./index.php#search" method="post">
-					<input type="text" placeholder="chercher" name="search">
-					<button type="submit"><img src="./assets/img/search.png" alt="bouton de recherche"></button>
+				<form id="search-form" action="./index.php#search" method="post">
+					<input id="search-input" type="text" placeholder="chercher" name="search">
+					<button id="search-btn" type="submit"><img src="./assets/img/search.png" alt="bouton de recherche"></button>
 				</form>
 			</li>
 		</ul>
@@ -43,9 +43,9 @@ else
 			<li><a id="cartes-btn" href="?#cartes-page">Cartes</a></li>
 			<li><a id="menus-btn" href="?#menus-page">Menus</a></li>
 			<li class="search-container">
-				<form action="./index.php#search" method="post">
-					<input type="text" placeholder="chercher" name="search">
-					<button type="submit"><img src="./assets/img/search.png" alt="bouton de recherche"></button>
+				<form id="search-form" action="./index.php#search" method="post">
+					<input id="search-input" type="text" placeholder="chercher" name="search">
+					<button id="search-btn" type="submit"><img src="./assets/img/search.png" alt="bouton de recherche"></button>
 				</form>
 			</li>
 		</ul>
