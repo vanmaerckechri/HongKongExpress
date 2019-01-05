@@ -24,6 +24,16 @@ section > div
 .searchResult-page
 {
 	background-image: url("../img/parchemin.jpg");
+	.horaires-container
+	{
+		.row
+		{
+			&:nth-of-type(2n+1)
+			{
+				background: linear-gradient(to right, transparent, $row-color_middle 10%, $row-color_middle 85%, transparent);
+			}
+		}
+	}
 }
 footer
 {

@@ -56,7 +56,7 @@ else
 // business hours
 ob_start();
 ?>
-	<div class="horaires-container">
+	<div id="horaires-container" class="horaires-container">
 		<h3 class="underline">Heures d'Ouverture</h3>
 		<div class="row"><span>lundi</span><span>fermé</span></div>
 		<div class="row"><span>mardi</span><span>17h30 - 22h00</span></div>
@@ -72,7 +72,7 @@ $businessHours = ob_get_clean();
 // address
 ob_start();
 ?>
-	<div class="address-container">
+	<div id="address-container" class="address-container">
 		<h3 class="underline">Adresse</h3>
 		<p class="address">Tous les Bonheurs s.p.r.l.<span>35, Rue du Chemin de Fer</span><span>1300 - Wavre</span></p>
 		<iframe class="gg-map maxWidth-container" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2526.159454428737!2d4.604909016072692!3d50.71698087951304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c17d742238c921%3A0x756c634b25a21eea!2sTous+les+bonheurs!5e0!3m2!1sfr!2sbe!4v1545940317894" allowfullscreen></iframe>

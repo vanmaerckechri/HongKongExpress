@@ -137,48 +137,70 @@ class Content
 			let form = document.getElementById("search-form");
 
 			// search in cartes and menus
-			let searchContainers = ["cartes", "menus"];
+			let searchContainers = ["horaires", "address", "cartes", "menus"];
 			let selectedContainer = [];
 			let selectedRows = {};
 			let selectedMenus = [];
 
 			for (let i = 0, ctnLength = searchContainers.length; i < ctnLength; i++)
 			{
-				let container = document.getElementById(searchContainers[i] + "-page");
-				let titles = container.querySelectorAll("h3");
-				let rows = container.querySelectorAll(".row");
-
-				// title
-				for (let j = 0, length = titles.length; j < length; j ++)
+				// home page
+				if (searchContainers[i] == "horaires")
 				{
-					let divContent = titles[j].textContent;
-					if (divContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").indexOf(searchWordClean) !== -1)
+					let parent = document.getElementById(searchContainers[i] + "-container");
+					let parentContent = parent.textContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+					if (parentContent.indexOf(searchWordClean) !== -1 || searchWordClean.indexOf("horair") !== -1)
 					{
-						let parent = Tools.foundParent(titles[j], searchContainers[i] + "-container", "className");
-
 						selectedContainer.push(parent);
-						rows = cleanRows(rows, parent);
 					}
 				}
-				// rows
-				for (let j = 0, length = rows.length; j < length; j ++)
+				else if (searchContainers[i] == "address")
 				{
-					let divContent = rows[j].textContent;
-					if (divContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").indexOf(searchWordClean) !== -1)
+					let parent = document.getElementById(searchContainers[i] + "-container");
+					let parentContent = parent.textContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+					if (parentContent.indexOf(searchWordClean) !== -1 || searchWordClean.indexOf("itinerair") !== -1 ||searchWordClean.indexOf("rout") !== -1 || searchWordClean.indexOf("acce") !== -1)
 					{
-						let parent = Tools.foundParent(rows[j], searchContainers[i] + "-container", "className");
-						let title = parent.querySelector("h3").textContent;
+						selectedContainer.push(parent);
+					}
+				}
+				// only for cartes and menus
+				else
+				{
+					let container = document.getElementById(searchContainers[i] + "-page");
+					let titles = container.querySelectorAll("h3");
+					let rows = container.querySelectorAll(".row");
+					// title
+					for (let j = 0, length = titles.length; j < length; j ++)
+					{
+						let divContent = titles[j].textContent;
+						if (divContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").indexOf(searchWordClean) !== -1)
+						{
+							let parent = Tools.foundParent(titles[j], searchContainers[i] + "-container", "className");
 
-						// cartes
-						if (searchContainers[i] == "cartes")
-						{
-							selectedRows[title] = typeof selectedRows[title] == "undefined" ? [] : selectedRows[title];
-							selectedRows[title].push(rows[j]);
+							selectedContainer.push(parent);
+							rows = cleanRows(rows, parent);
 						}
-						// menus
-						else
+					}
+					// rows
+					for (let j = 0, length = rows.length; j < length; j ++)
+					{
+						let divContent = rows[j].textContent;
+						if (divContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").indexOf(searchWordClean) !== -1)
 						{
-							selectedMenus.push(parent);
+							let parent = Tools.foundParent(rows[j], searchContainers[i] + "-container", "className");
+							let title = parent.querySelector("h3").textContent;
+
+							// cartes
+							if (searchContainers[i] == "cartes")
+							{
+								selectedRows[title] = typeof selectedRows[title] == "undefined" ? [] : selectedRows[title];
+								selectedRows[title].push(rows[j]);
+							}
+							// menus
+							else
+							{
+								selectedMenus.push(parent);
+							}
 						}
 					}
 				}
