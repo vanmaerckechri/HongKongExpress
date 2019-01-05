@@ -107,7 +107,7 @@ class Content
 
 		this.hideElements("section");
 		search.classList.remove("displayNone");
-		this.smoothScroll(0, "top", 25);
+		this.smoothScroll(0, "top", 100);
 	}
 
 	launchSearch(that, event)
@@ -305,7 +305,7 @@ class Content
 			}
 		}
 
-		this.smoothScroll(0, "top", 25);
+		this.smoothScroll(0, "top", 100);
 	}
 
 	changeSubPage(page, subPage, event)
@@ -334,7 +334,7 @@ class Content
 		}
 		*/
 
-		this.smoothScroll(0, "top", 25)
+		this.smoothScroll(0, "top", 100);
 	}
 
 	initStyleSheet()
@@ -371,7 +371,7 @@ class Content
 		homeNextPage.addEventListener("click", this.smoothScroll.bind(this, infosPage, "bottom", 25), false);
 		// back to top
 		let backTop = document.getElementById("backTop");
-		backTop.addEventListener("click", this.smoothScroll.bind(this, 0, "top", 25), false);
+		backTop.addEventListener("click", this.smoothScroll.bind(this, 0, "top", 100), false);
 		// search
 		let searchBtn = document.getElementById("search-btn");
 		searchBtn.addEventListener("click", this.launchSearch.bind(this, that), false);
