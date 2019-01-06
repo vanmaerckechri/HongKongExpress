@@ -241,9 +241,10 @@ class Content
 			if (direction == "bottom")
 			{
 				distance += speed;
-				if (destination <= distance)
+				let destTop = destination.offsetTop - document.getElementById("mainMenu").offsetHeight;
+				if (destTop <= distance)
 				{
-					window.scrollTo(0, destination)
+					window.scrollTo(0, destTop)
 					clearInterval(tempo);
 				}		
 			}
@@ -471,8 +472,8 @@ class Content
 		menusBtn.addEventListener("click", this.changePage.bind(this, "menus"), false);
 		// next page
 		let homeNextPage = document.getElementById("home-nextPage");
-		let infosPage = document.getElementById("infos-page").offsetTop;
-		homeNextPage.addEventListener("click", this.smoothScroll.bind(this, infosPage, "bottom", 25), false);
+		let page = document.getElementById("infos-page");
+		homeNextPage.addEventListener("click", this.smoothScroll.bind(this, page, "bottom", 25), false);
 		// back to top
 		let backTop = document.getElementById("backTop");
 		backTop.addEventListener("click", this.smoothScroll.bind(this, 0, "top", 100), false);
