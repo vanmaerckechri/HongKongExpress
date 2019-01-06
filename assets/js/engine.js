@@ -44,6 +44,19 @@ class Tools
 		}
 		return parent;
 	}
+
+	static is_touch_device()
+	{  
+		try
+		{  
+			document.createEvent("TouchEvent");  
+			return true;  
+		} 
+		catch(e)
+		{  
+			return false;  
+		}  
+	}
 }
 
 class Content 
@@ -306,10 +319,39 @@ class Content
 		}		
 	}
 
+	closeSubMenus()
+	{
+		let subMenus = document.querySelectorAll(".subMenu-container");
+		for (let i = subMenus.length - 1; i >= 0; i--)
+		{
+			if (subMenus[i].classList.contains("subMenu-open"))
+			{
+				subMenus[i].classList.remove("subMenu-open");
+			}
+		}
+	}
+
+	toggleSubMenu(btn, event)
+	{
+		event.preventDefault();
+
+		let subMenu = document.querySelector("nav .subMenu-container");
+
+		if (!subMenu.classList.contains("subMenu-open"))
+		{
+			subMenu.classList.add("subMenu-open");
+		}
+		else
+		{
+			subMenu.classList.remove("subMenu-open");
+		}
+	}
+
 	changePage(pageName, event)
 	{
 		event.preventDefault();
 
+		this.closeSubMenus();
 		this.hideElements("section");
 
 		if (!Array.isArray(pageName))
@@ -334,6 +376,7 @@ class Content
 	{
 		event.preventDefault();
 
+		this.closeSubMenus();
 		this.hideElements("section");
 		this.hideElements("." + page + "-container");
 
@@ -342,19 +385,6 @@ class Content
 
 		page.classList.remove("displayNone");
 		subPage.classList.remove("displayNone");
-
-		// only for mobile ?
-		/*
-		let subMenuContainer = document.querySelectorAll(".subMenu-container");
-		for (let i = subMenuContainer.length - 1; i >= 0; i--)
-		{
-			subMenuContainer[i].style.display = "none";
-			setTimeout(function()
-			{
-				subMenuContainer[i].style = "";
-			}, 1000)
-		}
-		*/
 
 		this.smoothScroll(0, "top", 100);
 	}
@@ -381,9 +411,6 @@ class Content
 		// load infos page
 		let infosBtn = document.getElementById("infos-btn");
 		infosBtn.addEventListener("click", this.changePage.bind(this, ["home", "infos"]), false);
-		// load cartes page
-		let cartesBtn = document.getElementById("cartes-btn");
-		cartesBtn.addEventListener("click", this.changePage.bind(this, "cartes"), false);
 		// load menus page
 		let menusBtn = document.getElementById("menus-btn");
 		menusBtn.addEventListener("click", this.changePage.bind(this, "menus"), false);
@@ -417,12 +444,26 @@ class Content
 
 	initNavSub(name)
 	{
-		let btn = document.querySelector("#" + name + "-btn").parentNode;
+		let btn = document.querySelector("#" + name + "-btn");
+		let nav = document.querySelector("nav");
+		btn.addEventListener("click", this.toggleSubMenu.bind(this, btn), false);
+
 		let ids = document.querySelectorAll("." + name + "-container")
 		let titles = document.querySelectorAll("." + name + "-page .title-container h3")
 
-		let navSubContainer = Tools.creatElem("div", ["class"], ["subMenu-container displayNone"]);
+		let navSubContainer = Tools.creatElem("div", ["class"], ["subMenu-container"]);
 		let navSubContent = Tools.creatElem("ul", ["class"], ["subMenu-content maxWidth-container"]);
+
+		// build "load all cat" btn
+		let btnRow = Tools.creatElem("li", [], []);
+		let btnLink = Tools.creatElem("a", ["id", "href"], [name + "All" + "-btn", "#"]);
+		btnLink.textContent = "toutes";
+		btnRow.appendChild(btnLink);
+		navSubContent.appendChild(btnRow);
+
+		btnLink.addEventListener("click", this.changePage.bind(this, "cartes"), false);
+
+		// build cartes btn by cat
 		for (let i = 0, length = titles.length; i < length; i++)
 		{
 			let title = titles[i].className ? titles[i].className : titles[i].textContent;
@@ -434,14 +475,15 @@ class Content
 			btnLink.addEventListener("click", this.changeSubPage.bind(this, name, ids[i].id), false);
 		}
 		navSubContainer.appendChild(navSubContent);
-		btn.appendChild(navSubContainer);
+		nav.appendChild(navSubContainer);
 		btn.classList.add("subMenu-btn");
 	}
 
-	initHomeNav()
+	initNav()
 	{
 		let mainMenu = document.getElementById("mainMenu");
 
+		// add info nav
 		let homeBtnRow = Tools.creatElem("li", [], []);
 		let homeBtnLink = Tools.creatElem("a", ["id", "href"], ["infos-btn", "#"]);
 		homeBtnLink.textContent = "Infos";
@@ -473,9 +515,8 @@ class Content
 	init()
 	{
 		this.initPages();
-		this.initHomeNav();
+		this.initNav();
 		this.initNavSub("cartes");
-		this.initNavSub("menus");
 		this.initFixedBottomBar()
 		this.initButtons();
 		this.initNavPosition();

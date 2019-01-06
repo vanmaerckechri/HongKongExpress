@@ -1,3 +1,15 @@
+// Common =>
+section > div
+{
+	box-shadow: none;
+}
+// Events =>
+.subMenu-open
+{
+	border-top: 1px solid $header_titleColor;
+	max-height: 38px!important;
+}
+// Main Menu =>
 .mainMenu-fixed
 {
 	position: fixed;
@@ -5,22 +17,46 @@
 	top: 0;
 	z-index: 1;
 }
+.subMenu-container
+{
+	max-height: 0;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	background-color: $nav_bgColor;
+	overflow: hidden;
+	transition: max-height 0.2s;
+	li
+	{
+		a
+		{
+			font-size: 0.7rem;
+			letter-spacing: 0.1rem;
+		}
+	}
+}
+.subMenu-content
+{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+// Home Page =>
 .infos-page, .menus-container
 { 
-	background-image: url("../img/parchemin_light.jpg");
+	background-image: url("../img/parchemin.jpg");
 }
 .infos-page .row:nth-of-type(2n+1), .menus-container .row:nth-of-type(2n)
 {
 	background: linear-gradient(to right, transparent, $bg_main-color_middle 10%, $bg_main-color_middle 85%, transparent);
 }
-section > div
-{
-	box-shadow: none;
-}
 .home-content
 {
-	height: calc(100vh - 226px);
+	height: calc(100vh - 216px);
 }
+// Search Page =>
 .searchResult-page
 {
 	background-image: url("../img/parchemin.jpg");
@@ -35,6 +71,7 @@ section > div
 		}
 	}
 }
+// Footer =>
 footer
 {
 	position: static;
@@ -78,40 +115,79 @@ footer
 	color: $text_main-color_light;
 	background-color: $section-titleColor;
 }
-
-@media screen and (max-width: 1024px)
-{
-	.subMenu-content > li a
-	{
-		padding: 0.5rem 1rem;
-	}
-}
-
+// Responsive =>
 @media screen and (max-width: 890px)
 {
-	.subMenu-content > li a
+	nav
 	{
-		letter-spacing: normal;
+		li
+		{
+			a
+			{
+				padding: 0.2rem 0.8rem;
+			}
+		}
 	}
 	.home-content
 	{
-		height: calc(100vh - 190px);
+		height: calc(100vh - 179px);
+	}
+}
+
+@media screen and (max-width: 800px)
+{
+	.subMenu-content
+	{
+		li
+		{
+			a
+			{
+				letter-spacing: normal;
+			}
+		}
 	}
 }
 
 @media screen and (max-width: 685px)
 {
-	.subMenu-container
-	{
-		padding: 0 0.5rem;
-	}
-	.subMenu-content > li a
-	{
-		padding: 0.5rem;
-	}
 	.home-content
 	{
 		height: calc(100vh - 190px);
+	}
+	.bottomBar-content
+	{
+		padding: 0 0.5rem;
+	}
+}
+
+@media screen and (max-width: 670px)
+{
+	.subMenu-open
+	{
+		max-height: 500px!important;
+	}
+	.subMenu-content
+	{
+		flex-direction: column;
+	}
+	.subMenu-content li
+	{
+		width: 100%;
+		&:first-child
+		{
+		}
+		&:last-child
+		{
+			margin-bottom: 0.5rem;
+		}
+	}
+	.subMenu-content li a
+	{
+		padding: 0.5rem;
+		text-align: center;
+		width: 100%;
+		letter-spacing: 0.1rem;
+		font-size: 0.9rem;
 	}
 }
 
@@ -121,35 +197,32 @@ footer
 	{
 		height: calc(100vh - 171px);
 	}
-	.bottomBar-content
-	{
-		padding: 0 0.5rem;
-	}
 }
 
 @media screen and (max-width: 512px)
 {
-	.subMenu-container
+	.mainMenu
 	{
-		padding: 0;
-	}
-	.subMenu-content
-	{
-		flex-direction: column;
-	}
-	.subMenu-content li
-	{
-		width: 100%;
-	}
-	.subMenu-content li a
-	{
-		padding: 0.5rem;
-		text-align: center;
-		width: 100%;
+		.search-container
+		{
+			order: 1;
+		}
+		& > li:nth-child(1)
+		{
+			order: 2;
+		}
+		& > li:nth-child(2)
+		{
+			order: 3;
+		}
+		& > li:nth-child(3)
+		{
+			order: 4;
+		}
 	}
 	.home-content
 	{
-		height: calc(100vh - 204px);
+		height: calc(100vh - 213px);
 	}
 	.infos-page .row:nth-of-type(2n+1), .menus-container .row:nth-of-type(2n)
 	{

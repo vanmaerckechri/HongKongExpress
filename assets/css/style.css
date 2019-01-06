@@ -146,6 +146,18 @@ nav {
           align-items: center;
   width: 100%;
   background-color: #272727; }
+  nav li a {
+    display: inline-block;
+    padding: 0.2rem 1rem;
+    color: #d9d9c3;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase; }
+  nav li:hover {
+    background-color: #d9d9c3; }
+    nav li:hover a {
+      color: #272727; }
+  nav .search-container:hover {
+    background-color: transparent; }
 
 .mainMenu {
   display: -webkit-box;
@@ -159,65 +171,10 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center; }
-  .mainMenu > li {
-    padding: 0.5rem 1.5rem;
-    display: inline-block; }
-    .mainMenu > li a {
-      color: #d9d9c3;
-      letter-spacing: 0.2rem;
-      text-transform: uppercase; }
-
-.subMenu-btn:hover .subMenu-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex; }
-
-.subMenu-container {
-  border-top: 1px solid #d9d9c3;
-  padding: 0 1rem;
-  width: 100%;
-  position: absolute;
-  left: 0;
-  top: 100%;
-  font-size: 0.7rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-color: #272727;
-  z-index: 1; }
-
-.subMenu-content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center; }
-  .subMenu-content > li:hover {
-    background-color: #d9d9c3; }
-    .subMenu-content > li:hover a {
-      color: #272727; }
-  .subMenu-content > li a {
-    padding: 0.5rem 1.5rem;
-    display: inline-block;
-    color: #d9d9c3;
-    letter-spacing: 0.2rem;
-    text-transform: uppercase; }
 
 .search-container {
   margin-left: auto;
-  padding: 0; }
+  padding: 0 1rem 0; }
   .search-container form {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -320,7 +277,7 @@ section > div {
 
 .home-content {
   position: relative;
-  height: calc(100vh - 226px - 42px); }
+  height: calc(100vh - 216px - 42px); }
   .home-content img {
     width: 100%;
     height: 100%;
@@ -579,7 +536,7 @@ footer {
             transform: translateY(-50%); }
 
 .displayNone {
-  display: none; }
+  display: none !important; }
 
 @media screen and (max-width: 1000px) {
   .home-text p {
@@ -594,7 +551,7 @@ footer {
     line-height: 3rem; }
 
   .home-content {
-    height: calc(100vh - 190px - 42px); }
+    height: calc(100vh - 180px - 42px); }
 
   .home-text p {
     font-size: 1.25rem; } }
@@ -608,9 +565,6 @@ footer {
     padding: 1.5rem;
     font-size: 1.1rem; } }
 @media screen and (max-width: 685px) {
-  .mainMenu > li {
-    padding: 0.5rem; }
-
   .home-content {
     height: calc(100vh - 190px - 42px); }
 
@@ -647,12 +601,6 @@ footer {
   .mainMenu {
     -ms-flex-pack: distribute;
         justify-content: space-around; }
-    .mainMenu .search-container {
-      -webkit-box-ordinal-group: 2;
-          -ms-flex-order: 1;
-              order: 1;
-      padding-bottom: 0;
-      width: 100%; }
     .mainMenu > li:nth-child(1) {
       -webkit-box-ordinal-group: 3;
           -ms-flex-order: 2;
@@ -665,6 +613,14 @@ footer {
       -webkit-box-ordinal-group: 5;
           -ms-flex-order: 4;
               order: 4; }
+    .mainMenu li.search-container {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      -webkit-box-ordinal-group: 2;
+          -ms-flex-order: 1;
+              order: 1;
+      padding-bottom: 0;
+      width: 100%; }
 
   .main h3 {
     margin: 0 auto 0.5rem; }
@@ -672,7 +628,7 @@ footer {
       display: none; }
 
   .home-content {
-    height: calc(100vh - 204px - 42px); }
+    height: calc(100vh - 213px - 42px); }
 
   .titleImg-container {
     margin: 0 auto 1.5rem; }
@@ -689,7 +645,7 @@ footer {
   .cartes-container .row:nth-of-type(2n) {
     background: rgba(207, 207, 187, 0.9); }
 
-  .menus-container .row:nth-of-type(2n+1) {
+  .menus-container .row:nth-of-type(2n) {
     background: rgba(217, 217, 195, 0.9); }
 
   .row {

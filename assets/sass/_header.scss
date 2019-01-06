@@ -50,6 +50,32 @@ nav
 	align-items: center;
 	width: 100%;
 	background-color: $nav_bgColor;
+	li
+	{
+		a
+		{
+			display: inline-block;
+			padding: 0.2rem 1rem;
+			color: $nav_color;
+			letter-spacing: 0.2rem;
+			text-transform: uppercase;
+		}
+		&:hover
+		{
+			background-color: $nav_color;
+			a
+			{		
+				color: $nav_bgColor;
+			}
+		}
+	}
+	.search-container
+	{
+		&:hover
+		{
+			background-color: transparent;
+		}
+	}
 }
 
 .mainMenu
@@ -58,76 +84,13 @@ nav
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	align-items: center;
-	& > li
-	{
-		padding: 0.5rem 1.5rem;
-		display: inline-block;
-		a
-		{
-			color: $nav_color;
-			letter-spacing: 0.2rem;
-			text-transform: uppercase;
-		}
-	}
-}
-.subMenu-btn
-{
-	&:hover
-	{
-		.subMenu-container
-		{
-			display: flex;
-		}
-	}
-}
-.subMenu-container
-{
-	border-top: 1px solid $header_titleColor;
-	padding: 0 1rem;
-	width: 100%;
-	position: absolute;
-	left: 0;
-	top: 100%;
-	font-size: 0.7rem;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	align-items: center;
-	background-color: $nav_bgColor;
-	z-index: 1;
-}
-.subMenu-content
-{
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	& > li
-	{
-		&:hover
-		{
-			background-color: $nav_color;
-			a
-			{		
-				color: $nav_bgColor;
-
-			}
-		}
-		a
-		{
-			padding: 0.5rem 1.5rem;
-			display: inline-block;
-			color: $nav_color;
-			letter-spacing: 0.2rem;
-			text-transform: uppercase;
-		}
-	}
 }
 
 // search
 .search-container
 {
 	margin-left: auto;
-	padding: 0;
+	padding: 0 1rem 0;
 	form
 	{
 		display: flex;
