@@ -262,6 +262,16 @@ class Content
 		}, 1);
 	}
 
+	/*adaptHomePageHeight()
+	{
+		// adapt home page height on mobile with stupid toolbar
+		let home = document.querySelector(".home-content");
+		let headerHead = document.querySelector("header").offsetHeight;
+		let screenHeight = document.documentElement.clientHeight;
+		let homeHeight = screenHeight - headerHead;
+		home.style.height = homeHeight + "px";
+	}*/
+
 	scrollEvents()
 	{
 		// mainMenu
@@ -322,7 +332,6 @@ class Content
 				bottomBar.classList.remove("bottomBar-updateBottom");
 			}
 		}
-
 	}
 
 	hideElements(selectorName)
