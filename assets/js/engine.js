@@ -261,6 +261,7 @@ class Content
 
 	scrollEvents()
 	{
+		// mainMenu
 		let main = document.getElementById("main");
 		let nav = document.querySelector("nav");
 		if (!nav.classList.contains("mainMenu-fixed"))
@@ -297,6 +298,26 @@ class Content
 				backTopBtn.classList.add("displayNone");		
 			}
 		}
+
+		// bottomBar
+		let bottomBar = document.getElementById("bottomBar-container");
+		let footer = document.querySelector("footer");
+		let footerHeight = footer.getBoundingClientRect().height;
+		if (!bottomBar.classList.contains("bottomBar-updateBottom"))
+		{
+			if (window.pageYOffset + screen.height >= document.querySelector("body").offsetHeight - footerHeight)
+			{
+				bottomBar.classList.add("bottomBar-updateBottom");
+			}
+		}
+		else
+		{
+			if (window.pageYOffset + screen.height < document.querySelector("body").offsetHeight - footerHeight)
+			{
+				bottomBar.classList.remove("bottomBar-updateBottom");
+			}
+		}
+
 	}
 
 	hideElements(selectorName)

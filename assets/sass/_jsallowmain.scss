@@ -110,11 +110,15 @@ footer
 .bottomBar-container
 {
 	position: fixed;
-	bottom: 40px;
+	bottom: 3px;
 	left: 0;
 	width: 100%;
 	text-align: center;
 	pointer-events: none;
+}
+.bottomBar-updateBottom
+{
+	bottom: 40px;
 }
 .bottomBar-content
 {
@@ -122,6 +126,7 @@ footer
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	height: 32px;
 }
 .backTop
 {
