@@ -566,7 +566,7 @@ footer {
     font-size: 1.1rem; } }
 @media screen and (max-width: 685px) {
   .home-content {
-    height: calc(100vh - 190px - 42px); }
+    height: calc(100vh - 179px - 42px); }
 
   .home-text p {
     padding: 1rem; } }
@@ -584,7 +584,7 @@ footer {
     padding: 0 0.5rem; }
 
   .home-content {
-    height: calc(100vh - 171px - 42px); }
+    height: calc(100vh - 160px - 42px); }
 
   .home-text p {
     padding: 0.5rem;
@@ -628,7 +628,7 @@ footer {
       display: none; }
 
   .home-content {
-    height: calc(100vh - 213px - 42px); }
+    height: calc(100vh - 202px - 42px); }
 
   .titleImg-container {
     margin: 0 auto 1.5rem; }

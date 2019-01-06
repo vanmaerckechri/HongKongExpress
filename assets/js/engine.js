@@ -63,6 +63,7 @@ class Content
 {
 	constructor() 
 	{
+		this.subMenuOpen = false;
 		this.init()
 	}
 
@@ -126,6 +127,9 @@ class Content
 	launchSearch(that, event)
 	{
 		event.preventDefault();
+
+		this.menuSelected(event.target);
+		this.closeSubMenus();
 
 		let cleanRows = function(childArray, parent)
 		{
@@ -340,6 +344,7 @@ class Content
 		if (!subMenu.classList.contains("subMenu-open"))
 		{
 			subMenu.classList.add("subMenu-open");
+			this.subMenuOpen = btn;
 		}
 		else
 		{
@@ -347,10 +352,38 @@ class Content
 		}
 	}
 
+	menuSelected(btn)
+	{
+		let navBtn = document.querySelectorAll("nav a");
+		for (let i = navBtn.length - 1; i >= 0; i--)
+		{
+			if (navBtn[i].classList.contains("menuSelected"))
+			{
+				navBtn[i].classList.remove("menuSelected");
+			}
+		}
+		// subMenu if is not search btn
+		if (btn.id !== "search-btn")
+		{
+			if (this.subMenuOpen !== false)
+			{
+				this.subMenuOpen.classList.add("menuSelected");
+			}
+			btn.classList.add("menuSelected");
+		}
+	}
+
 	changePage(pageName, event)
 	{
 		event.preventDefault();
 
+		// if user click on a main nav btn => reset subMenuOpen
+		if (Tools.foundParent(event.target, "subMenu-content", "className") === false)
+		{
+			this.subMenuOpen = false;
+		}
+
+		this.menuSelected(event.target);
 		this.closeSubMenus();
 		this.hideElements("section");
 
@@ -376,6 +409,7 @@ class Content
 	{
 		event.preventDefault();
 
+		this.menuSelected(event.target);
 		this.closeSubMenus();
 		this.hideElements("section");
 		this.hideElements("." + page + "-container");
@@ -485,7 +519,7 @@ class Content
 
 		// add info nav
 		let homeBtnRow = Tools.creatElem("li", [], []);
-		let homeBtnLink = Tools.creatElem("a", ["id", "href"], ["infos-btn", "#"]);
+		let homeBtnLink = Tools.creatElem("a", ["id", "class", "href"], ["infos-btn", "menuSelected", "#"]);
 		homeBtnLink.textContent = "Infos";
 		homeBtnRow.appendChild(homeBtnLink);
 

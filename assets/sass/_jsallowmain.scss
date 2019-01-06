@@ -9,6 +9,29 @@ section > div
 	border-top: 1px solid $header_titleColor;
 	max-height: 38px!important;
 }
+.menuSelected
+{
+	position: relative;
+	&:before
+	{
+		border-radius: 50%;
+		position: absolute;
+		left: 4px;
+		top: 50%;
+		content: "";
+		width: 8px;
+		height: 8px;
+		background-color: $header_titleColor;
+		transform: translateY(-50%);
+	}
+	&:hover
+	{
+		&:before
+		{
+			background-color: $nav_bgColor;
+		}	
+	}
+}
 // Main Menu =>
 .mainMenu-fixed
 {
@@ -150,10 +173,6 @@ footer
 
 @media screen and (max-width: 685px)
 {
-	.home-content
-	{
-		height: calc(100vh - 190px);
-	}
 	.bottomBar-content
 	{
 		padding: 0 0.5rem;
@@ -169,6 +188,28 @@ footer
 	.subMenu-content
 	{
 		flex-direction: column;
+		.menuSelected
+		{
+			&:after
+			{
+				border-radius: 50%;
+				position: absolute;
+				right: 4px;
+				top: 50%;
+				content: "";
+				width: 8px;
+				height: 8px;
+				background-color: $header_titleColor;
+				transform: translateY(-50%);
+			}
+			&:hover
+			{
+				&:before
+				{
+					background-color: $nav_bgColor;
+				}	
+			}
+		}
 	}
 	.subMenu-content li
 	{
@@ -195,7 +236,7 @@ footer
 {
 	.home-content
 	{
-		height: calc(100vh - 171px);
+		height: calc(100vh - 160px);
 	}
 }
 
@@ -222,7 +263,7 @@ footer
 	}
 	.home-content
 	{
-		height: calc(100vh - 213px);
+		height: calc(100vh - 202px);
 	}
 	.infos-page .row:nth-of-type(2n+1), .menus-container .row:nth-of-type(2n)
 	{
