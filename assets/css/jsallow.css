@@ -102,6 +102,9 @@ footer {
   nav li a {
     padding: 0.2rem 0.8rem; }
 
+  .mainMenu .menuSelected:before {
+    left: 2px; }
+
   .home-content {
     height: calc(100vh - 179px); } }
 @media screen and (max-width: 800px) {
@@ -126,7 +129,7 @@ footer {
       height: 8px;
       background-color: #d9d9c3;
       transform: translateY(-50%); }
-    .subMenu-content .menuSelected:hover:before {
+    .subMenu-content .menuSelected:hover:after {
       background-color: #272727; }
 
   .subMenu-content li {

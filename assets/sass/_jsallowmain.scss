@@ -151,6 +151,16 @@ footer
 			}
 		}
 	}
+	.mainMenu
+	{
+		.menuSelected
+		{
+			&:before
+			{
+				left: 2px;
+			}
+		}
+	}
 	.home-content
 	{
 		height: calc(100vh - 179px);
@@ -204,7 +214,7 @@ footer
 			}
 			&:hover
 			{
-				&:before
+				&:after
 				{
 					background-color: $nav_bgColor;
 				}	
