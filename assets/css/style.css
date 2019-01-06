@@ -599,26 +599,19 @@ footer {
   .footer-content {
     padding: 0.2rem 0.5rem;
     font-size: 0.8rem; } }
-@media screen and (max-width: 640px) and (max-height: 370px) and (orientation: landscape) {
-  .home-text {
-    top: 0;
-    height: 100%;
-    -webkit-transform: translate(-50%);
-            transform: translate(-50%); }
-
+@media screen and (max-width: 640px) and (max-height: 340px) and (orientation: landscape) {
   .home-nextPage {
-    bottom: 16px;
-    -webkit-transform: translate(-50%);
-            transform: translate(-50%); } }
+    -webkit-animation: none;
+            animation: none;
+    display: none; } }
 @media screen and (max-width: 581px) {
   .home-text {
-    top: 0;
-    height: 100%;
-    -webkit-transform: translate(-50%);
-            transform: translate(-50%); }
+    top: calc(50% - 56px); }
 
   .home-nextPage {
-    bottom: 88px;
+    left: unset;
+    right: 0;
+    bottom: 56px;
     -webkit-transform: translate(-50%);
             transform: translate(-50%); } }
 @media screen and (max-width: 512px) {
