@@ -256,6 +256,7 @@ else
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Traiteur Chinois situé à proximité de la gare de Wavre. Commandez vos savoureux mets sur place ou par téléphone, ceux-ci seront prêts dans la demi-heure.">
+    <meta name="author" content="Van Maercke Christophe">
     <link rel="icon" type="image/png" href="favicon.png">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:500,700|Noto+Sans+TC|Oswald:400" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
