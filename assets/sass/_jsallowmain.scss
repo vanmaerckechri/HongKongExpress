@@ -1,8 +1,3 @@
-// Common =>
-section > div
-{
-	box-shadow: none;
-}
 // Events =>
 .subMenu-open
 {
@@ -38,7 +33,7 @@ section > div
 	position: fixed;
 	left: 0;
 	top: 0;
-	z-index: 1;
+	z-index: 2;
 }
 .subMenu-container
 {
@@ -50,7 +45,7 @@ section > div
 	align-items: center;
 	background-color: $nav_bgColor;
 	overflow: hidden;
-	transition: max-height 0.2s;
+	transition: max-height 0.2s, border-top 1s;
 	li
 	{
 		a
@@ -124,24 +119,60 @@ footer
 {
 	padding: 0 1.5rem;
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
 	align-items: center;
 	height: 32px;
+	span
+	{
+		flex: 1;
+		// phone
+		&:nth-child(1)
+		{
+			text-align: left;
+		}
+		// down menu
+		&:nth-child(3)
+		{
+			text-align: right;
+		}
+		p
+		{
+			display: inline-block;
+		}
+	}
 }
 .backTop
 {
+	margin-left: auto;
 	pointer-events: all;
 }
 .backTop img
 {
 	border: 2px solid #6d141a;
 }
-.main .phone
+.main .phone, .main .downMenu
 {
-	padding: 0 0.2rem;
+	border: 1px solid $text_main-color_light;
+	padding: 0 0.3rem;
 	border-radius: 4px;
 	color: $text_main-color_light;
+	pointer-events: all;
+}
+.main .phone
+{
 	background-color: $section-titleColor;
+}
+.main .downMenu
+{
+	margin-left: 0.5rem;
+	background-color: $nav_bgColor;
+	transition: background-color 0.2s, color 0.2s border-color 0.2s;
+	&:hover
+	{
+		border-color: $nav_bgColor;
+		color: $nav_bgColor;
+		background-color: $text_main-color_light;
+	}
 }
 // Responsive =>
 @media screen and (max-width: 890px)

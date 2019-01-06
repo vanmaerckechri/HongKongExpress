@@ -312,8 +312,8 @@ else
 	</div>
     <footer id="footer">
     	<div class="maxWidth-container footer-content">
-    		<span class="downMenu-container">
-    			<a href="./assets/pdf/hongkongexpress_wavre2017.pdf" target="_blank" rel="noopener">télécharger le menu</a>
+    		<span id="downMenu-container" class="downMenu-container">
+    			<a id="downMenu" class="downMenu" href="./assets/pdf/hongkongexpress_wavre2017.pdf" target="_blank" rel="noopener">télécharger le menu</a>
     		</span>
     		<span class="contact-container">
 				<p id="phone" class="phone">010 24 36 09</p>

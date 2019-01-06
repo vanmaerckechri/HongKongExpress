@@ -314,12 +314,14 @@ section > div {
   -webkit-transform: translate(-50%, -100%);
           transform: translate(-50%, -100%);
   -webkit-animation: nextPage 1s ease-in infinite alternate;
-          animation: nextPage 1s ease-in infinite alternate; }
+          animation: nextPage 1s ease-in infinite alternate;
+  z-index: 1; }
   .home-nextPage img {
     padding: 0.5rem;
     border: 2px solid #6d141a;
     border-radius: 50%;
-    background-color: rgba(217, 217, 195, 0.9); }
+    background-color: #d9d9c3;
+    opacity: 1; }
 
 .horaires-container, .address-container {
   display: -webkit-box;
@@ -491,7 +493,7 @@ footer {
     width: 32px;
     height: 32px;
     display: block;
-    background-color: rgba(217, 217, 195, 0.9);
+    background-color: #d9d9c3;
     -webkit-transition: -webkit-transform 0.1s;
     transition: -webkit-transform 0.1s;
     transition: transform 0.1s;

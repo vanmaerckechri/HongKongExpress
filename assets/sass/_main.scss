@@ -114,12 +114,14 @@ section
 	bottom: 0;
 	transform: translate(-50%, -100%);
 	animation: nextPage 1s ease-in infinite alternate;
+	z-index: 1;
 	img
 	{
 		padding: 0.5rem;
 		border: 2px solid $header_bgColor;
 		border-radius: 50%;
 		background-color: $nextPageArrow-bgColor;
+		opacity: 1;
 	}
 }
 .horaires-container, .address-container

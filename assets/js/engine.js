@@ -64,6 +64,7 @@ class Content
 	constructor() 
 	{
 		this.subMenuOpen = false;
+		this.tempoScrollTo;
 		this.init()
 	}
 
@@ -234,18 +235,19 @@ class Content
  			event.preventDefault();
 		}
 
+		let that = this;
 		let distance = window.pageYOffset;
-		let tempo = setInterval(function()
+		let destTop = destination.offsetTop - document.getElementById("mainMenu").offsetHeight;
+		this.tempoScrollTo = setInterval(function()
 		{ 
 			window.scrollTo(0, distance)
 			if (direction == "bottom")
 			{
 				distance += speed;
-				let destTop = destination.offsetTop - document.getElementById("mainMenu").offsetHeight;
 				if (destTop <= distance)
 				{
 					window.scrollTo(0, destTop)
-					clearInterval(tempo);
+					clearInterval(that.tempoScrollTo);
 				}		
 			}
 			else
@@ -254,7 +256,7 @@ class Content
 				if (destination >= distance)
 				{
 					window.scrollTo(0, destination)
-					clearInterval(tempo);
+					clearInterval(that.tempoScrollTo);
 				}					
 			}
 		}, 1);
@@ -284,17 +286,19 @@ class Content
 				main.style = "";
 			}
 		}
+		
+		// back top btn
 		let backTopBtn = document.getElementById("backTop");
 		if (backTopBtn.classList.contains("displayNone"))
 		{
-			if (window.pageYOffset >= screen.height)
+			if (window.pageYOffset >= screen.height - document.getElementById("mainMenu").offsetHeight)
 			{
 				backTopBtn.classList.remove("displayNone");
 			}
 		}
 		else
 		{
-			if (window.pageYOffset < screen.height)
+			if (window.pageYOffset < screen.height - document.getElementById("mainMenu").offsetHeight)
 			{
 				backTopBtn.classList.add("displayNone");		
 			}
@@ -473,7 +477,7 @@ class Content
 		// next page
 		let homeNextPage = document.getElementById("home-nextPage");
 		let page = document.getElementById("infos-page");
-		homeNextPage.addEventListener("click", this.smoothScroll.bind(this, page, "bottom", 25), false);
+		homeNextPage.addEventListener("click", this.smoothScroll.bind(this, page, "bottom", 100), false);
 		// back to top
 		let backTop = document.getElementById("backTop");
 		backTop.addEventListener("click", this.smoothScroll.bind(this, 0, "top", 100), false);
@@ -484,18 +488,33 @@ class Content
 
 	initFixedBottomBar()
 	{
-		let main = document.getElementById("main");
-		let phone = document.getElementById("phone");
 		let bottomBarContainer = Tools.creatElem("div", ["id", "class"], ["bottomBar-container", "bottomBar-container"]);
-		document.getElementById("backTop").classList.add("displayNone");
-
 		let bottomBarContent = document.getElementById("backTop-container");
+		let backTop = document.getElementById("backTop");
 		bottomBarContent.id = "";
 		bottomBarContent.className = "bottomBar-content maxWidth-container";
 
-		bottomBarContent.insertBefore(phone, bottomBarContent.firstChild);
+		// move phone
+		let main = document.getElementById("main");
+		let phone = document.getElementById("phone");
+		bottomBarContent.insertBefore(phone, backTop);
+
+		// down menu
+		let downMenu = document.getElementById("downMenu");
+		bottomBarContent.insertBefore(downMenu, backTop);
+		document.getElementById("downMenu-container").remove();
+
+		// back top menu
+		document.getElementById("backTop").classList.add("displayNone");
+
 		bottomBarContainer.appendChild(bottomBarContent);
 		main.appendChild(bottomBarContainer);
+
+		// update footer
+		let footer = document.querySelector(".footer-content");
+		let copyright = Tools.creatElem("p", [], []);
+		copyright.textContent = "Copyright © 2019 - Hong Kong Express - Wavre";
+		footer.insertBefore(copyright, footer.firstChild);
 	}
 
 	initNavSub(name)
