@@ -254,9 +254,9 @@ nav {
     color: #272727; }
 
 section > div {
-  -webkit-box-shadow: 0px -1px 3px 0px rgba(25, 25, 75, 0.15);
-          box-shadow: 0px -1px 3px 0px rgba(25, 25, 75, 0.15); }
-  section > div:first-of-type {
+  -webkit-box-shadow: 0px 1px 3px 0px rgba(25, 25, 75, 0.15);
+          box-shadow: 0px 1px 3px 0px rgba(25, 25, 75, 0.15); }
+  section > div:last-of-type {
     -webkit-box-shadow: none;
             box-shadow: none; }
 
@@ -389,7 +389,12 @@ section > div {
   background: linear-gradient(to right, transparent, rgba(207, 207, 187, 0.9) 10%, rgba(207, 207, 187, 0.9) 85%, transparent); }
 
 .menus-container {
-  background-image: url("../img/parchemin_dark.jpg"); }
+  background-image: url("../img/parchemin_dark.jpg");
+  -webkit-box-shadow: 0px 1px 3px 0px #19194b;
+          box-shadow: 0px 1px 3px 0px #19194b; }
+  .menus-container:last-of-type {
+    -webkit-box-shadow: 0px 1px 3px 0px #19194b;
+            box-shadow: 0px 1px 3px 0px #19194b; }
   .menus-container .row:nth-child(2n+1) {
     background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(10%, rgba(217, 217, 195, 0.9)), color-stop(85%, rgba(217, 217, 195, 0.9)), to(transparent));
     background: linear-gradient(to right, transparent, rgba(217, 217, 195, 0.9) 10%, rgba(217, 217, 195, 0.9) 85%, transparent); }
