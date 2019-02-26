@@ -437,7 +437,8 @@ class Content
 			}
 		}
 
-		this.smoothScroll(0, "top", 100);
+		this.smoothScroll(0, "top", 75);
+		this.scrollEvents();
 	}
 
 	changeSubPage(page, subPage, event)
@@ -455,7 +456,8 @@ class Content
 		page.classList.remove("displayNone");
 		subPage.classList.remove("displayNone");
 
-		this.smoothScroll(0, "top", 100);
+		this.smoothScroll(0, "top", 75);
+		this.scrollEvents();
 	}
 
 	initStyleSheet()
