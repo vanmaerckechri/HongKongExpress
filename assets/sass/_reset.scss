@@ -1,46 +1,21 @@
-html, body, header, nav, footer, section, div, span, h1, h2, h3, p, a, blockquote, cite, img, ol, ul, li, form, fieldset, legend, label, input, button
+html, body, header, nav, footer, section, div, span, h1, h2, h3, p, a, img, ul, li, iframe
 {
 	margin: 0;
+	padding: 0;
+	border: 0;
 	box-sizing: border-box;
 }
 html
 {
-	min-width: 250px;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-family: $text_main-fontFam;
 	font-size: $general-fontSize;
+	font-family: $general-fontFam;
+	height: 100%;
 }
 body
 {
-	min-height: 100vh;
-	width: 100%;
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start;
-	align-items: center;
-}
-section
-{
-	width: 100%;
-}
-h1, h2, h3, h4, h5, h6
-{
-	font-family: $title_main-fontFam;
-}
-h1, h2
-{
-	color: $header_titleColor;
-}
-h3
-{
-	text-align: center;
-}
-a
-{
-	text-decoration: none;
+	height: 100%;
 }
 button
 {
@@ -50,12 +25,15 @@ button
 		cursor: pointer;
 	}
 }
+img
+{
+	vertical-align: middle;
+}
 ul
 {
-	padding-left: 0;
 	list-style: none;
 }
-p, li, a
+a
 {
-	color: $text_main-color_light;
+	display: inline-block;
 }

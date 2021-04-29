@@ -1,68 +1,113 @@
 footer
 {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	text-align: center;
-	background-color: $bg_main-color_dark;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    width: 100%;
+    color: $color-main02;
+    background-color: $color-main03;
+    .copyright
+    {
+        padding-left: 184px;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+    .downMenu-container
+    {
+        z-index: 1;
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        pointer-events: none;
+        transform: translate3d(-50%, 0, 0);
+    }
+    .border
+    {
+        border: 1px solid $color-main02;
+        border-radius: 4px;
+    }
+    .phone, .menu, .btn-facebook, .btn-arrow
+    {
+        pointer-events: initial;
+    }
+    .phone, .menu
+    {
+        padding: 0 0.3rem;
+        color: $color-main02;
+        text-decoration: none;
+    }
+    .phone
+    {
+        margin-right: auto;
+        background-color: $color-main01;
+    }
+    .menu
+    {
+        margin-right: 0.5rem;
+        background-color: $color-main03;
+    }
+    .btn-facebook
+    {
+        margin-left: auto;
+        .image
+        {
+            width: 32px;
+            height: 32px;
+            background-image: url(../images/logo_facebook.png);
+        }
+    }
+    .btn-arrow
+    {
+        margin-left: 0.5rem;
+        transform: rotate3d(1, 0, 0, 180deg);
+    }
+    .btn-arrow.disable
+    {
+        display: none;
+        pointer-events: none;
+    }
+    .image-arrow
+    {
+        width: 28px;
+        height: 28px;
+    }
 }
-.footer-content
+@media screen and (max-width: 760px)
 {
-	padding: 0.2rem 1.5rem;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+    footer
+    {
+        .copyright
+        {
+            margin-bottom: 2rem;
+            padding-left: 0;
+        }
+    }
 }
-.downMenu-container, .contact-container, .backTop-container
+@media screen and (max-width: 550px)
 {
-	flex: 1;
+    footer
+    {
+        .copyright
+        {
+            font-size: 0.8rem;
+        }
+        .phone, .menu
+        {
+            font-size: 0.9rem;
+        }
+    }
 }
-.downMenu-container
+@media screen and (max-width: 380px)
 {
-	text-align: left;
-}
-.contact-container
-{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.backTop-container
-{
-	text-align: right;
-	a
-	{
-		display: inline-block;
-	}
-}
-.backTop
-{
-	display: inline-block;
-	img
-	{
-		padding: 0.3rem;
-		border-radius: 50%;
-		width: 32px;
-		height: 32px;
-		display: block;
-		background-color: $nextPageArrow-bgColor;
-		transition: transform 0.1s;
-		transform: rotate(-180deg) scale(0.8);
-		&:hover
-		{
-			transform: rotate(-180deg) scale(1);
-		}
-	}
-}
-.facebook
-{
-	margin: 0 0.5rem;
-	display: block;
-	transition: transform 0.1s;
-	transform: scale(0.8);
-	&:hover
-	{
-		transform: scale(1);
-	}
+    footer
+    {
+        .copyright
+        {
+            font-size: 0.7rem;
+        }
+    }
 }

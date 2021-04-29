@@ -1,0 +1,124 @@
+.main
+{
+    width: 100%;
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: hidden;
+    background-color: $color-main02;
+    background-image: url("../images/texture_parchemin.jpg");
+    & > div:first-child
+    {
+        padding-top: 3rem;
+    }
+}
+.section
+{
+    padding: 3rem 0;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0px 2px 2px 0px rgba(25, 25, 75, 0.15);
+}
+.maxWidth-container
+{
+    margin: 0 auto;
+    padding: 0 $general-padding;
+    max-width: $general-maxWidth;
+    width: 100%;
+}
+.image
+{
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 100% 100%;
+}
+.comments
+{
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+.mainTitle, .mainTitle-mate
+{
+    margin: 0 auto;
+    text-align: center;
+    color: $color-main02;
+    text-shadow: 1px 0 1px black, -1px 0 1px black, 0 -1px 1px black, 0 1px 1px black;
+}
+.mainTitle
+{
+    text-transform: uppercase;
+    font-family: $title-fontFam;
+    font-size: 1.3rem;
+    letter-spacing: 0.1rem;
+}
+.title-container
+{
+    text-align: center;
+}
+.section-title
+{
+    margin: 0 auto 2rem;
+    position: relative;
+    display: inline-block;
+    color: $color-main01;
+    text-align: center;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    font-family: $title-fontFam;
+    font-size: $title-fontSize;
+    &::after, &::before
+    {
+        content: "";
+        position: absolute;
+        top: 50%;
+        height: 2px;
+        width: 64px;
+        background-color: $color-main01;
+    }
+    &::after
+    {
+        left: calc(100% + 10px);
+    }
+    &::before
+    {
+        right: calc(100% + 10px);
+    }
+}
+.row
+{
+    margin: 0 auto;
+    padding: 0.75rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: calc(720px + 8rem);
+    &:nth-of-type(2n)
+    {
+        background: linear-gradient(to right, transparent, rgba(207, 207, 187, 0.9) 10%, rgba(207, 207, 187, 0.9) 85%, transparent);
+    }
+}
+.btn-arrow
+{
+    border: 2px solid #6d141a;
+    border-radius: 50%;
+    background-color: #d9d9c3;
+    .image
+    {
+        background-image: url('../images/logo_arrow.png');
+        background-size: 50% 50%;
+        background-position: center center;
+    }
+}
+@media screen and (max-width: 550px)
+{
+	#main
+	{
+        .row
+        {
+            padding: 0.75rem 1rem;
+        }
+    }
+}

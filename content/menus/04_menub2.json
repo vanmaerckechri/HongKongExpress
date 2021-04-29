@@ -1,0 +1,15 @@
+{
+	"titre": "Menu B2",
+	"prix": "55,00",
+	"commentaires": "(pour 3 personnes)",
+	"plats":
+	[
+		"Potage tomates ou potage au poivre oriental",
+		"Croquettes vietnamiennes et saté de porc et curry trigon",
+		"Filet de boeuf aux champignons chinois",
+		"Scampis sautés aux légumes",
+		"Beignets de poulet à la sauce aigre-douce",
+		"Nouilles sautées au boeuf",
+		"Riz sauté cantonnais"
+	]
+}

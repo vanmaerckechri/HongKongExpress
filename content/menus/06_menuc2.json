@@ -1,0 +1,16 @@
+{
+	"titre": "Menu C2",
+	"prix": "72,00",
+	"commentaires": "(pour 4 personnes)",
+	"plats":
+	[
+		"Crème d’asperge au crabe ou Crème de mais au crabe",
+		"Hors d’oeuvre varié maison",
+		"Scampis sauce piquante",
+		"Beignets de porc à la sauce aigre-douce",
+		"Filet de boeuf aux légumes variés",
+		"Canard aux ananas",
+		"Nouilles sautées aux trois délices",
+		"Riz sauté cantonnais"
+	]
+}

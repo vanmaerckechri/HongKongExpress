@@ -1,0 +1,15 @@
+{
+	"titre": "Menu C1",
+	"prix": "64,00",
+	"commentaires": "(pour 4 personnes)",
+	"plats":
+	[
+		"Crème de nids d’hirondelles ou Crème de mais au poulet",
+		"Saté de porc et croissants de boeuf curry et croquettes vietnamiennes",
+		"Beignets de scampis à la sauce aigre-douce",
+		"Poulet à la sauce curry",
+		"Filet de boeuf aux haricots noir",
+		"Canard rôti aux légumes variés",
+		"Riz sauté cantonnais"
+	]
+}

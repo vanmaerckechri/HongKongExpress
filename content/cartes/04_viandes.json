@@ -1,0 +1,129 @@
+{
+	"titre": "Viandes",
+	"titre_chinois": "肉",
+	"image": "viandes.png",
+	"commentaires": "Tous nos plats à base de viande sont servis avec du riz sauté ou nature.",
+	"plats":
+	[
+		{
+			"code": "60",
+			"nom": "Chop-Suey au porc",
+			"prix": "8,00"
+		},
+		{
+			"code": "61",
+			"nom": "Beignets de porc à la sauce aigre-douce",
+			"prix": "8,00"
+		},
+		{
+			"code": "62",
+			"nom": "Porc sauté aux champignons chinois",
+			"prix": "9,00"
+		},
+		{
+			"code": "63",
+			"nom": "Côte de porc à la façon « King-Do »",
+			"prix": "9,00"
+		},
+		{
+			"code": "63A",
+			"nom": "Spare ribs à la citronelle",
+			"prix": "9,00"
+		},
+		{
+			"code": "65",
+			"nom": "Porc à la sauce curry",
+			"prix": "8,00"
+		},
+		{
+			"code": "66",
+			"nom": "Porc aux ananas",
+			"prix": "8,00"
+		},
+		{
+			"code": "67",
+			"nom": "Porc « Sze-Chuan »",
+			"prix": "9,00"
+		},
+		{
+			"code": "68",
+			"nom": "Porc à la sauce piquante",
+			"prix": "8,50"
+		},
+		{
+			"code": "69",
+			"nom": "Porc laqué",
+			"prix": "9,50"
+		},
+		{
+			"code": "69A",
+			"nom": "Porc aux légumes variés",
+			"prix": "8,50"
+		},
+		{
+			"code": "70",
+			"nom": "Chop-Suey de boeuf",
+			"prix": "8,00"
+		},
+		{
+			"code": "71",
+			"nom": "Filet de boeuf aux oignons",
+			"prix": "8,50"
+		},
+		{
+			"code": "72",
+			"nom": "Filet de boeuf à la sauce curry",
+			"prix": "9,00"
+		},	
+		{
+			"code": "73",
+			"nom": "Filet de boeuf aux ananas",
+			"prix": "9,00"
+		},
+		{
+			"code": "73A",
+			"nom": "Filet de boeuf aux ananas & gingembre",
+			"prix": "10,00"
+		},
+		{
+			"code": "74",
+			"nom": "Filet de boeuf aux haricots noir",
+			"prix": "9,00"
+		},
+		{
+			"code": "75",
+			"nom": "Filet de boeuf à la sauce tomate",
+			"prix": "9,00"
+		},
+		{
+			"code": "76",
+			"nom": "Filet de boeuf aux champignons chinois",
+			"prix": "9,50"
+		},
+		{
+			"code": "77",
+			"nom": "Filet de boeuf à la sauce d’huitre",
+			"prix": "9,00"
+		},
+		{
+			"code": "78",
+			"nom": "Filet de boeuf à la sauce barbecue",
+			"prix": "9,50"
+		},
+		{
+			"code": "79",
+			"nom": "Filet de boeuf à la sauce piquante",
+			"prix": "9,00"
+		},
+		{
+			"code": "79A",
+			"nom": "Filet de boeuf aux noix de cajou",
+			"prix": "10,00"
+		},	
+		{
+			"code": "79B",
+			"nom": "Filet de boeuf aux légumes variés",
+			"prix": "9,00"
+		}
+	]
+}

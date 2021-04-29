@@ -1,0 +1,84 @@
+{
+	"titre": "Riz et Nouilles",
+	"titre_chinois": "米飯和麵條",
+	"image": "rizetnouilles.png",
+	"commentaires": "",
+	"plats":
+	[
+		{
+			"code": "100",
+			"nom": "Riz sauté au poulet",
+			"prix": "7,50"
+		},
+		{
+			"code": "100A",
+			"nom": "Riz sauté au poulet",
+			"prix": "8,00"
+		},
+		{
+			"code": "100B",
+			"nom": "Riz sauté au boeuf",
+			"prix": "8,00"
+		},
+		{
+			"code": "101",
+			"nom": "Riz sauté cantonnais",
+			"prix": "8,00"
+		},
+		{
+			"code": "102",
+			"nom": "Riz sauté aux trois délices",
+			"prix": "9,00"
+		},
+		{
+			"code": "103",
+			"nom": "Riz sauté au crabe",
+			"prix": "11,00"
+		},
+		{
+			"code": "104",
+			"nom": "Riz sauté aux scampis",
+			"prix": "11,00"
+		},	
+		{
+			"code": "105",
+			"nom": "Nouilles sautées au poulet",
+			"prix": "7,50"
+		},
+		{
+			"code": "106A",
+			"nom": "Nouilles sautées au boeuf",
+			"prix": "8,00"
+		},
+		{
+			"code": "106B",
+			"nom": "Nouilles sautées au porc",
+			"prix": "8,00"
+		},
+		{
+			"code": "107",
+			"nom": "Nouilles sautées au scampis",
+			"prix": "11,00"
+		},
+		{
+			"code": "108",
+			"nom": "Nouilles sautées au trois délices",
+			"prix": "9,50"
+		},
+		{
+			"code": "109",
+			"nom": "Riz sauté nature",
+			"prix": "5,50"
+		},
+		{
+			"code": "110",
+			"nom": "Nouilles sautées nature",
+			"prix": "6,00"
+		},
+		{
+			"code": "111",
+			"nom": "Assortiment de légumes sautés",
+			"prix": "7,50"
+		}
+	]
+}

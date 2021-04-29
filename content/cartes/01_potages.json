@@ -1,0 +1,54 @@
+{
+	"titre": "Potages",
+	"titre_chinois": "湯",
+	"image": "potages.png",
+	"commentaires": "",
+	"plats":
+	[
+		{
+			"code": "01",
+			"nom": "Potage de poulet aux cheveux d’ange",
+			"prix": "4,50"
+		},
+		{
+			"code": "02",
+			"nom": "Potage au poivre oriental",
+			"prix": "5,00"
+		},
+		{
+			"code": "03",
+			"nom": "Crème de nids d’hirondelles",
+			"prix": "5,00"
+		},
+		{
+			"code": "04",
+			"nom": "Potage aux ailerons de requin",
+			"prix": "5.50"
+		},
+		{
+			"code": "05",
+			"nom": "Potage au Wan-Tan",
+			"prix": "5.50"
+		},
+		{
+			"code": "06",
+			"nom": "Potage aux tomates",
+			"prix": "5,00"
+		},	
+		{
+			"code": "07",
+			"nom": "Crème au crabe et mais",
+			"prix": "5.50"
+		},
+		{
+			"code": "08",
+			"nom": "Crème au crabe et asperge",
+			"prix": "5.50"
+		},
+		{
+			"code": "09",
+			"nom": "Potage surprise",
+			"prix": "6,00"
+		}
+	]
+}

@@ -1,0 +1,19 @@
+{
+	"titre": "Desserts",
+	"titre_chinois": "甜點",
+	"image": "desserts.png",
+	"commentaires": "",
+	"plats":
+	[
+		{
+			"code": "201",
+			"nom": "Beignets d’ananas",
+			"prix": "5,00"
+		},
+		{
+			"code": "202",
+			"nom": "Beignets aux pommes",
+			"prix": "5,00"
+		}
+	]
+}

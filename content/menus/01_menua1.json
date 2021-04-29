@@ -1,0 +1,13 @@
+{
+	"titre": "Menu A1",
+	"prix": "28,00",
+	"commentaires": "(pour 2 personnes)",
+	"plats":
+	[
+		"Potage au poivre oriental ou poulet aux cheveux d’ange",
+		"Croquettes de soja et saté de porc",
+		"Chop-Suey au boeuf",
+		"Beignets de porc à la sauce aigre-douce",
+		"Riz sauté nature"
+	]
+}

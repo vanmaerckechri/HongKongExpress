@@ -1,51 +1,37 @@
-// general
-
+// DIMENSIONS
 $general-maxWidth: 1280px;
-$general-padding: 1rem;
+$header-height: 216px;
+$footer-height: 42px;
+
+// MARGINS/PADDINGS
+$general-padding: 12px;
+
+// COLORS
+
+	// Yellow
+	$yellow01: #cfcfb8; // darkest
+	$yellow02: #d9d9c3; // lightest
+	$yellow01-translucent: rgba(217, 217, 195, 0.9);
+	$yellow02-translucent: rgba(207, 207, 187, 0.9);
+
+	// Red
+	$red: #6d141a;
+
+	// Grey
+	$grey: #272727;
+	$grey-translucent: rgba(39, 39, 39, 0.3);
+
+	// Distribution
+	$color-main01: $red;
+	$color-main02: $yellow02;
+	$color-main03: $grey;
+
+// FONTS
+$general-fontFam: 'Oswald', sans-serif;
 $general-fontSize: 18px;
 
-$header-height_normal: 216px;
-$footer-height_normal: 42px;
+$title-fontFam: 'Poppins', sans-serif;
+$title-fontSize: 22px;
 
-// color
-
-$color_yellowLight: #d9d9c3;
-$color_yellowLightOpacity: rgba(217, 217, 195, 0.9);
-$color_yellowMiddle: #cfcfb8;
-$color_yellowMiddleOpacity: rgba(207, 207, 187, 0.9);
-$color_redHot: #6d141a;
-$color_middleGreyOpacity: rgba(39, 39, 39, 0.3);
-$color_middleGrey: #272727;
-
-$header_titleColor: $color_yellowLight;
-$header_bgColor: $color_redHot;
-
-$nav_color: $color_yellowLight;
-$nav_bgColor: $color_middleGrey;
-
-$section-titleColor: $color_redHot;
-
-$text_main-color_light: $color_yellowLight;
-$text_main-color_dark: $color_middleGrey;
-
-$bg_main-color_light: $color_yellowLight;
-$bg_main-color_middle: $color_yellowMiddle;
-$bg_main-color_dark: $color_middleGrey;
-
-$row-color_light: $color_yellowLightOpacity;
-$row-color_middle: $color_yellowMiddleOpacity;
-
-$textOnImg-bgColor: $color_middleGreyOpacity;
-$textOnImg-color: $color_yellowLight;
-
-$nextPageArrow-bgColor: $color_yellowLight;
-
-// font-family
-
-$title_main-fontFam: 'Poppins', sans-serif;
-$text_main-fontFam: 'Oswald', sans-serif;
-.chinese-fontFam
-{
-	font-family: 'Noto Sans TC', sans-serif;
-	font-weight: 500;
-}
+$chinese-fontFam: 'Noto Sans TC', sans-serif;
+$chinese-fontWeight: 500;

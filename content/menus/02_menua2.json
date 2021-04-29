@@ -1,0 +1,14 @@
+{
+	"titre": "Menu A2",
+	"prix": "38,00",
+	"commentaires": "(pour 2 personnes)",
+	"plats":
+	[
+		"Potage au poivre oriental ou Crème d’asperge au crabe",
+		"Croquettes vietnamiennes et saté de porc et curry trigon",
+		"Beignets de scampis à la sauce aigre-douce",
+		"Filet de boeuf à la sauce piquante",
+		"Nouilles sautées au poulet",
+		"Riz sauté cantonnais"
+	]
+}

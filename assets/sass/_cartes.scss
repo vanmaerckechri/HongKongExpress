@@ -1,0 +1,42 @@
+.cartes-container, .carte-container
+{
+    width: 100%;
+    .titleImg-container
+    {
+        margin: 0 auto 2rem;
+        padding: 1rem;
+        border: 2px solid rgba(0, 0, 0, 0.05);
+        border-radius: 50%;
+        position: relative;
+        width: 218px;
+        height: 218px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url("../images/texture_parchemin_dark.jpg");
+        p
+        {
+            position: absolute;
+            left: 50%;
+            top: 25%;
+            font-size: 3rem;
+            font-weight: bold;
+            color: $color-main01;
+            white-space: nowrap;
+            letter-spacing: 0.2rem;
+            transform: translate3d(-50%, -50%, 0);
+            opacity: 0.75;
+        }
+        .image
+        {
+            margin-top: 4rem;
+            width: 128px;
+            height: 128px;
+        }
+    }
+    .food-name
+    {
+        padding: 0 0.5rem;
+        width: 100%;
+    }
+}

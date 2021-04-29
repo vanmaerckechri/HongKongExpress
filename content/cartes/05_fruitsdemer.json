@@ -1,0 +1,109 @@
+{
+	"titre": "Fruits de Mer",
+	"titre_chinois": "海鮮",
+	"image": "fruitsdemer.png",
+	"commentaires": "Tous nos plats à base de fruits de mer sont servis avec du riz sauté ou nature.",
+	"plats":
+	[
+		{
+			"code": "80",
+			"nom": "Chop-Suey aux scampis",
+			"prix": "13,00"
+		},
+		{
+			"code": "80A",
+			"nom": "Chop-Suey spécial",
+			"prix": "13,00"
+		},
+		{
+			"code": "81",
+			"nom": "Beignets de scampis à la sauce aigre-douce",
+			"prix": "14,00"
+		},
+		{
+			"code": "82",
+			"nom": "Scampis sauté aux légumes",
+			"prix": "14,00"
+		},
+		{
+			"code": "83",
+			"nom": "Scampis à la sauce curry",
+			"prix": "14,00"
+		},
+		{
+			"code": "83A",
+			"nom": "Scampis au curry et lait de coco",
+			"prix": "14,00"
+		},
+		{
+			"code": "84",
+			"nom": "Scampis à la sauce piquante",
+			"prix": "14,00"
+		},	
+		{
+			"code": "85",
+			"nom": "Scampis aux cinq parfums",
+			"prix": "16,00"
+		},
+		{
+			"code": "86",
+			"nom": "Scampis « Ming’s »",
+			"prix": "16,00"
+		},
+		{
+			"code": "88",
+			"nom": "Scampis aux noix de cajou",
+			"prix": "15,00"
+		},
+		{
+			"code": "89",
+			"nom": "Scampis à la sauce citronnée",
+			"prix": "15,00"
+		},
+		{
+			"code": "90",
+			"nom": "Scampis à la sauce « King-Do »",
+			"prix": "14,00"
+		},
+		{
+			"code": "90A",
+			"nom": "Scampis à la sauce tomate",
+			"prix": "15,00"
+		},
+		{
+			"code": "91",
+			"nom": "Beignets de poisson à la sauce aigre-douce",
+			"prix": "11,00"
+		},
+		{
+			"code": "93",
+			"nom": "Calamars aux haricots noir",
+			"prix": "11,00"
+		},
+		{
+			"code": "94",
+			"nom": "Calamars à la sauce curry",
+			"prix": "11,00"
+		},
+		{
+			"code": "95",
+			"nom": "Calamars grillé aux cinq parfums",
+			"prix": "11,00"
+		},
+		{
+			"code": "96",
+			"nom": "Calamars à la sauce piquante",
+			"prix": "11,00"
+		},	
+		{
+			"code": "97",
+			"nom": "Cuisses de grenouille aux haricots noir",
+			"prix": "13,00"
+		},
+		{
+			"code": "98",
+			"nom": "Cuisses de grenouille à la sauce piquante",
+			"prix": "13,00"
+		}
+	]
+}

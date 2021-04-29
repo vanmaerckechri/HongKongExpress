@@ -1,0 +1,154 @@
+{
+	"titre": "Volailles",
+	"titre_chinois": "家禽",
+	"image": "volailles.png",
+	"commentaires": "Tous nos plats à base de volaille sont servis avec du riz sauté ou nature.",
+	"plats":
+	[
+		{
+			"code": "40",
+			"nom": "Chop-Suey au poulet",
+			"prix": "7,50"
+		},
+		{
+			"code": "41",
+			"nom": "Poulet aux amandes",
+			"prix": "9,00"
+		},
+		{
+			"code": "42",
+			"nom": "Poulet aux noix de cajou",
+			"prix": "9,00"
+		},
+		{
+			"code": "43",
+			"nom": "Beignets de poulet à la sauce aigre-douce",
+			"prix": "8,00"
+		},
+		{
+			"code": "44",
+			"nom": "Beignets de poulet à la sauce citronnée",
+			"prix": "9,00"
+		},
+		{
+			"code": "44A",
+			"nom": "Emincé de poulet à la citronelle",
+			"prix": "9,00"
+		},	
+		{
+			"code": "45",
+			"nom": "Poulet à la sauce curry",
+			"prix": "8,00"
+		},
+		{
+			"code": "45A",
+			"nom": "Emincé de poulet au curry et lait de coco",
+			"prix": "9,00"
+		},
+		{
+			"code": "46",
+			"nom": "Poulet aux ananas",
+			"prix": "8,00"
+		},
+		{
+			"code": "47",
+			"nom": "Poulet aux champignons chinois",
+			"prix": "9,00"
+		},
+		{
+			"code": "47A",
+			"nom": "Poulet aux oignons",
+			"prix": "8,00"
+		},
+		{
+			"code": "48",
+			"nom": "Beignets de poulet frits",
+			"prix": "8,50"
+		},
+		{
+			"code": "49",
+			"nom": "Poulet à la sauce piquante",
+			"prix": "9,00"
+		},
+		{
+			"code": "49A",
+			"nom": "Poulet aux 8 delices",
+			"prix": "11,00"
+		},
+		{
+			"code": "50A",
+			"nom": "Poulet aux légumes variés",
+			"prix": "8,50"
+		},
+		{
+			"code": "50B",
+			"nom": "Poulet à la sauce tomate",
+			"prix": "8,50"
+		},	
+		{
+			"code": "50C",
+			"nom": "Poulet à la sauce barbecue",
+			"prix": "9,00"
+		},
+		{
+			"code": "51",
+			"nom": "Magret de canard à l’orange",
+			"prix": "14,00"
+		},
+		{
+			"code": "52",
+			"nom": "Magret de canard au citron",
+			"prix": "14,00"
+		},
+		{
+			"code": "53",
+			"nom": "Canard rôti aux légumes variés",
+			"prix": "14,00"
+		},	
+		{
+			"code": "54",
+			"nom": "Canard rôti aux ananas",
+			"prix": "14,00"
+		},
+		{
+			"code": "54A",
+			"nom": "Canard rôti aux ananas et gingembre",
+			"prix": "14,00"
+		},
+		{
+			"code": "55",
+			"nom": "Canard rôti à la sauce piquante",
+			"prix": "14,00"
+		},
+		{
+			"code": "56",
+			"nom": "Canard aux huit délices",
+			"prix": "17,00"
+		},
+		{
+			"code": "57",
+			"nom": "Canard laqué (avec crèpe)",
+			"prix": "14,00"
+		},
+		{
+			"code": "58",
+			"nom": "Canard croustillant",
+			"prix": "14,00"
+		},
+		{
+			"code": "59",
+			"nom": "Canard rôti aux champignons chinois",
+			"prix": "14,00"
+		},
+		{
+			"code": "59A",
+			"nom": "Canard rôti à la sauce curry",
+			"prix": "14,00"
+		},
+		{
+			"code": "59B",
+			"nom": "Canard rôti à la sauce aigre-douce",
+			"prix": "14,00"
+		}
+	]
+}

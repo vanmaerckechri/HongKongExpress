@@ -1,0 +1,19 @@
+.recherche-container
+{
+    width: 100%;
+    .cartes-container
+    {
+        .titleImg-container
+        {
+            display: none;
+            .image
+            {
+                background-image: none!important;
+            }
+        }
+    }
+    .search-found
+    {
+        background-color: orange;
+    }
+}

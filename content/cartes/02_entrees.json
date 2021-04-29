@@ -1,0 +1,120 @@
+{
+	"titre": "Entrées",
+	"titre_chinois": "小吃",
+	"image": "entrees.png",
+	"commentaires": "",
+	"plats":
+	[
+		{
+			"code": "10",
+			"nom": "Croquettes au soya",
+			"prix": "4,50"
+		},
+		{
+			"code": "10A",
+			"nom": "Minis croquettes",
+			"prix": "4,50"
+		},
+		{
+			"code": "11",
+			"nom": "Croquettes vietnamiennes",
+			"prix": "5,00"
+		},
+		{
+			"code": "12",
+			"nom": "Saté de porc",
+			"prix": "5,50"
+		},
+		{
+			"code": "13",
+			"nom": "Saté de poulet",
+			"prix": "6,00"
+		},
+		{
+			"code": "14",
+			"nom": "Scampis grillés",
+			"prix": "7,00"
+		},	
+		{
+			"code": "15",
+			"nom": "Scampis à l’ail",
+			"prix": "7,00"
+		},
+		{
+			"code": "16",
+			"nom": "Cuisses de grenouilles à l’ail",
+			"prix": "7,00"
+		},
+		{
+			"code": "17",
+			"nom": "Raviolis de crevette à la vapeur",
+			"prix": "5,50"
+		},
+		{
+			"code": "18",
+			"nom": "Bouchées de porc à la vapeur",
+			"prix": "5,00"
+		},
+		{
+			"code": "19",
+			"nom": "Bouchées de boeuf à la vapeur",
+			"prix": "5,00"
+		},
+		{
+			"code": "20",
+			"nom": "Champignons chinois farci",
+			"prix": "5,50"
+		},
+		{
+			"code": "25",
+			"nom": "Wan-Tan frits",
+			"prix": "5,50"
+		},
+		{
+			"code": "26",
+			"nom": "Croissants de boeuf au curry",
+			"prix": "5,50"
+		},
+
+		{
+			"code": "27",
+			"nom": "Croissants de scampis frits",
+			"prix": "6,50"
+		},
+		{
+			"code": "28",
+			"nom": "Scampis frits",
+			"prix": "7,00"
+		},
+		{
+			"code": "31",
+			"nom": "Ailes de poulet farcies",
+			"prix": "7,50"
+		},
+		{
+			"code": "32",
+			"nom": "Pinces de crabes farcis",
+			"prix": "7,00"
+		},
+		{
+			"code": "33",
+			"nom": "Hors d’oeuvre maison",
+			"prix": "7,00"
+		},
+		{
+			"code": "34",
+			"nom": "Spare ribs grillés au miel",
+			"prix": "7,00"
+		},	
+		{
+			"code": "35",
+			"nom": "Dim Sum à la vapeur",
+			"prix": "6,00"
+		},
+		{
+			"code": "36",
+			"nom": "Calamars frits",
+			"prix": "7,00"
+		}
+	]
+}

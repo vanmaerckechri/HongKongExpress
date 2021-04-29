@@ -1,123 +1,256 @@
-// header
 header
 {
 	width: 100%;
-	background-color: $header_bgColor;
-	background-image: url("../img/toit.png");
+	background-color: $color-main01;
+	background-image: url("../images/texture_ardoise02.png");
+    .image-logo
+    {
+        max-width: 734px;
+        width: 100%;
+        height: 175px;
+        background-image: url("../images/logo_horizontal.svg");
+        background-size: contain;
+        background-position: center left;
+    }
 }
-
-.header-title
-{
-	margin: $general-padding;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	align-items: center;
-	img
-	{
-		max-width: 128px;
-		width: 100%;
-	}
-	h1
-	{
-		margin-left: 3rem;
-		flex: 1;
-		display: inline-block;
-		font-size: 2.5rem;
-		line-height: 4rem;
-		font-weight: 700;
-	}
-	.chinese-fontFam
-	{
-		white-space: nowrap;
-	}
-	.header-title_subtitle
-	{
-		display: block;
-		font-weight: 500;
-		font-size: 1.5rem;
-	}
-}
-
-// main menu
 nav
 {
-	padding: 0 $general-padding;
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
+    z-index: 4;
+    position: relative;
 	width: 100%;
-	background-color: $nav_bgColor;
-	li
+    background-color: $color-main03;
+    li
 	{
-		a
+		.nav-btn
 		{
 			display: inline-block;
-			padding: 0.2rem 1rem;
-			color: $nav_color;
-			letter-spacing: 0.2rem;
+			color: $color-main02;
 			text-transform: uppercase;
+            text-decoration: none;
+            user-select: none;
+            transition: background-color 0.1s, color 0.1s;
+            &:hover
+            {
+                color: $color-main01;
+                background-color: $color-main02;
+                cursor: pointer;
+            }
 		}
-		&:hover
-		{
-			background-color: $nav_color;
-			a
-			{		
-				color: $nav_bgColor;
-			}
-		}
+    }
+    .mainMenu-container
+    {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        .nav-btn
+        {
+            padding: 0.2rem 1rem;
+			letter-spacing: 0.2rem;
+        }
+    }
+    .subMenu-container.closed
+    {
+        transform: scale3d(1, 0, 1);
+        pointer-events: none;
+    }
+    .subMenu-container
+    {
+        z-index: 2;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: $color-main03;
+        transition: transform 0.1s ease-out;
+        transform-origin: top;
+        ul
+        {
+            border-top: 1px solid $color-main02;
+            display: flex;
+            justify-content: space-between;
+        }
+        li
+        {
+            flex: 1;
+        }
+        .nav-btn
+        {
+            padding: 0.5rem 1rem;
+            width: 100%;
+            text-align: center;
+            white-space: nowrap;
+			letter-spacing: 0.1rem;
+            font-size: 0.7rem;
+        }
 	}
-	.search-container
-	{
-		&:hover
-		{
-			background-color: transparent;
-		}
-	}
+    .subMenu-btn
+    {
+        user-select: none;
+        &:hover
+        {
+            & > .nav-btn
+            {
+                color: $color-main01;
+                background-color: $color-main02;
+            }
+            .subMenu-container
+            {
+                transform: scale3d(1, 1, 1);
+                pointer-events: initial;
+            }
+        }
+    }
+    .subMenu-btn-click
+    {
+        user-select: none;
+        & > .nav-btn
+        {
+            color: $color-main01;
+            background-color: $color-main02;
+        }
+        .subMenu-container
+        {
+            transform: scale3d(1, 1, 1);
+            pointer-events: initial;
+        }
+    }
+    .nav-btn.selected
+    {
+        color: $color-main03;
+        background-color: $color-main02;       
+    }
+    .search-container
+    {
+        margin-left: auto;
+        padding: 0 1rem 0;
+        form
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        input
+        {
+            margin-right: 0.5rem;
+            border: none;
+            background-color: $color-main02;
+        }
+        button
+        {
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            background-color: transparent;
+            transition: transform 0.1s;
+            &:hover
+            {
+                transform: scale(1.2);
+            }
+        }
+        .image-search
+        {
+            width: 28px;
+            height: 28px;
+            background-image: url("../images/logo_search.svg");
+        }
+        &:hover
+        {
+            background-color: transparent;
+        }
+    }
 }
-
-.mainMenu
+nav.fixed
 {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
-
-// search
-.search-container
+@media screen and (max-width: 850px)
 {
-	margin-left: auto;
-	padding: 0 1rem 0;
-	form
-	{
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-	input
-	{
-		margin-right: 0.5rem;
-		border: none;
-		background-color: $nav_color;
-	}
-	button
-	{
-		padding: 0;
-		width: 24px;
-		height: 24px;
-		background-color: transparent;
-		transition: transform 0.1s;
-		&:hover
-		{
-			transform: scale(1.2);
-		}
-	}
-	img
-	{
-		width: 100%;
-		height: 100%;
-	}
+    nav
+    {
+        .subMenu-container
+        {
+            .nav-btn
+            {
+                padding: 0.5rem 0.5rem;
+                letter-spacing: 0;
+            }
+        }
+    }
+}
+@media screen and (max-width: 710px)
+{
+    nav
+    {
+        .subMenu-container
+        {
+            ul
+            {
+                flex-direction: column;
+                li
+                {
+                    width: 100%;
+                    .nav-btn
+                    {
+                        letter-spacing: 0.1rem;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 550px)
+{
+    header
+    {
+        .image-logo
+        {
+            height: 85px;
+        }
+    }
+    nav
+    {
+        .mainMenu-container
+        {
+            flex-wrap: wrap;
+            justify-content: space-between;
+            & > li
+            {
+                &:nth-child(1)
+                {
+                    flex: 1;
+                    order: 2;
+                }
+                &:nth-child(2)
+                {
+                    flex: 1;
+                    order: 3;
+                }
+                &:nth-child(3)
+                {
+                    flex: 1;
+                    order: 4;
+                }
+                .nav-btn
+                {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+            .search-container
+            {
+                order: 1;
+                width: 100%;
+                form
+                {
+                    padding: 0.5rem 1rem;
+                }
+                input
+                {
+                    flex: 1;
+                }
+            }
+        }
+    }
 }

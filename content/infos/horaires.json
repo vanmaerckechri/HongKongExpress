@@ -1,0 +1,34 @@
+{
+    "titre": "Heures d'Ouverture",
+    "contenu":
+    [
+        {
+            "jour": "lundi",
+            "statut": "fermé"
+        },
+        {
+            "jour": "mardi",
+            "statut": "fermé"
+        },
+        {
+            "jour": "mercredi",
+            "statut": "11h30 – 14h30 & 17h30 – 22h00"
+        },
+        {
+            "jour": "jeudi",
+            "statut": "11h30 – 14h30 & 17h30 – 22h00"
+        },
+        {
+            "jour": "vendredi",
+            "statut": "11h30 – 14h30 & 17h30 – 22h00"
+        },
+        {
+            "jour": "samedi",
+            "statut": "11h30 – 14h30 & 17h30 – 22h00"
+        },
+        {
+            "jour": "dimanche",
+            "statut": "11h30 – 14h30 & 17h30 – 22h00"
+        }
+    ]
+}
